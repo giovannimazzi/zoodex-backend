@@ -1,10 +1,10 @@
-@extends('layouts.admin')
+@extends('layouts.base')
 
 @section('content')
 
     <div class="container py-4">
-        <h1>HOMEPAGE ADMIN</h1>
-        <h2>Welcome, {{ucfirst($user->name)}}!</h2>
-    </div>  
+        <h1>{{ __('Area Amministrativa') }}</h1>
+        <h2>{{ __('Benvenuto') }}, {{ ucfirst($user->name) }}!</h2>
+    </div>
 
 @endsection

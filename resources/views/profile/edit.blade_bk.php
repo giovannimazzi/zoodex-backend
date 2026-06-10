@@ -1,8 +1,9 @@
-@extends('layouts.admin')
+@extends('layouts.base')
+
 @section('content')
 <!-- Header -->
-<h2 class=" fw-semibold fs-2 text-secondary">
-    {{ __('Profile') }}
+<h2 class="fw-semibold fs-2 text-secondary">
+    {{ __('Profilo') }}
 </h2>
 
 <!-- Data -->

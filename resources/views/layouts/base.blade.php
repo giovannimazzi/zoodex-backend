@@ -10,17 +10,17 @@
 
     <meta
       name="description"
-      content="Laravel Portfolio"
+      content="ZooDex"
     />
     <meta name="author" content="Giovanni Mazzi" />
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'ZooDex') }}</title>
 
     <!-- Icona Progetto -->
     <!-- <link rel="icon" href="./assets/img/..." /> -->
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>@yield('favicon', '🃏')</text></svg>"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>@yield('favicon', '🦜')</text></svg>"
     />
 
 
