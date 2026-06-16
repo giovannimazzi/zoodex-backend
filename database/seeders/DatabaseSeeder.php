@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             ConservationStatusSeeder::class, 
             HabitatSeeder::class, 
             ContinentSeeder::class, 
-            AbilitySeeder::class
+            AbilitySeeder::class,
+            AnimalSeeder::class
             ]);
     }
 }
