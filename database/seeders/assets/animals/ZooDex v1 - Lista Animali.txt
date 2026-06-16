@@ -1,0 +1,120 @@
+# ZooDex v1 - Lista Animali Definitiva
+
+## Mammiferi
+
+Leone — Lion
+Lupo grigio — Gray Wolf
+Lince euroasiatica — Eurasian Lynx
+Tigre del Bengala — Bengal Tiger
+Pantera nera — Black Panther
+Puma — Cougar / Puma
+Ghepardo — Cheetah
+Volpe rossa — Red Fox
+Coyote — Coyote
+Iena maculata — Spotted Hyena
+Orso bruno — Brown Bear
+Orso polare — Polar Bear
+Panda gigante — Giant Panda
+Elefante africano — African Elephant
+Rinoceronte nero — Black Rhinoceros
+Ippopotamo — Hippopotamus
+Giraffa — Giraffe
+Zebra di pianura — Plains Zebra
+Toro — Bull
+Cavallo — Horse
+Topo domestico — House Mouse
+Scoiattolo rosso — Red Squirrel
+Castoro europeo — European Beaver
+Capibara — Capybara
+Quokka — Quokka
+Armadillo — Armadillo
+Suricato — Meerkat
+Stambecco alpino — Alpine Ibex
+Koala — Koala
+Canguro rosso — Red Kangaroo
+Narvalo — Narwhal
+Tricheco — Walrus
+Diavolo della Tasmania — Tasmanian Devil
+Delfino tursiope — Bottlenose Dolphin
+Balenottera azzurra — Blue Whale
+Pipistrello vampiro — Vampire Bat
+Cammello — Bactrian Camel 
+Gatto selvatico europeo - European wildcat
+
+## Uccelli
+
+Aquila reale — Golden Eagle
+Gufo reale — Eurasian Eagle Owl
+Falco pellegrino — Peregrine Falcon
+Albatros urlatore — Wandering Albatross
+Fenicottero rosa — Flamingo
+Tucano toco — Toco Toucan
+Colibrì gola rubino — Ruby-throated Hummingbird
+Pappagallo ara — Macaw
+Struzzo — Ostrich
+Pinguino imperatore — Emperor Penguin
+Corvo imperiale — Common Raven
+Pellicano bianco — Great White Pelican
+
+## Rettili
+
+Coccodrillo del Nilo — Nile Crocodile
+Alligatore americano — American Alligator
+Drago di Komodo — Komodo Dragon
+Camaleonte pantera — Panther Chameleon
+Iguana verde — Green Iguana
+Geco tokay — Tokay Gecko
+Tartaruga gigante delle Galápagos — Galápagos Giant Tortoise
+Cobra reale — King Cobra
+Pitone reticolato — Reticulated Python
+
+## Anfibi
+
+Axolotl — Axolotl
+Rana freccia velenosa — Poison Dart Frog
+Rana toro americana — American Bullfrog
+Rana arboricola verde — Green Tree Frog
+Salamandra pezzata — Fire Salamanderray
+Tritone crestato — Great Crested Newt
+
+## Pesci
+
+Squalo bianco — Great White Shark
+Squalo martello — Hammerhead Shark
+Pesce pagliaccio — Clownfish
+Pesce luna — Ocean Sunfish
+Manta gigante — Giant Manta Ray
+Pesce palla — Pufferfish
+Anguilla elettrica — Electric Eel
+Cavalluccio marino — Seahorse
+
+## Insetti
+
+Lucciola — Firefly
+Mantide religiosa — Praying Mantis
+Scarabeo rinoceronte — Rhinoceros Beetle
+Ape mellifera — Honey Bee
+Formica tagliafoglie — Leafcutter Ant
+Farfalla monarca — Monarch Butterfly
+Zanzara comune — Mosquito
+Libellula imperatore — Emperor Dragonfly
+
+## Aracnidi
+
+Tarantola golia — Goliath Birdeater
+Vedova nera — Black Widow Spider
+Scorpione imperatore — Emperor Scorpion
+
+## Molluschi
+
+Polpo comune — Common Octopus
+Calamaro gigante — Giant Squid
+Nautilus — Nautilus
+Lumaca gigante africana — Giant African Snail
+
+## Crostacei
+
+Granchio reale — King Crab
+Aragosta europea — European Lobster
+Gambero mantide — Mantis Shrimp
+Paguro bernardo — Hermit Crab

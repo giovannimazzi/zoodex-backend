@@ -1,0 +1,72 @@
+Create a fantasy creature portrait inspired by the real animal: [AnimalName]. 
+
+IMPORTANT STYLE REFERENCE
+
+Use the creature design philosophy of first-generation Pokémon (1996–1999), focusing on:
+
+* strong silhouette
+* memorable anatomy
+* visual readability
+* iconic creature design
+
+Do NOT copy any existing Pokémon.
+
+Create an original creature.
+
+ANATOMY REQUIREMENTS
+
+* Adult specimen only
+* No juvenile features
+* No baby proportions
+* Preserve the animal's natural body structure
+* Preserve realistic proportions whenever possible
+* Exaggerate only the animal's most distinctive traits
+
+TRAIT EMPHASIS
+
+The design must strongly emphasize the unique characteristics of the species.
+
+Examples:
+
+Lion → mane, paws, chest, authority
+
+Elephant → tusks, trunk, mass
+
+Giraffe → neck, height, pattern
+
+Cheetah → speed, long legs, aerodynamic body
+
+Bat → wings, ears, nocturnal features
+
+Walrus → tusks, whiskers, bulk
+
+Capybara → size, calm posture, rodent features
+
+Each species must look clearly different from every other species.
+
+Avoid generic eyes, generic muzzles, generic heads and repeated facial structures.
+
+VISUAL STYLE
+
+* Full body visible
+* Centered composition
+* Transparent background
+* Square format
+* Bright colors
+* High detail
+* Adventure feeling
+* Suitable for children, teenagers and adults
+* Zoological fantasy encyclopedia style
+
+FORBIDDEN
+
+* Weapons
+* Armor
+* Clothing
+* Human accessories
+* Text
+* Logos
+* Borders
+* Background scenery
+
+The final creature should feel like a fantasy evolution of the real animal while remaining immediately recognizable as that species.
