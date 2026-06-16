@@ -13,6 +13,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class AnimalSeeder extends Seeder
 {
@@ -31,7 +32,6 @@ class AnimalSeeder extends Seeder
         $animals = $animals = [
             [
                 'name' => 'Leone',
-                'slug' => 'leone',
                 'scientific_name' => 'Panthera leo',
                 'description' => 'Grande felino sociale, simbolo della savana africana e famoso per il ruggito potente.',
                 'weight_kg' => 190,
@@ -47,7 +47,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Panda gigante',
-                'slug' => 'panda-gigante',
                 'scientific_name' => 'Ailuropoda melanoleuca',
                 'description' => 'Mammifero asiatico riconoscibile dal mantello bianco e nero, si nutre soprattutto di bambù.',
                 'weight_kg' => 100,
@@ -63,7 +62,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Aquila reale',
-                'slug' => 'aquila-reale',
                 'scientific_name' => 'Aquila chrysaetos',
                 'description' => 'Grande rapace di montagna, dotato di vista acutissima e volo potente.',
                 'weight_kg' => 6,
@@ -79,7 +77,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Pappagallo ara',
-                'slug' => 'pappagallo-ara',
                 'scientific_name' => 'Ara macao',
                 'description' => 'Pappagallo tropicale dai colori vivaci, intelligente e molto comunicativo.',
                 'weight_kg' => 1,
@@ -95,7 +92,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Delfino tursiope',
-                'slug' => 'delfino-tursiope',
                 'scientific_name' => 'Tursiops truncatus',
                 'description' => 'Cetaceo intelligente e sociale, famoso per i salti, i fischi e l’ecolocalizzazione.',
                 'weight_kg' => 300,
@@ -112,7 +108,6 @@ class AnimalSeeder extends Seeder
 
             [
                 'name' => 'Lucciola',
-                'slug' => 'lucciola',
                 'scientific_name' => 'Lampyris noctiluca',
                 'description' => 'Insetto noto per la capacità di produrre luce naturale durante la notte.',
                 'weight_kg' => 0.001,
@@ -128,7 +123,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Ape mellifera',
-                'slug' => 'ape-mellifera',
                 'scientific_name' => 'Apis mellifera',
                 'description' => 'Insetto impollinatore fondamentale per molti ecosistemi, vive in colonie organizzate.',
                 'weight_kg' => 0.0001,
@@ -144,7 +138,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Pesce palla',
-                'slug' => 'pesce-palla',
                 'scientific_name' => 'Tetraodontidae',
                 'description' => 'Pesce capace di gonfiarsi per difesa; alcune specie producono potenti tossine.',
                 'weight_kg' => 2,
@@ -160,7 +153,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Narvalo',
-                'slug' => 'narvalo',
                 'scientific_name' => 'Monodon monoceros',
                 'description' => 'Cetaceo artico famoso per la lunga zanna a spirale dei maschi.',
                 'weight_kg' => 1200,
@@ -176,7 +168,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Rana arboricola verde',
-                'slug' => 'rana-arboricola-verde',
                 'scientific_name' => 'Hyla cinerea',
                 'description' => 'Piccola rana verde capace di arrampicarsi tra rami e foglie vicino all’acqua.',
                 'weight_kg' => 0.01,
@@ -193,7 +184,6 @@ class AnimalSeeder extends Seeder
 
             [
                 'name' => 'Scarabeo rinoceronte',
-                'slug' => 'scarabeo-rinoceronte',
                 'scientific_name' => 'Oryctes nasicornis',
                 'description' => 'Insetto robusto con un caratteristico corno, noto per la grande forza rispetto alle dimensioni.',
                 'weight_kg' => 0.02,
@@ -209,7 +199,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Cobra reale',
-                'slug' => 'cobra-reale',
                 'scientific_name' => 'Ophiophagus hannah',
                 'description' => 'Grande serpente velenoso asiatico, capace di sollevare la parte anteriore del corpo.',
                 'weight_kg' => 6,
@@ -225,7 +214,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Tarantola golia',
-                'slug' => 'tarantola-golia',
                 'scientific_name' => 'Theraphosa blondi',
                 'description' => 'Uno dei ragni più grandi al mondo, vive nelle foreste tropicali del Sud America.',
                 'weight_kg' => 0.17,
@@ -241,7 +229,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Anguilla elettrica',
-                'slug' => 'anguilla-elettrica',
                 'scientific_name' => 'Electrophorus electricus',
                 'description' => 'Pesce d’acqua dolce capace di generare scariche elettriche per caccia e difesa.',
                 'weight_kg' => 20,
@@ -257,7 +244,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Armadillo',
-                'slug' => 'armadillo',
                 'scientific_name' => 'Dasypodidae',
                 'description' => 'Mammifero americano protetto da placche ossee che formano una corazza naturale.',
                 'weight_kg' => 5,
@@ -274,7 +260,6 @@ class AnimalSeeder extends Seeder
 
             [
                 'name' => 'Polpo comune',
-                'slug' => 'polpo-comune',
                 'scientific_name' => 'Octopus vulgaris',
                 'description' => 'Mollusco marino molto intelligente, capace di cambiare colore e infilarsi in spazi stretti.',
                 'weight_kg' => 8,
@@ -290,7 +275,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Squalo bianco',
-                'slug' => 'squalo-bianco',
                 'scientific_name' => 'Carcharodon carcharias',
                 'description' => 'Grande predatore marino, potente e veloce, al vertice della catena alimentare oceanica.',
                 'weight_kg' => 1100,
@@ -306,7 +290,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Orso bruno',
-                'slug' => 'orso-bruno',
                 'scientific_name' => 'Ursus arctos',
                 'description' => 'Grande mammifero onnivoro delle foreste e montagne dell’emisfero nord.',
                 'weight_kg' => 300,
@@ -322,7 +305,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Gambero mantide',
-                'slug' => 'gambero-mantide',
                 'scientific_name' => 'Stomatopoda',
                 'description' => 'Crostaceo marino dai colori vivaci, famoso per colpi rapidissimi e potenti.',
                 'weight_kg' => 0.09,
@@ -338,7 +320,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Nautilus',
-                'slug' => 'nautilus',
                 'scientific_name' => 'Nautilus pompilius',
                 'description' => 'Antico mollusco marino con conchiglia a spirale, considerato un fossile vivente.',
                 'weight_kg' => 1,
@@ -355,7 +336,6 @@ class AnimalSeeder extends Seeder
 
             [
                 'name' => 'Tigre del Bengala',
-                'slug' => 'tigre-del-bengala',
                 'scientific_name' => 'Panthera tigris tigris',
                 'description' => 'Grande felino asiatico dal mantello striato, predatore solitario e potente.',
                 'weight_kg' => 220,
@@ -371,7 +351,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Falco pellegrino',
-                'slug' => 'falco-pellegrino',
                 'scientific_name' => 'Falco peregrinus',
                 'description' => 'Rapace velocissimo, celebre per le picchiate ad altissima velocità.',
                 'weight_kg' => 1,
@@ -387,7 +366,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Squalo martello',
-                'slug' => 'squalo-martello',
                 'scientific_name' => 'Sphyrnidae',
                 'description' => 'Squalo riconoscibile dalla testa allargata, utile per orientarsi e trovare prede.',
                 'weight_kg' => 230,
@@ -403,7 +381,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Drago di Komodo',
-                'slug' => 'drago-di-komodo',
                 'scientific_name' => 'Varanus komodoensis',
                 'description' => 'Grande varano indonesiano, potente predatore terrestre.',
                 'weight_kg' => 80,
@@ -419,7 +396,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Farfalla monarca',
-                'slug' => 'farfalla-monarca',
                 'scientific_name' => 'Danaus plexippus',
                 'description' => 'Insetto migratore noto per le lunghe migrazioni e le ali arancioni e nere.',
                 'weight_kg' => 0.001,
@@ -436,7 +412,6 @@ class AnimalSeeder extends Seeder
 
             [
                 'name' => 'Elefante africano',
-                'slug' => 'elefante-africano',
                 'scientific_name' => 'Loxodonta africana',
                 'description' => 'Il più grande animale terrestre vivente, dotato di proboscide, zanne e memoria notevole.',
                 'weight_kg' => 6000,
@@ -452,7 +427,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Gufo reale',
-                'slug' => 'gufo-reale',
                 'scientific_name' => 'Bubo bubo',
                 'description' => 'Grande rapace notturno, riconoscibile dagli occhi frontali e dal volo silenzioso.',
                 'weight_kg' => 3,
@@ -468,7 +442,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Manta gigante',
-                'slug' => 'manta-gigante',
                 'scientific_name' => 'Mobula birostris',
                 'description' => 'Grande pesce cartilagineo che nuota elegantemente filtrando piccoli organismi marini.',
                 'weight_kg' => 1600,
@@ -484,7 +457,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Camaleonte pantera',
-                'slug' => 'camaleonte-pantera',
                 'scientific_name' => 'Furcifer pardalis',
                 'description' => 'Rettile arboricolo dai colori vivaci, capace di mimetizzarsi e muovere gli occhi indipendentemente.',
                 'weight_kg' => 0.18,
@@ -500,7 +472,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Mantide religiosa',
-                'slug' => 'mantide-religiosa',
                 'scientific_name' => 'Mantis religiosa',
                 'description' => 'Insetto predatore dalle zampe anteriori raptatorie, capace di restare immobile in agguato.',
                 'weight_kg' => 0.005,
@@ -516,7 +487,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Lupo grigio',
-                'slug' => 'lupo-grigio',
                 'scientific_name' => 'Canis lupus',
                 'description' => 'Canide sociale e intelligente, vive in branchi e comunica con ululati, posture e segnali odorosi.',
                 'weight_kg' => 45,
@@ -532,7 +502,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Lince euroasiatica',
-                'slug' => 'lince-euroasiatica',
                 'scientific_name' => 'Lynx lynx',
                 'description' => 'Felino selvatico delle foreste, riconoscibile dai ciuffi di pelo sulle orecchie.',
                 'weight_kg' => 25,
@@ -548,7 +517,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Ghepardo',
-                'slug' => 'ghepardo',
                 'scientific_name' => 'Acinonyx jubatus',
                 'description' => 'Felino africano famoso per essere il più veloce animale terrestre sulle brevi distanze.',
                 'weight_kg' => 55,
@@ -564,7 +532,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Albatros urlatore',
-                'slug' => 'albatros-urlatore',
                 'scientific_name' => 'Diomedea exulans',
                 'description' => 'Grande uccello oceanico capace di planare per lunghissime distanze sopra il mare.',
                 'weight_kg' => 9,
@@ -580,7 +547,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Volpe rossa',
-                'slug' => 'volpe-rossa',
                 'scientific_name' => 'Vulpes vulpes',
                 'description' => 'Canide agile e adattabile, diffuso in molti ambienti e riconoscibile dalla coda folta.',
                 'weight_kg' => 8,
@@ -596,7 +562,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Pantera nera',
-                'slug' => 'pantera-nera',
                 'scientific_name' => 'Panthera pardus',
                 'description' => 'Felino dal mantello scuro, forma melanica di leopardo o giaguaro, agile e furtivo.',
                 'weight_kg' => 70,
@@ -612,7 +577,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Puma',
-                'slug' => 'puma',
                 'scientific_name' => 'Puma concolor',
                 'description' => 'Grande felino americano agile e adattabile, capace di vivere in habitat molto diversi.',
                 'weight_kg' => 80,
@@ -628,7 +592,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Pinguino imperatore',
-                'slug' => 'pinguino-imperatore',
                 'scientific_name' => 'Aptenodytes forsteri',
                 'description' => 'Il più grande dei pinguini, vive in Antartide ed è adattato al freddo estremo.',
                 'weight_kg' => 30,
@@ -644,7 +607,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Zebra di pianura',
-                'slug' => 'zebra-di-pianura',
                 'scientific_name' => 'Equus quagga',
                 'description' => 'Erbivoro africano celebre per il mantello a strisce bianche e nere.',
                 'weight_kg' => 350,
@@ -660,7 +622,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Gatto selvatico europeo',
-                'slug' => 'gatto-selvatico-europeo',
                 'scientific_name' => 'Felis silvestris',
                 'description' => 'Felino schivo delle foreste europee, antenato del gatto domestico.',
                 'weight_kg' => 6,
@@ -676,7 +637,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Toro',
-                'slug' => 'toro',
                 'scientific_name' => 'Bos taurus',
                 'description' => 'Grande bovino noto per forza fisica e robustezza.',
                 'weight_kg' => 900,
@@ -692,7 +652,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Tucano toco',
-                'slug' => 'tucano-toco',
                 'scientific_name' => 'Ramphastos toco',
                 'description' => 'Uccello sudamericano dal grande becco colorato, utile per alimentarsi e comunicare.',
                 'weight_kg' => 0.6,
@@ -708,7 +667,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Cavallo',
-                'slug' => 'cavallo',
                 'scientific_name' => 'Equus ferus caballus',
                 'description' => 'Mammifero erbivoro addomesticato dall’uomo da migliaia di anni.',
                 'weight_kg' => 500,
@@ -724,7 +682,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Topo domestico',
-                'slug' => 'topo-domestico',
                 'scientific_name' => 'Mus musculus',
                 'description' => 'Piccolo roditore diffuso in tutto il mondo e molto adattabile.',
                 'weight_kg' => 0.03,
@@ -740,7 +697,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Coyote',
-                'slug' => 'coyote',
                 'scientific_name' => 'Canis latrans',
                 'description' => 'Canide nordamericano agile e adattabile, capace di vivere in praterie, deserti e ambienti vicini all’uomo.',
                 'weight_kg' => 14,
@@ -756,7 +712,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Coccodrillo del Nilo',
-                'slug' => 'coccodrillo-del-nilo',
                 'scientific_name' => 'Crocodylus niloticus',
                 'description' => 'Grande rettile acquatico africano, predatore potente di fiumi, laghi e paludi.',
                 'weight_kg' => 500,
@@ -772,7 +727,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Iena maculata',
-                'slug' => 'iena-maculata',
                 'scientific_name' => 'Crocuta crocuta',
                 'description' => 'Carnivoro africano sociale e resistente, noto per i richiami simili a risate.',
                 'weight_kg' => 70,
@@ -788,7 +742,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Orso polare',
-                'slug' => 'orso-polare',
                 'scientific_name' => 'Ursus maritimus',
                 'description' => 'Grande predatore artico, specializzato nella vita tra ghiacci marini e acque fredde.',
                 'weight_kg' => 500,
@@ -804,7 +757,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Rinoceronte nero',
-                'slug' => 'rinoceronte-nero',
                 'scientific_name' => 'Diceros bicornis',
                 'description' => 'Grande erbivoro africano dotato di due corni, minacciato soprattutto dal bracconaggio.',
                 'weight_kg' => 1200,
@@ -820,7 +772,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Fenicottero rosa',
-                'slug' => 'fenicottero-rosa',
                 'scientific_name' => 'Phoenicopterus roseus',
                 'description' => 'Uccello acquatico dal piumaggio rosato, vive in colonie in zone umide e lagune.',
                 'weight_kg' => 3,
@@ -836,7 +787,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Ippopotamo',
-                'slug' => 'ippopotamo',
                 'scientific_name' => 'Hippopotamus amphibius',
                 'description' => 'Grande mammifero semiacquatico africano, vive vicino a fiumi e laghi.',
                 'weight_kg' => 1500,
@@ -852,7 +802,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Giraffa',
-                'slug' => 'giraffa',
                 'scientific_name' => 'Giraffa camelopardalis',
                 'description' => 'Il più alto animale terrestre, riconoscibile dal collo lungo e dal mantello maculato.',
                 'weight_kg' => 1000,
@@ -868,7 +817,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Scoiattolo rosso',
-                'slug' => 'scoiattolo-rosso',
                 'scientific_name' => 'Sciurus vulgaris',
                 'description' => 'Piccolo roditore arboricolo europeo, agile tra rami e tronchi.',
                 'weight_kg' => 0.35,
@@ -884,7 +832,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Iguana verde',
-                'slug' => 'iguana-verde',
                 'scientific_name' => 'Iguana iguana',
                 'description' => 'Rettile arboricolo tropicale, spesso verde, abile nell’arrampicata e nel nuoto.',
                 'weight_kg' => 5,
@@ -900,7 +847,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Castoro europeo',
-                'slug' => 'castoro-europeo',
                 'scientific_name' => 'Castor fiber',
                 'description' => 'Roditore semiacquatico capace di costruire dighe e modificare l’ambiente in cui vive.',
                 'weight_kg' => 25,
@@ -916,7 +862,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Capibara',
-                'slug' => 'capibara',
                 'scientific_name' => 'Hydrochoerus hydrochaeris',
                 'description' => 'Il più grande roditore vivente, vive in gruppo vicino ad ambienti acquatici sudamericani.',
                 'weight_kg' => 55,
@@ -932,7 +877,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Quokka',
-                'slug' => 'quokka',
                 'scientific_name' => 'Setonix brachyurus',
                 'description' => 'Piccolo marsupiale australiano, noto per l’espressione del muso simile a un sorriso.',
                 'weight_kg' => 4,
@@ -948,7 +892,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Axolotl',
-                'slug' => 'axolotl',
                 'scientific_name' => 'Ambystoma mexicanum',
                 'description' => 'Anfibio acquatico messicano celebre per la straordinaria capacità di rigenerare parti del corpo.',
                 'weight_kg' => 0.08,
@@ -964,7 +907,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Suricato',
-                'slug' => 'suricato',
                 'scientific_name' => 'Suricata suricatta',
                 'description' => 'Piccolo mammifero sociale africano, spesso osservato in posizione eretta a fare da sentinella.',
                 'weight_kg' => 0.8,
@@ -980,7 +922,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Stambecco alpino',
-                'slug' => 'stambecco-alpino',
                 'scientific_name' => 'Capra ibex',
                 'description' => 'Caprino di montagna abile nel muoversi su pareti rocciose e pendii ripidi.',
                 'weight_kg' => 90,
@@ -996,7 +937,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Koala',
-                'slug' => 'koala',
                 'scientific_name' => 'Phascolarctos cinereus',
                 'description' => 'Marsupiale australiano arboricolo, specializzato nel nutrirsi di foglie di eucalipto.',
                 'weight_kg' => 10,
@@ -1012,7 +952,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Corvo imperiale',
-                'slug' => 'corvo-imperiale',
                 'scientific_name' => 'Corvus corax',
                 'description' => 'Uccello molto intelligente, capace di risolvere problemi e comunicare con richiami complessi.',
                 'weight_kg' => 1.5,
@@ -1028,7 +967,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Canguro rosso',
-                'slug' => 'canguro-rosso',
                 'scientific_name' => 'Osphranter rufus',
                 'description' => 'Grande marsupiale australiano, famoso per il potente salto e la lunga coda.',
                 'weight_kg' => 85,
@@ -1044,7 +982,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Tricheco',
-                'slug' => 'tricheco',
                 'scientific_name' => 'Odobenus rosmarus',
                 'description' => 'Grande mammifero marino artico, riconoscibile dalle lunghe zanne e dai baffi sensibili.',
                 'weight_kg' => 1000,
@@ -1060,7 +997,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Pitone reticolato',
-                'slug' => 'pitone-reticolato',
                 'scientific_name' => 'Malayopython reticulatus',
                 'description' => 'Uno dei serpenti più lunghi al mondo, vive nelle foreste tropicali asiatiche.',
                 'weight_kg' => 75,
@@ -1076,7 +1012,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Diavolo della Tasmania',
-                'slug' => 'diavolo-della-tasmania',
                 'scientific_name' => 'Sarcophilus harrisii',
                 'description' => 'Marsupiale carnivoro australiano, noto per i vocalizzi intensi e il morso potente.',
                 'weight_kg' => 10,
@@ -1092,7 +1027,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Rana freccia velenosa',
-                'slug' => 'rana-freccia-velenosa',
                 'scientific_name' => 'Dendrobatidae',
                 'description' => 'Piccola rana tropicale dai colori vivaci, famosa per le tossine cutanee di alcune specie.',
                 'weight_kg' => 0.005,
@@ -1108,7 +1042,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Colibrì gola rubino',
-                'slug' => 'colibri-gola-rubino',
                 'scientific_name' => 'Archilochus colubris',
                 'description' => 'Piccolo uccello capace di restare fermo in volo grazie al rapidissimo battito delle ali.',
                 'weight_kg' => 0.004,
@@ -1124,7 +1057,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Alligatore americano',
-                'slug' => 'alligatore-americano',
                 'scientific_name' => 'Alligator mississippiensis',
                 'description' => 'Grande rettile semiacquatico delle paludi nordamericane, robusto e ben adattato all’acqua dolce.',
                 'weight_kg' => 360,
@@ -1140,7 +1072,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Pesce pagliaccio',
-                'slug' => 'pesce-pagliaccio',
                 'scientific_name' => 'Amphiprioninae',
                 'description' => 'Piccolo pesce tropicale che vive spesso in simbiosi con gli anemoni di mare.',
                 'weight_kg' => 0.25,
@@ -1156,7 +1087,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Balenottera azzurra',
-                'slug' => 'balenottera-azzurra',
                 'scientific_name' => 'Balaenoptera musculus',
                 'description' => 'Il più grande animale mai vissuto sulla Terra, enorme cetaceo filtratore degli oceani.',
                 'weight_kg' => 120000,
@@ -1172,7 +1102,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Libellula imperatore',
-                'slug' => 'libellula-imperatore',
                 'scientific_name' => 'Anax imperator',
                 'description' => 'Insetto volante rapido e agile, spesso osservato vicino a stagni e corsi d’acqua.',
                 'weight_kg' => 0.001,
@@ -1188,7 +1117,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Granchio reale',
-                'slug' => 'granchio-reale',
                 'scientific_name' => 'Paralithodes camtschaticus',
                 'description' => 'Grande crostaceo marino dalle lunghe zampe, vive in acque fredde e profonde.',
                 'weight_kg' => 10,
@@ -1204,7 +1132,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Rana toro americana',
-                'slug' => 'rana-toro-americana',
                 'scientific_name' => 'Lithobates catesbeianus',
                 'description' => 'Grande rana nordamericana nota per il potente verso e la notevole capacità di salto.',
                 'weight_kg' => 0.5,
@@ -1220,7 +1147,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Pellicano bianco',
-                'slug' => 'pellicano-bianco',
                 'scientific_name' => 'Pelecanus onocrotalus',
                 'description' => 'Grande uccello acquatico caratterizzato dall’ampio sacco golare.',
                 'weight_kg' => 12,
@@ -1236,7 +1162,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Geco tokay',
-                'slug' => 'geco-tokay',
                 'scientific_name' => 'Gekko gecko',
                 'description' => 'Rettile notturno dai colori vivaci, abilissimo nell’arrampicarsi su superfici verticali.',
                 'weight_kg' => 0.2,
@@ -1252,7 +1177,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Pesce luna',
-                'slug' => 'pesce-luna',
                 'scientific_name' => 'Mola mola',
                 'description' => 'Grande pesce oceanico dal corpo appiattito, spesso visibile vicino alla superficie.',
                 'weight_kg' => 1000,
@@ -1268,7 +1192,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Calamaro gigante',
-                'slug' => 'calamaro-gigante',
                 'scientific_name' => 'Architeuthis dux',
                 'description' => 'Enorme mollusco abissale, misterioso e raramente osservato vivo nel suo ambiente naturale.',
                 'weight_kg' => 275,
@@ -1284,7 +1207,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Pipistrello vampiro',
-                'slug' => 'pipistrello-vampiro',
                 'scientific_name' => 'Desmodus rotundus',
                 'description' => 'Piccolo mammifero volante che si nutre di sangue e usa sensi specializzati per orientarsi al buio.',
                 'weight_kg' => 0.04,
@@ -1300,7 +1222,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Formica tagliafoglie',
-                'slug' => 'formica-tagliafoglie',
                 'scientific_name' => 'Atta',
                 'description' => 'Insetto sociale che taglia foglie per coltivare funghi all’interno del formicaio.',
                 'weight_kg' => 0.00001,
@@ -1316,7 +1237,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Aragosta europea',
-                'slug' => 'aragosta-europea',
                 'scientific_name' => 'Homarus gammarus',
                 'description' => 'Grande crostaceo marino dotato di robuste chele e corazza resistente.',
                 'weight_kg' => 5,
@@ -1332,7 +1252,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Vedova nera',
-                'slug' => 'vedova-nera',
                 'scientific_name' => 'Latrodectus mactans',
                 'description' => 'Ragno noto per il veleno potente e per il caratteristico segno rosso sull’addome.',
                 'weight_kg' => 0.001,
@@ -1348,7 +1267,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Salamandra pezzata',
-                'slug' => 'salamandra-pezzata',
                 'scientific_name' => 'Salamandra salamandra',
                 'description' => 'Anfibio europeo dal caratteristico colore nero con macchie gialle.',
                 'weight_kg' => 0.04,
@@ -1364,7 +1282,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Struzzo',
-                'slug' => 'struzzo',
                 'scientific_name' => 'Struthio camelus',
                 'description' => 'Il più grande uccello vivente, incapace di volare ma molto veloce nella corsa.',
                 'weight_kg' => 120,
@@ -1380,7 +1297,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Tartaruga gigante delle Galápagos',
-                'slug' => 'tartaruga-gigante-delle-galapagos',
                 'scientific_name' => 'Chelonoidis niger',
                 'description' => 'Una delle tartarughe più grandi del mondo, famosa per la straordinaria longevità.',
                 'weight_kg' => 250,
@@ -1396,7 +1312,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Cavalluccio marino',
-                'slug' => 'cavalluccio-marino',
                 'scientific_name' => 'Hippocampus',
                 'description' => 'Piccolo pesce dalla forma particolare, capace di mimetizzarsi tra alghe e coralli.',
                 'weight_kg' => 0.01,
@@ -1412,7 +1327,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Lumaca gigante africana',
-                'slug' => 'lumaca-gigante-africana',
                 'scientific_name' => 'Achatina fulica',
                 'description' => 'Grande mollusco terrestre noto per la conchiglia allungata e la crescita rapida.',
                 'weight_kg' => 0.3,
@@ -1428,7 +1342,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Cammello',
-                'slug' => 'cammello',
                 'scientific_name' => 'Camelus bactrianus',
                 'description' => 'Mammifero adattato agli ambienti aridi, capace di sopportare lunghi periodi con poca acqua.',
                 'weight_kg' => 600,
@@ -1444,7 +1357,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Zanzara comune',
-                'slug' => 'zanzara-comune',
                 'scientific_name' => 'Culex pipiens',
                 'description' => 'Insetto molto diffuso, noto per il caratteristico ronzio e la puntura.',
                 'weight_kg' => 0.00001,
@@ -1460,7 +1372,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Paguro bernardo',
-                'slug' => 'paguro-bernardo',
                 'scientific_name' => 'Pagurus bernhardus',
                 'description' => 'Crostaceo che utilizza conchiglie vuote come protezione del corpo.',
                 'weight_kg' => 0.05,
@@ -1476,7 +1387,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Scorpione imperatore',
-                'slug' => 'scorpione-imperatore',
                 'scientific_name' => 'Pandinus imperator',
                 'description' => 'Grande scorpione africano dal corpo scuro e dalle robuste chele.',
                 'weight_kg' => 0.03,
@@ -1492,7 +1402,6 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'name' => 'Tritone crestato',
-                'slug' => 'tritone-crestato',
                 'scientific_name' => 'Triturus cristatus',
                 'description' => 'Anfibio europeo che vive tra ambienti acquatici e terrestri, riconoscibile dalla cresta nel periodo riproduttivo.',
                 'weight_kg' => 0.01,
@@ -1513,7 +1422,9 @@ class AnimalSeeder extends Seeder
             $diet = $diets->where('slug', $data['diet'])->first();
             $conservationStatus = $conservationStatuses->where('slug', $data['conservation_status'])->first();
 
-            $imageFile = $data['slug'] . '.png';
+            $slug = Str::slug($data['name']);
+
+            $imageFile = $slug . '.png';
 
             $cardSourcePath = database_path('seeders/assets/animals/card_image/' . $imageFile);
             $realSourcePath = database_path('seeders/assets/animals/real_image/' . $imageFile);
@@ -1532,7 +1443,7 @@ class AnimalSeeder extends Seeder
             $animal = new Animal();
 
             $animal->name = $data['name'];
-            $animal->slug = $data['slug'];
+            $animal->slug = $slug;
             $animal->scientific_name = $data['scientific_name'];
             $animal->card_image = $cardStoragePath;
             $animal->real_image = $realStoragePath;
