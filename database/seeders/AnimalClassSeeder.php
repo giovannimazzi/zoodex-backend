@@ -17,7 +17,7 @@ class AnimalClassSeeder extends Seeder
     public function run(): void
     {
         $animalClasses = [
-            ['name' => 'Mammiferi', 'image' => 'mammiferi.svg', 'color' => '#FFB26B', 'description' => 'Animali vertebrati caratterizzati dalla presenza di ghiandole mammarie e pelo.'],
+            ['name' => 'Mammiferi', 'image' => 'mammiferi.svg', 'color' => '#e49750', 'description' => 'Animali vertebrati caratterizzati dalla presenza di ghiandole mammarie e pelo.'],
             ['name' => 'Uccelli', 'image' => 'uccelli.svg', 'color' => '#B3C6D9', 'description' => 'Vertebrati dotati di piume, becco e, nella maggior parte dei casi, capacità di volare.'],
             ['name' => 'Rettili', 'image' => 'rettili.svg', 'color' => '#00A86B', 'description' => 'Vertebrati a sangue freddo, spesso ricoperti da squame.'],
             ['name' => 'Anfibi', 'image' => 'anfibi.svg', 'color' => '#40E0D0', 'description' => 'Vertebrati che vivono parte della vita in acqua e parte sulla terraferma.'],

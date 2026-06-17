@@ -26,7 +26,7 @@ class HabitatSeeder extends Seeder
             [
                 'name' => 'Deserto',
                 'image' => 'deserto.png',
-                'color' => '#EDC988',
+                'color' => '#c09e5e',
                 'description' => 'Ambiente arido con scarse precipitazioni e forti escursioni termiche.',
             ],
             [
@@ -38,7 +38,7 @@ class HabitatSeeder extends Seeder
             [
                 'name' => 'Prateria / Savana',
                 'image' => 'prateria-savana.png',
-                'color' => '#CDE77F',
+                'color' => '#b5cc70',
                 'description' => 'Ambiente aperto dominato da erbe, con pochi alberi sparsi.',
             ],
             [
@@ -68,7 +68,7 @@ class HabitatSeeder extends Seeder
             [
                 'name' => 'Artico / Polare',
                 'image' => 'artico-polare.png',
-                'color' => '#ECEFF1',
+                'color' => '#90a0a1',
                 'description' => 'Ambiente freddo caratterizzato da ghiaccio, neve e temperature estreme.',
             ],
         ];

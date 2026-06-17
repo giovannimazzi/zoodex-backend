@@ -26,7 +26,7 @@ class AbilitySeeder extends Seeder
             [
                 'name' => 'Elettrocezione',
                 'image' => 'elettrocezione.png',
-                'color' => '#FFEA00',
+                'color' => '#d8c600',
                 'description' => 'Capacità di percepire campi elettrici prodotti da altri organismi.',
             ],
             [
@@ -74,7 +74,7 @@ class AbilitySeeder extends Seeder
             [
                 'name' => 'Velocità',
                 'image' => 'velocita.png',
-                'color' => '#FFD54F',
+                'color' => '#ddb942',
                 'description' => 'Capacità di muoversi rapidamente rispetto ad altri animali.',
             ],
             [
@@ -104,7 +104,7 @@ class AbilitySeeder extends Seeder
             [
                 'name' => 'Salto',
                 'image' => 'salto.png',
-                'color' => '#B0BEC5',
+                'color' => '#97a6ad',
                 'description' => 'Capacità di compiere salti notevoli per altezza o distanza.',
             ],
             [
