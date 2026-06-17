@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\Continent;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ContinentSeeder extends Seeder
@@ -27,7 +29,7 @@ class ContinentSeeder extends Seeder
             ],
             [
                 'name' => 'Asia',
-                'color' => '#C0D94A',
+                'color' => '#a8bd40',
                 'description' => 'Il continente più esteso e popolato della Terra.',
             ],
             [
@@ -47,10 +49,17 @@ class ContinentSeeder extends Seeder
             ],
             [
                 'name' => 'Antartide',
-                'color' => '#CFDBDC',
+                'color' => '#90a0a1',
                 'description' => 'Continente più freddo della Terra, quasi interamente coperto da ghiaccio.',
             ],
         ];
+
+        $sourcePath = database_path('seeders/assets/continents/globo.png');
+        $storagePath = 'continents/globo.png';
+
+        if (File::exists($sourcePath)) {
+            Storage::disk('public')->put($storagePath, File::get($sourcePath));
+        }
 
         foreach ($continents as $data) {
 
@@ -59,7 +68,7 @@ class ContinentSeeder extends Seeder
             $continent->name = $data['name'];
             $continent->slug = Str::slug($data['name']);
 
-            $continent->image = null;
+            $continent->image = null; //$storagePath;
 
             $continent->color = $data['color'];
             $continent->description = $data['description'];
