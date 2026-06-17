@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center text-danger" href="{{ route("admin.index") }}">
+            <a class="navbar-brand d-flex align-items-center text-danger" href="{{ route("admin.animals.index") }}">
                 <h1 class="display-5">🦜</h1>{{ config('app.name', 'ZooDex') }}
             </a>
 
@@ -13,7 +13,10 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route("admin.index") }}">{{ __('Home') }}</a>
+                        <a class="nav-link {{ request()->routeIs('admin.index') ? 'active' : '' }}" href="{{ route("admin.index") }}">{{ __('Home') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin.animals.*') ? 'active' : '' }}" href="{{ route("admin.animals.index") }}">{{ __('Animali') }}</a>
                     </li>
                 </ul>
 
