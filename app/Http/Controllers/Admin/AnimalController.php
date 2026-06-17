@@ -101,7 +101,16 @@ class AnimalController extends Controller
      */
     public function show(Animal $animal)
     {
-        //
+        $animal->load([
+            'animalClass',
+            'diet',
+            'conservationStatus',
+            'habitats',
+            'continents',
+            'abilities',
+        ]);
+
+        return view('admin.animals.show', compact('animal')); 
     }
 
     /**
