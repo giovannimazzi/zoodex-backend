@@ -203,28 +203,13 @@
                         </td>
 
                         <td>
-                            @if ($animal->animalClass?->image)
-                                <img src="{{ asset('storage/' . $animal->animalClass?->image) }}"
-                                     alt="{{ $animal->animalClass?->name ?? '-' }}"
-                                     style="width: 60px; height: 60px; object-fit: contain;
-                                     border-radius: 50%;
-                                     background-color: {{ $animal->animalClass?->color ?? "transparent" }}">
-                            @else
-                                -
-                            @endif
+                            <x-icon :entity="$animal->animalClass" measure=60 shape=1></x-icon>
                             <br/>
                             {{ $animal->animalClass?->name ?? '-' }}
                         </td>
 
                         <td>
-                            @if ($animal->diet?->image)
-                                <img src="{{ asset('storage/' . $animal->diet?->image) }}"
-                                     alt="{{ $animal->diet?->name ?? '-' }}"
-                                     style="width: 60px; height: 60px; object-fit: contain;
-                                     background-color: {{ $animal->diet?->color ?? "transparent" }}">
-                            @else
-                                -
-                            @endif
+                            <x-icon :entity="$animal->diet" measure=60 shape=2></x-icon>
                             <br/>
                             {{ $animal->diet?->name ?? '-' }}
                         </td>
