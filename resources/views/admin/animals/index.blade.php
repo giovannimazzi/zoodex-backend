@@ -18,7 +18,19 @@
             </a>
         </div>
 
-        <div class="bg-warning p-2 border border-3 rounded-3">
+        <div class="mb-2">
+            <button class="btn btn-warning"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#animals-filters"
+                    aria-expanded="false"
+                    aria-controls="animals-filters">
+                <i class="bi bi-funnel-fill"></i> Apri/Chiudi Filtri
+            </button>
+        </div>
+
+        <div class="collapse" id="animals-filters">
+            <div class="bg-warning p-2 border border-3 rounded-3">
             <form action="{{ route('admin.animals.index') }}" method="GET">
                 <div class="row g-2 align-items-end">
 
@@ -107,6 +119,7 @@
 
                 </div>
             </form>
+            </div>
         </div>
         
 
@@ -285,7 +298,7 @@
             </div>
 
             <div>
-                {{ $animals->links() }}
+                {{ $animals->links('vendor.pagination.bootstrap-5') }}
             </div>
         </div>
 
