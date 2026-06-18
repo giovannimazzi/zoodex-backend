@@ -134,6 +134,17 @@
                             </div>
                         @endif
 
+                        <div class="form-check mb-2">
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   name="remove_card_image"
+                                   id="remove_card_image"
+                                   value="1">
+                            <label class="form-check-label" for="remove_card_image">
+                                Rimuovi immagine attuale
+                            </label>
+                        </div>
+
                         <input type="file"
                                name="card_image"
                                id="card_image"
@@ -151,6 +162,17 @@
                                      style="width: 120px;">
                             </div>
                         @endif
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   name="remove_real_image"
+                                   id="remove_real_image"
+                                   value="1">
+                            <label class="form-check-label" for="remove_real_image">
+                                Rimuovi immagine attuale
+                            </label>
+                        </div>
 
                         <input type="file"
                                name="real_image"
