@@ -199,31 +199,50 @@
 
                         <td>
                             <strong>{{ $animal->name }}</strong><br>
-                            <small class="text-muted">{{ $animal->scientific_name }}</small>
+                            @if ($animal->scientific_name)
+                                <small class="text-muted">{{ $animal->scientific_name }}</small>
+                            @else
+                                <small class="text-muted">-</small>
+                            @endif
                         </td>
 
                         <td>
                             <x-icon :entity="$animal->animalClass" measure=60 shape=1></x-icon>
-                            <br/>
-                            {{ $animal->animalClass?->name ?? '-' }}
+                            @if ($animal->animalClass?->name)
+                                <br/>
+                                {{ $animal->animalClass->name }}
+                            @else
+                                <br/>
+                                -
+                            @endif
                         </td>
 
                         <td>
                             <x-icon :entity="$animal->diet" measure=60 shape=2></x-icon>
-                            <br/>
-                            {{ $animal->diet?->name ?? '-' }}
+                            @if ($animal->diet?->name)
+                                <br/>
+                                {{ $animal->diet->name }}
+                            @else
+                                <br/>
+                                -
+                            @endif
                         </td>
 
                         <td>
-                            @if ($animal->conservationStatus?->image)
-                                <img src="{{ asset('storage/' . $animal->conservationStatus?->image) }}"
-                                     alt="{{ $animal->conservationStatus?->name ?? '-' }}"
-                                     style="width: 60px; height: 60px; object-fit: contain;">
+                            @if ($animal->conservationStatus)
+                                @if ($animal->conservationStatus->image)
+                                    <img src="{{ asset('storage/' . $animal->conservationStatus->image) }}"
+                                         alt="{{ $animal->conservationStatus->name ?? '' }}"
+                                         style="width: 60px; height: 60px; object-fit: contain;">
+                                @endif
+
+                                @if ($animal->conservationStatus->name)
+                                    <br/>
+                                    {{ $animal->conservationStatus->name }}
+                                @endif
                             @else
                                 -
                             @endif
-                            <br/>
-                            {{ $animal->conservationStatus?->name ?? '-' }}
                         </td>
 
                         <td class="text-end text-nowrap">
@@ -251,9 +270,9 @@
         <div class="d-flex justify-content-between align-items-center mt-1">
             <div class="text-muted small">
                 Visualizzati
-                {{ $animals->firstItem() }}
+                {{ $animals->firstItem() ?? 0 }}
                 -
-                {{ $animals->lastItem() }}
+                {{ $animals->lastItem() ?? 0 }}
                 di
                 {{ $animals->total() }}
                 animali
