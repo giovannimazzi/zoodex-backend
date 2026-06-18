@@ -23,30 +23,30 @@
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#animals-filters"
-                    aria-expanded="false"
+                    aria-expanded="true"
                     aria-controls="animals-filters">
                 <i class="bi bi-funnel-fill"></i> Apri/Chiudi Filtri
             </button>
         </div>
 
-        <div class="collapse" id="animals-filters">
+        <div class="collapse show" id="animals-filters">
             <div class="bg-warning p-2 border border-3 rounded-3">
             <form action="{{ route('admin.animals.index') }}" method="GET">
                 <div class="row g-2 align-items-end">
 
-                    <div class="col-12 col-md-1">
+                    <div class="col-12 col-lg-1">
                         <label for="id" class="form-label fw-semibold">ID</label>
                         <div class="input-group">
                             <input type="number"
                                 name="id"
                                 id="id"
                                 class="form-control"
-                                placeholder="ID animale"
+                                placeholder="ID"
                                 value="{{ request('id') }}"
                                 min="1">
 
                             <button type="button"
-                                    class="btn btn-sm btn-outline-secondary"
+                                    class="btn btn-sm btn-secondary"
                                     aria-label="Reset ID"
                                     title="Reset ID"
                                     onclick="document.getElementById('id').value=''; document.getElementById('id').focus();">
@@ -55,7 +55,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-2">
+                    <div class="col-12 col-lg-2">
                         <label for="search" class="form-label fw-semibold">Nome</label>
                         <input type="text"
                             name="search"
@@ -65,7 +65,7 @@
                             value="{{ request('search') }}">
                     </div>
 
-                    <div class="col-12 col-md-2">
+                    <div class="col-12 col-lg-2">
                         <label for="animal_class_id" class="form-label fw-semibold">Classe</label>
                         <select name="animal_class_id" id="animal_class_id" class="form-select">
                             <option value="">Tutte</option>
@@ -79,7 +79,7 @@
                         </select>
                     </div>
 
-                    <div class="col-12 col-md-2">
+                    <div class="col-12 col-lg-2">
                         <label for="diet_id" class="form-label fw-semibold">Dieta</label>
                         <select name="diet_id" id="diet_id" class="form-select">
                             <option value="">Tutte</option>
@@ -93,7 +93,7 @@
                         </select>
                     </div>
 
-                    <div class="col-12 col-md-3">
+                    <div class="col-12 col-lg-3">
                         <label for="conservation_status_id" class="form-label fw-semibold">Stato</label>
                         <select name="conservation_status_id" id="conservation_status_id" class="form-select">
                             <option value="">Tutti</option>
@@ -107,12 +107,11 @@
                         </select>
                     </div>
 
-                    <div class="col-12 col-md-2 d-flex gap-2">
-                        <button type="submit" class="btn btn-outline-primary w-100">
+                    <div class="col-12 col-lg-2 d-flex gap-2">
+                        <button type="submit" class="btn btn-primary w-100">
                             <i class="bi bi-funnel-fill"></i> Filtra
                         </button>
-
-                        <a href="{{ route('admin.animals.index') }}" class="btn btn-outline-secondary">
+                        <a href="{{ route('admin.animals.index') }}" class="btn btn-secondary">
                             Reset
                         </a>
                     </div>
@@ -124,55 +123,58 @@
         
 
         @php
+        
+            if (!function_exists('sortLink')){
+                function sortLink($entity, $label, $column, $sort, $direction)
+                {
+                    $newDirection = 'asc';
 
-            function sortLink($label, $column, $sort, $direction)
-            {
-                $newDirection = 'asc';
+                    if ($sort === $column && $direction === 'asc') {
+                        $newDirection = 'desc';
+                    }
 
-                if ($sort === $column && $direction === 'asc') {
-                    $newDirection = 'desc';
-                }
+                    $icon = '';
 
-                $icon = '';
+                    if ($sort === $column) {
+                        $icon = $direction === 'asc'
+                            ? ' ↑'
+                            : ' ↓';
+                    }
 
-                if ($sort === $column) {
-                    $icon = $direction === 'asc'
-                        ? ' ↑'
-                        : ' ↓';
-                }
+                    $resetSortHtml = '';
 
-                $resetSortHtml = '';
+                    if ($sort === $column && request()->has('sort')) {
+                        $resetQuery = request()->except(['sort', 'direction', 'page']);
+                        $resetQuery['page'] = 1;
+                        $resetUrl = route('admin.'. $entity .'.index', $resetQuery);
 
-                if ($sort === $column && request()->has('sort')) {
-                    $resetQuery = request()->except(['sort', 'direction', 'page']);
-                    $resetQuery['page'] = 1;
-                    $resetUrl = route('admin.animals.index', $resetQuery);
+                        $resetSortHtml = '
+                            <a href="' . $resetUrl . '"
+                            class="text-decoration-none text-muted ms-1"
+                            title="Reset ordinamento"
+                            aria-label="Reset ordinamento">
+                                <i class="bi bi-x-circle"></i>
+                            </a>
+                        ';
+                    }
 
-                    $resetSortHtml = '
-                        <a href="' . $resetUrl . '"
-                           class="text-decoration-none text-muted ms-1"
-                           title="Reset ordinamento"
-                           aria-label="Reset ordinamento">
-                            <i class="bi bi-x-circle"></i>
-                        </a>
+                    $url = request()->fullUrlWithQuery([
+                        'sort' => $column,
+                        'direction' => $newDirection,
+                        'page' => 1,
+                    ]);
+
+                    return '
+                        <span class="d-flex align-items-center">
+                            <a href="' . $url . '" class="text-decoration-none text-dark">
+                                ' . $label . $icon . '
+                            </a>
+                            ' . $resetSortHtml . '
+                        </span>
                     ';
                 }
-
-                $url = request()->fullUrlWithQuery([
-                    'sort' => $column,
-                    'direction' => $newDirection,
-                    'page' => 1,
-                ]);
-
-                return '
-                    <span class="d-flex align-items-center">
-                        <a href="' . $url . '" class="text-decoration-none text-dark">
-                            ' . $label . $icon . '
-                        </a>
-                        ' . $resetSortHtml . '
-                    </span>
-                ';
             }
+            
 
         @endphp
         
@@ -180,13 +182,13 @@
             <table class="table table-striped table-hover align-middle">
                 <thead>
                     <tr>
-                        <th title="ordina per ID">{!! sortLink('ID', 'id', $sort, $direction) !!}</th>
+                        <th title="ordina per ID">{!! sortLink('animals', 'ID', 'id', $sort, $direction) !!}</th>
                         <th>N° DEX</th>
                         <th class="text-center">Immagini</th>
-                        <th title="ordina per Nome">{!! sortLink('Nome', 'name', $sort, $direction) !!}</th>
-                        <th title="ordina per Classe">{!! sortLink('Classe', 'animal_class_id', $sort, $direction) !!}</th>
-                        <th title="ordina per Dieta">{!! sortLink('Dieta', 'diet_id', $sort, $direction) !!}</th>
-                        <th title="ordina per Stato">{!! sortLink('Stato', 'conservation_status_id', $sort, $direction) !!}</th>
+                        <th title="ordina per Nome">{!! sortLink('animals', 'Nome', 'name', $sort, $direction) !!}</th>
+                        <th title="ordina per Classe">{!! sortLink('animals', 'Classe', 'animal_class_id', $sort, $direction) !!}</th>
+                        <th title="ordina per Dieta">{!! sortLink('animals', 'Dieta', 'diet_id', $sort, $direction) !!}</th>
+                        <th title="ordina per Stato">{!! sortLink('animals', 'Stato', 'conservation_status_id', $sort, $direction) !!}</th>
                         <th class="text-center">Azioni</th>
                     </tr>
                 </thead>
