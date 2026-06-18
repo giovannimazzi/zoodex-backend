@@ -15,13 +15,11 @@
         <div>
             <h1 class="mb-1">{{ $animal->name }}</h1>
 
-            <p class="text-muted mb-2">
-                {{ $animal->scientific_name }}
-            </p>
-
-            <p class="mb-0">
-                <i>{{ $animal->description }}</i>
-            </p>
+            @if ($animal->scientific_name)
+                <p class="text-muted mb-2">
+                    {{ $animal->scientific_name }}
+                </p>
+            @endif
         </div>
 
         <div class="d-flex gap-2">
@@ -59,10 +57,15 @@
 
                 <div class="card-body d-flex justify-content-center align-items-center p-2">
 
-                    <img src="{{ asset('storage/' . $animal->card_image) }}"
-                         alt="{{ $animal->name }}"
-                         class="img-fluid"
-                         style="max-height: 230px; object-fit: contain;">
+                    @if ($animal->card_image)
+                        <img src="{{ asset('storage/' . $animal->card_image) }}"
+                             alt="{{ $animal->name }}"
+                             class="img-fluid"
+                             style="max-height: 230px; object-fit: contain;">
+                    @else
+                        <div class="d-inline-flex justify-content-center align-items-center text-muted"
+                             style="width: 100%; min-height: 230px; background-color: #e9ecef;"><i class="bi bi-image fs-1"></i></div>
+                    @endif
 
                 </div>
 
@@ -80,10 +83,15 @@
 
                 <div class="card-body d-flex justify-content-center align-items-center p-2">
 
-                    <img src="{{ asset('storage/' . $animal->real_image) }}"
-                         alt="{{ $animal->name }}"
-                         class="img-fluid"
-                         style="max-height: 230px; object-fit: contain;">
+                    @if ($animal->real_image)
+                        <img src="{{ asset('storage/' . $animal->real_image) }}"
+                             alt="{{ $animal->name }}"
+                             class="img-fluid"
+                             style="max-height: 230px; object-fit: contain;">
+                    @else
+                        <div class="d-inline-flex justify-content-center align-items-center text-muted"
+                             style="width: 100%; min-height: 230px; background-color: #e9ecef;"><i class="bi bi-image fs-1"></i></div>
+                    @endif
 
                 </div>
 
@@ -120,22 +128,27 @@
 
                 <div class="col-md-2">
                     <strong>Peso</strong><br>
-                    {{ $animal->weight_kg ? $animal->weight_kg . ' kg' : '-' }}
+                    {{ $animal->weight_kg !== null ? $animal->weight_kg . ' kg' : '-' }}
                 </div>
 
                 <div class="col-md-2">
                     <strong>Lunghezza</strong><br>
-                    {{ $animal->length_cm ? $animal->length_cm . ' cm' : '-' }}
+                    {{ $animal->length_cm !== null ? $animal->length_cm . ' cm' : '-' }}
                 </div>
 
                 <div class="col-md-2">
                     <strong>Altezza</strong><br>
-                    {{ $animal->height_cm ? $animal->height_cm . ' cm' : '-' }}
+                    {{ $animal->height_cm !== null ? $animal->height_cm . ' cm' : '-' }}
                 </div>
 
                 <div class="col-md-2">
                     <strong>Longevità</strong><br>
-                    {{ $animal->lifespan_years ? $animal->lifespan_years . ' anni' : '-' }}
+                    {{ $animal->lifespan_years !== null ? $animal->lifespan_years . ' anni' : '-' }}
+                </div>
+
+                <div class="col-12 text-start text-md-center">
+                    <strong>Descrizione</strong><br>
+                    {{ $animal->description ?: '-' }}
                 </div>
 
             </div>
@@ -158,10 +171,12 @@
 
                     <x-icon :entity="$animal->animalClass" measure=70 shape=1>
                     </x-icon>
-            
-                    <div>
-                        {{ $animal->animalClass?->name ?? '-' }}
-                    </div>
+
+                    @if ($animal->animalClass?->name)
+                        <div>
+                            {{ $animal->animalClass->name }}
+                        </div>
+                    @endif
 
                 </div>
 
@@ -182,9 +197,11 @@
                     <x-icon :entity="$animal->diet" measure=70 shape=2>
                     </x-icon>
 
-                    <div>
-                        {{ $animal->diet?->name ?? '-' }}
-                    </div>
+                    @if ($animal->diet?->name)
+                        <div>
+                            {{ $animal->diet->name }}
+                        </div>
+                    @endif
 
                 </div>
 
@@ -208,9 +225,11 @@
                              style="width: 70px; height: 70px; object-fit: contain;">
                     @endif
 
-                    <div>
-                        {{ $animal->conservationStatus?->name ?? '-' }}
-                    </div>
+                    @if ($animal->conservationStatus?->name)
+                        <div>
+                            {{ $animal->conservationStatus->name }}
+                        </div>
+                    @endif
 
                 </div>
 
@@ -234,17 +253,19 @@
                             alt="Globo"
                             style="width: 100px; height: 100px; object-fit: cover;">
 
-                        <div class="d-flex flex-column justify-content-start align-items-center gap-0">
-                            @foreach ($animal->continents as $continent)
+                        @if ($animal->continents->isNotEmpty())
+                            <div class="d-flex flex-column justify-content-start align-items-center gap-0">
+                                @foreach ($animal->continents as $continent)
 
-                                <big>
-                                    <span class="badge" style="background-color: {{ $continent->color }};">
-                                        {{ $continent->name }}
-                                    </span>
-                                </big>
+                                    <big>
+                                        <span class="badge" style="background-color: {{ !empty($continent->color) ? $continent->color : '#6c757d' }};">
+                                            {{ $continent->name }}
+                                        </span>
+                                    </big>
 
-                            @endforeach
-                        </div>
+                                @endforeach
+                            </div>
+                        @endif
                         
 
                     </div>
@@ -275,13 +296,18 @@
 
                             <div class="text-center">
 
-                                <img src="{{ asset('storage/' . $habitat->image) }}"
-                                     alt="{{ $habitat->name }}"
-                                     style="width: 120px; height: 120px; object-fit: cover;"><br>
+                                @if ($habitat->image)
+                                    <img src="{{ asset('storage/' . $habitat->image) }}"
+                                         alt="{{ $habitat->name }}"
+                                         style="width: 120px; height: 120px; object-fit: cover;"><br>
+                                @else
+                                    <div class="d-inline-flex justify-content-center align-items-center mb-1 text-muted"
+                                         style="width: 120px; height: 120px; background-color: #e9ecef;"><i class="bi bi-image"></i></div><br>
+                                @endif
 
                                 <big>
                                     <span class="badge"
-                                         style="background-color: {{ $habitat->color }}">
+                                         style="background-color: {{ !empty($habitat->color) ? $habitat->color : '#6c757d' }}">
                                         {{ $habitat->name }}
                                     </span>
                                 </big>
@@ -314,13 +340,18 @@
 
                             <div class="text-center">
 
-                                <img src="{{ asset('storage/' . $ability->image) }}"
-                                     alt="{{ $ability->name }}"
-                                     style="width: 120px; height: 120px; object-fit: contain;"><br>
+                                @if ($ability->image)
+                                    <img src="{{ asset('storage/' . $ability->image) }}"
+                                         alt="{{ $ability->name }}"
+                                         style="width: 120px; height: 120px; object-fit: contain;"><br>
+                                @else
+                                    <div class="d-inline-flex justify-content-center align-items-center mb-1 text-muted"
+                                         style="width: 120px; height: 120px; background-color: #e9ecef;"><i class="bi bi-image"></i></div><br>
+                                @endif
 
                                 <big>
                                     <span class="badge"
-                                         style="background-color: {{ $ability->color }}">
+                                         style="background-color: {{ !empty($ability->color) ? $ability->color : '#6c757d' }}">
                                         {{ $ability->name }}
                                     </span>
                                 </big>
