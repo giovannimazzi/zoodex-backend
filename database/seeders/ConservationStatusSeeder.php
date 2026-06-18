@@ -56,7 +56,7 @@ class ConservationStatusSeeder extends Seeder
             [
                 'name' => 'Estinto',
                 'image' => 'rischio-6.png',
-                'color' => '#000000',
+                'color' => '#424242',
                 'description' => 'Non esistono più individui viventi della specie.',
             ],
         ];
