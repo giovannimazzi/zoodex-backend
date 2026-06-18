@@ -176,115 +176,117 @@
 
         @endphp
         
-        <table class="table table-striped table-hover align-middle">
-            <thead>
-                <tr>
-                    <th title="ordina per ID">{!! sortLink('ID', 'id', $sort, $direction) !!}</th>
-                    <th>N° DEX</th>
-                    <th class="text-center">Immagini</th>
-                    <th title="ordina per Nome">{!! sortLink('Nome', 'name', $sort, $direction) !!}</th>
-                    <th title="ordina per Classe">{!! sortLink('Classe', 'animal_class_id', $sort, $direction) !!}</th>
-                    <th title="ordina per Dieta">{!! sortLink('Dieta', 'diet_id', $sort, $direction) !!}</th>
-                    <th title="ordina per Stato">{!! sortLink('Stato', 'conservation_status_id', $sort, $direction) !!}</th>
-                    <th class="text-center">Azioni</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach ($animals as $animal)
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+                <thead>
                     <tr>
-                        <td>{{ $animal->id }}</td>
-
-                        <td>{{ str_pad((string) $animal->id, 4, '0', STR_PAD_LEFT) }}</td>
-
-                        <td class="text-center text-nowrap">
-                            @if ($animal->card_image)
-                                <img src="{{ asset('storage/' . $animal->card_image) }}"
-                                     alt="{{ $animal->name }}"
-                                     style="width: 90px; height: 90px; object-fit: contain;"
-                                     class="me-2">
-                            @else
-                                -
-                            @endif
-                            
-                            @if ($animal->real_image)
-                                <img src="{{ asset('storage/' . $animal->real_image) }}"
-                                     alt="{{ $animal->name }}"
-                                     style="width: 90px; height: 90px; object-fit: contain;">
-                            @else
-                                -
-                            @endif
-                        </td>
-
-                        <td>
-                            <strong>{{ $animal->name }}</strong><br>
-                            @if ($animal->scientific_name)
-                                <small class="text-muted">{{ $animal->scientific_name }}</small>
-                            @else
-                                <small class="text-muted">-</small>
-                            @endif
-                        </td>
-
-                        <td>
-                            <x-icon :entity="$animal->animalClass" measure=60 shape=1></x-icon>
-                            @if ($animal->animalClass?->name)
-                                <br/>
-                                {{ $animal->animalClass->name }}
-                            @else
-                                <br/>
-                                -
-                            @endif
-                        </td>
-
-                        <td>
-                            <x-icon :entity="$animal->diet" measure=60 shape=2></x-icon>
-                            @if ($animal->diet?->name)
-                                <br/>
-                                {{ $animal->diet->name }}
-                            @else
-                                <br/>
-                                -
-                            @endif
-                        </td>
-
-                        <td>
-                            @if ($animal->conservationStatus)
-                                @if ($animal->conservationStatus->image)
-                                    <img src="{{ asset('storage/' . $animal->conservationStatus->image) }}"
-                                         alt="{{ $animal->conservationStatus->name ?? '' }}"
-                                         style="width: 60px; height: 60px; object-fit: contain;">
-                                @endif
-
-                                @if ($animal->conservationStatus->name)
-                                    <br/>
-                                    {{ $animal->conservationStatus->name }}
-                                @endif
-                            @else
-                                -
-                            @endif
-                        </td>
-
-                        <td class="text-end text-nowrap">
-                            <a href="{{ route('admin.animals.show', $animal) }}" class="btn btn-sm btn-outline-primary">
-                                <i class="bi bi-binoculars-fill"></i> Vedi
-                            </a>
-
-                            <a href="{{ route('admin.animals.edit', $animal) }}" class="btn btn-sm btn-outline-warning">
-                                <i class="bi bi-pencil-square"></i> Modifica
-                            </a>
-
-                            <button type="button"
-                                    class="btn btn-sm btn-outline-danger"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#delete-animal-{{ $animal->id }}">
-                                <i class="bi bi-trash-fill"></i> Elimina
-                            </button>
-                            @include('admin.animals.partials.delete-modal', ['animal' => $animal])
-                        </td>
+                        <th title="ordina per ID">{!! sortLink('ID', 'id', $sort, $direction) !!}</th>
+                        <th>N° DEX</th>
+                        <th class="text-center">Immagini</th>
+                        <th title="ordina per Nome">{!! sortLink('Nome', 'name', $sort, $direction) !!}</th>
+                        <th title="ordina per Classe">{!! sortLink('Classe', 'animal_class_id', $sort, $direction) !!}</th>
+                        <th title="ordina per Dieta">{!! sortLink('Dieta', 'diet_id', $sort, $direction) !!}</th>
+                        <th title="ordina per Stato">{!! sortLink('Stato', 'conservation_status_id', $sort, $direction) !!}</th>
+                        <th class="text-center">Azioni</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+
+                <tbody>
+                    @foreach ($animals as $animal)
+                        <tr>
+                            <td>{{ $animal->id }}</td>
+
+                            <td>{{ str_pad((string) $animal->id, 4, '0', STR_PAD_LEFT) }}</td>
+
+                            <td class="text-center text-nowrap">
+                                @if ($animal->card_image)
+                                    <img src="{{ asset('storage/' . $animal->card_image) }}"
+                                        alt="{{ $animal->name }}"
+                                        style="width: 90px; height: 90px; object-fit: contain;"
+                                        class="me-2">
+                                @else
+                                    -
+                                @endif
+                                
+                                @if ($animal->real_image)
+                                    <img src="{{ asset('storage/' . $animal->real_image) }}"
+                                        alt="{{ $animal->name }}"
+                                        style="width: 90px; height: 90px; object-fit: contain;">
+                                @else
+                                    -
+                                @endif
+                            </td>
+
+                            <td>
+                                <strong>{{ $animal->name }}</strong><br>
+                                @if ($animal->scientific_name)
+                                    <small class="text-muted">{{ $animal->scientific_name }}</small>
+                                @else
+                                    <small class="text-muted">-</small>
+                                @endif
+                            </td>
+
+                            <td>
+                                <x-icon :entity="$animal->animalClass" measure=60 shape=1></x-icon>
+                                @if ($animal->animalClass?->name)
+                                    <br/>
+                                    {{ $animal->animalClass->name }}
+                                @else
+                                    <br/>
+                                    -
+                                @endif
+                            </td>
+
+                            <td>
+                                <x-icon :entity="$animal->diet" measure=60 shape=2></x-icon>
+                                @if ($animal->diet?->name)
+                                    <br/>
+                                    {{ $animal->diet->name }}
+                                @else
+                                    <br/>
+                                    -
+                                @endif
+                            </td>
+
+                            <td>
+                                @if ($animal->conservationStatus)
+                                    @if ($animal->conservationStatus->image)
+                                        <img src="{{ asset('storage/' . $animal->conservationStatus->image) }}"
+                                            alt="{{ $animal->conservationStatus->name ?? '' }}"
+                                            style="width: 60px; height: 60px; object-fit: contain;">
+                                    @endif
+
+                                    @if ($animal->conservationStatus->name)
+                                        <br/>
+                                        {{ $animal->conservationStatus->name }}
+                                    @endif
+                                @else
+                                    -
+                                @endif
+                            </td>
+
+                            <td class="text-end text-nowrap">
+                                <a href="{{ route('admin.animals.show', $animal) }}" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-binoculars-fill"></i> Vedi
+                                </a>
+
+                                <a href="{{ route('admin.animals.edit', $animal) }}" class="btn btn-sm btn-outline-warning">
+                                    <i class="bi bi-pencil-square"></i> Modifica
+                                </a>
+
+                                <button type="button"
+                                        class="btn btn-sm btn-outline-danger"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#delete-animal-{{ $animal->id }}">
+                                    <i class="bi bi-trash-fill"></i> Elimina
+                                </button>
+                                @include('admin.animals.partials.delete-modal', ['animal' => $animal])
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
 
         <div class="d-flex justify-content-between align-items-center mt-1">
             <div class="text-muted small">
