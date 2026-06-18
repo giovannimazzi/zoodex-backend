@@ -4,6 +4,12 @@
 
 <div class="container py-4">
 
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <div class="d-flex justify-content-between align-items-start mb-2">
 
         <div>
