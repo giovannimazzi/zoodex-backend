@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
+    <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center text-danger" href="{{ route("admin.animals.index") }}">
                 <h1 class="display-5">🦜</h1>{{ config('app.name', 'ZooDex') }}
@@ -17,6 +17,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('admin.animals.*') ? 'active' : '' }}" href="{{ route("admin.animals.index") }}">{{ __('Animali') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin.animalClasses.*') ? 'active' : '' }}" href="{{ route("admin.animalClasses.index") }}">{{ __('Classi') }}</a>
                     </li>
                 </ul>
 
