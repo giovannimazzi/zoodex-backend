@@ -8,7 +8,7 @@
             height: {{ $measure }}px;
             object-fit: contain;
             border-radius: {{ $shape == 1 ? '50%' : '0%'}};
-            background-color: {{ !empty($entity->color) ? $entity->color : '#6c757d' }};
+            background-color: {{ !empty($entity->color) ? $entity->color : config('zoodex.fallback_color') }};
         ">
 @elseif ($entity)
     <span
