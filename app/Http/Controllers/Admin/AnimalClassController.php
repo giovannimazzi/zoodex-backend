@@ -74,7 +74,7 @@ class AnimalClassController extends Controller
      */
     public function show(AnimalClass $animalClass)
     {
-        //
+        return view('admin.animalClasses.show', compact('animalClass')); 
     }
 
     /**
