@@ -8,6 +8,16 @@
             height: {{ $measure }}px;
             object-fit: contain;
             border-radius: {{ $shape == 1 ? '50%' : '0%'}};
-            background-color: {{ $entity->color }};
+            background-color: {{ !empty($entity->color) ? $entity->color : '#6c757d' }};
         ">
+@elseif ($entity)
+    <span
+        class="d-inline-flex justify-content-center align-items-center text-muted"
+        style="
+            width: {{ $measure }}px;
+            height: {{ $measure }}px;
+            border-radius: {{ $shape == 1 ? '50%' : '0%'}};
+            background-color: #e9ecef;
+        "
+    ><i class="bi bi-image"></i></span>
 @endif
