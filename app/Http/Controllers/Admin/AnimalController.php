@@ -147,9 +147,9 @@ class AnimalController extends Controller
 
         $animal = new Animal();
 
-        $animal->name = $data['name'];
+        $animal->name = ucfirst($data['name']);
         $animal->slug = Str::slug($data['name']);
-        $animal->scientific_name = $data['scientific_name'];
+        $animal->scientific_name = ucfirst($data['scientific_name']);
         $animal->description = $data['description'];
 
         $animal->weight_kg = $data['weight_kg'];
@@ -245,9 +245,9 @@ class AnimalController extends Controller
         $removeCardImage = $request->boolean('remove_card_image');
         $removeRealImage = $request->boolean('remove_real_image');
 
-        $animal->name = $data['name'];
+        $animal->name = ucfirst($data['name']);
         $animal->slug = Str::slug($data['name']);
-        $animal->scientific_name = $data['scientific_name'];
+        $animal->scientific_name = ucfirst($data['scientific_name']);
         $animal->description = $data['description'];
 
         $animal->weight_kg = $data['weight_kg'];
