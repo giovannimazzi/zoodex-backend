@@ -33,12 +33,12 @@ class ContinentSeeder extends Seeder
                 'description' => 'Il continente più esteso e popolato della Terra.',
             ],
             [
-                'name' => 'Nord America',
+                'name' => 'America del Nord',
                 'color' => '#388ad6',
                 'description' => 'Comprende ambienti che spaziano dalle regioni artiche alle foreste tropicali.',
             ],
             [
-                'name' => 'Sud America',
+                'name' => 'America del Sud',
                 'color' => '#FF6F61',
                 'description' => 'Ricco di biodiversità grazie alla foresta amazzonica e ad altri ecosistemi unici.',
             ],
