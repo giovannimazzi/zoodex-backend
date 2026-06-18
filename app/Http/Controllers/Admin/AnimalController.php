@@ -120,11 +120,11 @@ class AnimalController extends Controller
     public function create()
     {
         $animalClasses = AnimalClass::orderBy('name')->get();
-        $diets = Diet::all();
-        $conservationStatuses = ConservationStatus::orderBy('id')->get();
+        $diets = Diet::orderBy('name')->get();
+        $conservationStatuses = ConservationStatus::all();
 
-        $habitats = Habitat::all();
-        $continents = Continent::all();
+        $habitats = Habitat::orderBy('name')->get();
+        $continents = Continent::orderBy('name')->get();
         $abilities = Ability::orderBy('name')->get();
 
         return view('admin.animals.create', compact(
@@ -203,6 +203,10 @@ class AnimalController extends Controller
             'abilities',
         ]);
 
+        $animal->habitats = $animal->habitats->sortBy('name');
+        $animal->continents = $animal->continents->sortBy('name');
+        $animal->abilities = $animal->abilities->sortBy('name');
+
         return view('admin.animals.show', compact('animal')); 
     }
 
@@ -212,11 +216,11 @@ class AnimalController extends Controller
     public function edit(Animal $animal)
     {
         $animalClasses = AnimalClass::orderBy('name')->get();
-        $diets = Diet::all();
-        $conservationStatuses = ConservationStatus::orderBy('id')->get();
+        $diets = Diet::orderBy('name')->get();
+        $conservationStatuses = ConservationStatus::all();
 
-        $habitats = Habitat::all();
-        $continents = Continent::all();
+        $habitats = Habitat::orderBy('name')->get();
+        $continents = Continent::orderBy('name')->get();
         $abilities = Ability::orderBy('name')->get();
 
         return view('admin.animals.edit', compact(
