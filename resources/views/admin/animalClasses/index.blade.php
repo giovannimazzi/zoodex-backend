@@ -156,14 +156,14 @@
                             <td>{{ $animalClass->id }}</td>
 
                             <td class="text-center">
-                                @if ($animalClass->image)
-                                    <x-icon :entity="$animalClass" measure=50 shape=1></x-icon>
-                                    {{-- <img src="{{ asset('storage/' . $animalClass->image) }}"
+                                <x-icon :entity="$animalClass" measure=50 shape=1></x-icon>
+                                {{-- @if ($animalClass->image)
+                                    <img src="{{ asset('storage/' . $animalClass->image) }}"
                                         alt="{{ $animalClass->name }}"
-                                        style="width: 90px; height: 90px; object-fit: contain;"> --}}
+                                        style="width: 90px; height: 90px; object-fit: contain;">
                                 @else
                                     -
-                                @endif
+                                @endif --}}
                             </td>
 
                             <td>
@@ -171,7 +171,11 @@
                             </td>
 
                             <td>
-                                <span class="badge badge-lg" style="background-color: {{ $animalClass->color }}">{{ $animalClass->color }}</span>
+                                <big>
+                                    <span class="badge" style="background-color: {{ $animalClass->color !== null ? $animalClass->color : config('zoodex.fallback_color') }}">
+                                        {{ $animalClass->color !== null ? $animalClass->color : config('zoodex.fallback_color') }}
+                                    </span>
+                                </big>
                             </td>
 
                             <td>
