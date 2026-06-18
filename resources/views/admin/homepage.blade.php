@@ -22,14 +22,14 @@
             </div>
 
             <div class="col-12 col-lg-2">
-                {{-- <a href="{{ route('admin.animalClasses.index') }}" class="text-decoration-none"> --}}
+                <a href="{{ route('admin.animalClasses.index') }}" class="text-decoration-none">
                     <div class="card text-center btn btn-outline-primary">
                         <div class="card-body">
                             <h3>{{ $classesCount }}</h3>
                             <span class="fw-semibold">Classi</span>
                         </div>
                     </div>
-                {{-- </a> --}}
+                </a>
             </div>
 
             <div class="col-12 col-lg-2">
