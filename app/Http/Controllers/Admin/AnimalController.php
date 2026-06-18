@@ -207,7 +207,23 @@ class AnimalController extends Controller
      */
     public function edit(Animal $animal)
     {
-        //
+        $animalClasses = AnimalClass::orderBy('name')->get();
+        $diets = Diet::all();
+        $conservationStatuses = ConservationStatus::orderBy('id')->get();
+
+        $habitats = Habitat::all();
+        $continents = Continent::all();
+        $abilities = Ability::orderBy('name')->get();
+
+        return view('admin.animals.edit', compact(
+            'animal',
+            'animalClasses',
+            'diets',
+            'conservationStatuses',
+            'habitats',
+            'continents',
+            'abilities'
+        ));
     }
 
     /**
