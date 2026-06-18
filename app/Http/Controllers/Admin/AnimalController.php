@@ -16,6 +16,35 @@ use Illuminate\Support\Str;
 
 class AnimalController extends Controller
 {
+
+    public $validator = [
+            'name' => 'required|string|max:255',
+            'scientific_name' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+
+            'weight_kg' => 'nullable|numeric|min:0',
+            'length_cm' => 'nullable|numeric|min:0',
+            'height_cm' => 'nullable|numeric|min:0',
+            'lifespan_years' => 'nullable|integer|min:0',
+
+            'animal_class_id' => 'nullable|exists:animal_classes,id',
+            'diet_id' => 'nullable|exists:diets,id',
+            'conservation_status_id' => 'nullable|exists:conservation_statuses,id',
+
+            'card_image' => 'nullable|image|max:2048',
+            'real_image' => 'nullable|image|max:2048',
+
+            'habitats' => 'nullable|array',
+            'habitats.*' => 'exists:habitats,id',
+
+            'continents' => 'nullable|array',
+            'continents.*' => 'exists:continents,id',
+
+            'abilities' => 'nullable|array',
+            'abilities.*' => 'exists:abilities,id',
+        ];
+
+
     /**
      * Display a listing of the resource.
      */
@@ -113,32 +142,7 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'scientific_name' => 'nullable|string|max:255',
-            'description' => 'nullable|string',
-
-            'weight_kg' => 'nullable|numeric|min:0',
-            'length_cm' => 'nullable|numeric|min:0',
-            'height_cm' => 'nullable|numeric|min:0',
-            'lifespan_years' => 'nullable|integer|min:0',
-
-            'animal_class_id' => 'nullable|exists:animal_classes,id',
-            'diet_id' => 'nullable|exists:diets,id',
-            'conservation_status_id' => 'nullable|exists:conservation_statuses,id',
-
-            'card_image' => 'nullable|image|max:2048',
-            'real_image' => 'nullable|image|max:2048',
-
-            'habitats' => 'nullable|array',
-            'habitats.*' => 'exists:habitats,id',
-
-            'continents' => 'nullable|array',
-            'continents.*' => 'exists:continents,id',
-
-            'abilities' => 'nullable|array',
-            'abilities.*' => 'exists:abilities,id',
-        ]);
+        $data = $request->validate($this->validator);
 
         $animal = new Animal();
 
@@ -231,7 +235,68 @@ class AnimalController extends Controller
      */
     public function update(Request $request, Animal $animal)
     {
-        //
+        $data = $request->validate($this->validator);
+
+        $removeCardImage = $request->boolean('remove_card_image');
+        $removeRealImage = $request->boolean('remove_real_image');
+
+        $animal->name = $data['name'];
+        $animal->slug = Str::slug($data['name']);
+        $animal->scientific_name = $data['scientific_name'];
+        $animal->description = $data['description'];
+
+        $animal->weight_kg = $data['weight_kg'];
+        $animal->length_cm = $data['length_cm'];
+        $animal->height_cm = $data['height_cm'];
+        $animal->lifespan_years = $data['lifespan_years'];
+
+        $animal->animal_class_id = $data['animal_class_id'];
+        $animal->diet_id = $data['diet_id'];
+        $animal->conservation_status_id = $data['conservation_status_id'];
+
+        if ($removeCardImage) {
+            if ($animal->card_image && Storage::exists($animal->card_image)) {
+                Storage::delete($animal->card_image);
+            }
+
+            $animal->card_image = null;
+        }
+
+        if ($request->hasFile('card_image')) {
+            if ($animal->card_image && Storage::exists($animal->card_image)) {
+                Storage::delete($animal->card_image);
+            }
+
+            $path = Storage::putFile('animals/card_image', $request->card_image);
+            $animal->card_image = $path;
+        }
+
+        if ($removeRealImage) {
+            if ($animal->real_image && Storage::exists($animal->real_image)) {
+                Storage::delete($animal->real_image);
+            }
+
+            $animal->real_image = null;
+        }
+
+        if ($request->hasFile('real_image')) {
+            if ($animal->real_image && Storage::exists($animal->real_image)) {
+                Storage::delete($animal->real_image);
+            }
+
+            $path = Storage::putFile('animals/real_image', $request->real_image);
+            $animal->real_image = $path;
+        }
+
+        $animal->save();
+
+        $animal->habitats()->sync($data['habitats'] ?? []);
+        $animal->continents()->sync($data['continents'] ?? []);
+        $animal->abilities()->sync($data['abilities'] ?? []);
+
+        return redirect()
+            ->route('admin.animals.show', $animal)
+            ->with('success', 'Animale aggiornato con successo.');
     }
 
     /**
