@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AnimalClassController;
 use App\Http\Controllers\Admin\AnimalController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
@@ -25,6 +26,7 @@ Route::middleware(['auth', 'verified'])
     ->group(function(){
         Route::get('/', [DashboardController::class, "index"])->name("index");
         Route::resource('animals', AnimalController::class);
+        Route::resource('animalClasses', AnimalClassController::class);
     });
 
 require __DIR__.'/auth.php';
