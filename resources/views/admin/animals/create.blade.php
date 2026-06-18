@@ -95,6 +95,14 @@
                                value="{{ old('lifespan_years') }}">
                     </div>
 
+                    <div class="col-12">
+                        <label for="description" class="form-label fw-semibold">Descrizione</label>
+                        <textarea name="description"
+                                id="description"
+                                rows="2"
+                                class="form-control">{{ old('description') }}</textarea>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -133,54 +141,141 @@
             </div>
 
             <div class="card-body">
-                <div class="row g-3 mb-3">
+                <div class="row g-2 mb-2">
 
-                    <div class="col-md-4">
-                        <label for="animal_class_id" class="form-label fw-semibold">Classe</label>
-                        <select name="animal_class_id"
-                                id="animal_class_id"
-                                class="form-select">
-                            <option value="">Seleziona classe</option>
+                    <div class="col-12">
+                        <div class="card h-100">
+                            <div class="card-header fw-semibold">Classe</div>
 
-                            @foreach ($animalClasses as $animalClass)
-                                <option value="{{ $animalClass->id }}"
-                                    @selected(old('animal_class_id') == $animalClass->id)>
-                                    {{ $animalClass->name }}
-                                </option>
-                            @endforeach
-                        </select>
+                            <div class="card-body">
+                                <div class="row g-1">
+                                    <div class="col-md-4 col-lg-3">
+                                        <div class="form-check d-flex align-items-center gap-2">
+                                            <input class="form-check-input"
+                                                   type="radio"
+                                                   name="animal_class_id"
+                                                   id="animal_class-none"
+                                                   value=""
+                                                   @checked(old('animal_class_id') === null || old('animal_class_id') === '')>
+
+                                            <label class="form-check-label btn btn-secondary fw-semibold rounded-3"
+                                                   for="animal_class-none">
+                                                Nessuno
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    @foreach ($animalClasses as $animalClass)
+                                        <div class="col-md-4 col-lg-3">
+                                            <div class="form-check d-flex align-items-center gap-2">
+                                                <input class="form-check-input"
+                                                       type="radio"
+                                                       name="animal_class_id"
+                                                       id="animal_class-{{ $animalClass->id }}"
+                                                       value="{{ $animalClass->id }}"
+                                                       @checked(old('animal_class_id') == $animalClass->id)>
+
+                                                <label class="form-check-label btn btn-outline-light fw-semibold rounded-3"
+                                                       for="animal_class-{{ $animalClass->id }}"
+                                                       style="background-color: {{ !empty($animalClass->color) ? $animalClass->color : '#6c757d' }};">
+                                                    {{ $animalClass->name }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="col-md-4">
-                        <label for="diet_id" class="form-label fw-semibold">Dieta</label>
-                        <select name="diet_id"
-                                id="diet_id"
-                                class="form-select">
-                            <option value="">Seleziona dieta</option>
+                    <div class="col-12">
+                        <div class="card h-100">
+                            <div class="card-header fw-semibold">Dieta</div>
 
-                            @foreach ($diets as $diet)
-                                <option value="{{ $diet->id }}"
-                                    @selected(old('diet_id') == $diet->id)>
-                                    {{ $diet->name }}
-                                </option>
-                            @endforeach
-                        </select>
+                            <div class="card-body">
+                                <div class="row g-1">
+                                    <div class="col-md-4 col-lg-3">
+                                        <div class="form-check d-flex align-items-center gap-2">
+                                            <input class="form-check-input"
+                                                   type="radio"
+                                                   name="diet_id"
+                                                   id="diet-none"
+                                                   value=""
+                                                   @checked(old('diet_id') === null || old('diet_id') === '')>
+
+                                            <label class="form-check-label btn btn-secondary fw-semibold rounded-3"
+                                                   for="diet-none">
+                                                Nessuno
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    @foreach ($diets as $diet)
+                                        <div class="col-md-4 col-lg-3">
+                                            <div class="form-check d-flex align-items-center gap-2">
+                                                <input class="form-check-input"
+                                                       type="radio"
+                                                       name="diet_id"
+                                                       id="diet-{{ $diet->id }}"
+                                                       value="{{ $diet->id }}"
+                                                       @checked(old('diet_id') == $diet->id)>
+
+                                                <label class="form-check-label btn btn-outline-light fw-semibold rounded-3"
+                                                       for="diet-{{ $diet->id }}"
+                                                       style="background-color: {{ !empty($diet->color) ? $diet->color : '#6c757d' }};">
+                                                    {{ $diet->name }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="col-md-4">
-                        <label for="conservation_status_id" class="form-label fw-semibold">Stato conservazione</label>
-                        <select name="conservation_status_id"
-                                id="conservation_status_id"
-                                class="form-select">
-                            <option value="">Seleziona stato</option>
+                    <div class="col-12">
+                        <div class="card h-100">
+                            <div class="card-header fw-semibold">Stato conservazione</div>
 
-                            @foreach ($conservationStatuses as $conservationStatus)
-                                <option value="{{ $conservationStatus->id }}"
-                                    @selected(old('conservation_status_id') == $conservationStatus->id)>
-                                    {{ $conservationStatus->name }}
-                                </option>
-                            @endforeach
-                        </select>
+                            <div class="card-body">
+                                <div class="row g-1">
+                                    <div class="col-md-4 col-lg-3">
+                                        <div class="form-check d-flex align-items-center gap-2">
+                                            <input class="form-check-input"
+                                                   type="radio"
+                                                   name="conservation_status_id"
+                                                   id="conservation_status-none"
+                                                   value=""
+                                                   @checked(old('conservation_status_id') === null || old('conservation_status_id') === '')>
+
+                                            <label class="form-check-label btn btn-secondary fw-semibold rounded-3"
+                                                   for="conservation_status-none">
+                                                Nessuno
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    @foreach ($conservationStatuses as $conservationStatus)
+                                        <div class="col-md-4 col-lg-3">
+                                            <div class="form-check d-flex align-items-center gap-2">
+                                                <input class="form-check-input"
+                                                       type="radio"
+                                                       name="conservation_status_id"
+                                                       id="conservation_status-{{ $conservationStatus->id }}"
+                                                       value="{{ $conservationStatus->id }}"
+                                                       @checked(old('conservation_status_id') == $conservationStatus->id)>
+
+                                                <label class="form-check-label btn btn-outline-light fw-semibold rounded-3"
+                                                       for="conservation_status-{{ $conservationStatus->id }}"
+                                                       style="background-color: {{ !empty($conservationStatus->color) ? $conservationStatus->color : '#6c757d' }};">
+                                                    {{ $conservationStatus->name }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -191,11 +286,11 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row g-1">
 
                             @foreach ($habitats as $habitat)
                                 <div class="col-md-4 col-lg-3">
-                                    <div class="form-check">
+                                    <div class="form-check d-flex align-items-center gap-2">
                                         <input class="form-check-input"
                                             type="checkbox"
                                             name="habitats[]"
@@ -203,7 +298,7 @@
                                             value="{{ $habitat->id }}"
                                             @checked(is_array(old('habitats')) && in_array($habitat->id, old('habitats')))> 
 
-                                        <label class="form-check-label" for="habitat-{{ $habitat->id }}">
+                                        <label class="form-check-label btn btn-outline-light fw-semibold rounded-3" for="habitat-{{ $habitat->id }}" style="background-color: {{ !empty($habitat->color) ? $habitat->color : '#6c757d' }};">
                                             {{ $habitat->name }}
                                         </label>
                                     </div>
@@ -220,11 +315,11 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row g-1">
 
                             @foreach ($continents as $continent)
                                 <div class="col-md-4 col-lg-3">
-                                    <div class="form-check">
+                                    <div class="form-check d-flex align-items-center gap-2">
                                         <input class="form-check-input"
                                             type="checkbox"
                                             name="continents[]"
@@ -232,7 +327,7 @@
                                             value="{{ $continent->id }}"
                                             @checked(is_array(old('continents')) && in_array($continent->id, old('continents')))> 
 
-                                        <label class="form-check-label" for="continent-{{ $continent->id }}">
+                                        <label class="form-check-label btn btn-outline-light fw-semibold rounded-3" for="continent-{{ $continent->id }}" style="background-color: {{ !empty($continent->color) ? $continent->color : '#6c757d' }};">
                                             {{ $continent->name }}
                                         </label>
                                     </div>
@@ -243,17 +338,17 @@
                     </div>
                 </div>
 
-                <div class="card mb-2">
+                <div class="card mb-0">
                     <div class="card-header fw-semibold">
                         Abilità
                     </div>
 
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row g-1">
 
                             @foreach ($abilities as $ability)
                                 <div class="col-md-4 col-lg-3">
-                                    <div class="form-check">
+                                    <div class="form-check d-flex align-items-center gap-2">
                                         <input class="form-check-input"
                                             type="checkbox"
                                             name="abilities[]"
@@ -261,7 +356,7 @@
                                             value="{{ $ability->id }}"
                                             @checked(is_array(old('abilities')) && in_array($ability->id, old('abilities')))> 
 
-                                        <label class="form-check-label" for="ability-{{ $ability->id }}">
+                                        <label class="form-check-label btn btn-outline-light fw-semibold rounded-3" for="ability-{{ $ability->id }}" style="background-color: {{ !empty($ability->color) ? $ability->color : '#6c757d' }};">
                                             {{ $ability->name }}
                                         </label>
                                     </div>
@@ -272,18 +367,6 @@
                     </div>
                 </div>
 
-            <div class="card mb-2">
-                <div class="card-header fw-semibold">
-                    Descrizione
-                </div>
-
-                <div class="card-body">
-                    <textarea name="description"
-                            id="description"
-                            rows="5"
-                            class="form-control">{{ old('description') }}</textarea>
-                </div>
-            </div>
             </div>
 
         </div>
