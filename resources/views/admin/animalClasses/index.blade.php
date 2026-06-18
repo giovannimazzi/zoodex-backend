@@ -1,0 +1,222 @@
+@extends('layouts.base')
+
+@section('content')
+
+    <div class="container py-4">
+
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <div class="d-flex justify-content-between align-items-center mb-1">
+            <h1>{{ __('Lista Classi') }}</h1>
+
+            <a href="{{ route('admin.animalClasses.create') }}" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Aggiungi Nuovo
+            </a>
+        </div>
+
+        <div class="mb-2">
+            <button class="btn btn-primary"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#animalClasses-filters"
+                    aria-expanded="true"
+                    aria-controls="animalClasses-filters">
+                <i class="bi bi-funnel-fill"></i> Apri/Chiudi Filtri
+            </button>
+        </div>
+
+        <div class="collapse show" id="animalClasses-filters">
+            <div class="bg-primary p-2 border border-3 rounded-3">
+            <form action="{{ route('admin.animalClasses.index') }}" method="GET">
+                <div class="row g-2 align-items-end">
+
+                    <div class="col-12 col-lg-2">
+                        <label for="id" class="form-label fw-semibold">ID</label>
+                        <div class="input-group">
+                            <input type="number"
+                                name="id"
+                                id="id"
+                                class="form-control"
+                                placeholder="ID"
+                                value="{{ request('id') }}"
+                                min="1">
+
+                            <button type="button"
+                                    class="btn btn-sm btn-secondary"
+                                    aria-label="Reset ID"
+                                    title="Reset ID"
+                                    onclick="document.getElementById('id').value=''; document.getElementById('id').focus();">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-8">
+                        <label for="search" class="form-label fw-semibold">Nome o Descrizione</label>
+                        <input type="text"
+                            name="search"
+                            id="search"
+                            class="form-control"
+                            placeholder="Nome o Descrizione classe"
+                            value="{{ request('search') }}">
+                    </div>                    
+
+                    <div class="col-12 col-lg-2 d-flex gap-2">
+                        <button type="submit" class="btn btn-warning w-100">
+                            <i class="bi bi-funnel-fill"></i> Filtra
+                        </button>
+
+                        <a href="{{ route('admin.animalClasses.index') }}" class="btn btn-secondary">
+                            Reset
+                        </a>
+                    </div>
+
+                </div>
+            </form>
+            </div>
+        </div>
+        
+
+        @php
+
+            if (!function_exists('sortLink')){
+                function sortLink($entity, $label, $column, $sort, $direction)
+                {
+                    $newDirection = 'asc';
+
+                    if ($sort === $column && $direction === 'asc') {
+                        $newDirection = 'desc';
+                    }
+
+                    $icon = '';
+
+                    if ($sort === $column) {
+                        $icon = $direction === 'asc'
+                            ? ' ↑'
+                            : ' ↓';
+                    }
+
+                    $resetSortHtml = '';
+
+                    if ($sort === $column && request()->has('sort')) {
+                        $resetQuery = request()->except(['sort', 'direction', 'page']);
+                        $resetQuery['page'] = 1;
+                        $resetUrl = route('admin.'. $entity .'.index', $resetQuery);
+
+                        $resetSortHtml = '
+                            <a href="' . $resetUrl . '"
+                            class="text-decoration-none text-muted ms-1"
+                            title="Reset ordinamento"
+                            aria-label="Reset ordinamento">
+                                <i class="bi bi-x-circle"></i>
+                            </a>
+                        ';
+                    }
+
+                    $url = request()->fullUrlWithQuery([
+                        'sort' => $column,
+                        'direction' => $newDirection,
+                        'page' => 1,
+                    ]);
+
+                    return '
+                        <span class="d-flex align-items-center">
+                            <a href="' . $url . '" class="text-decoration-none text-dark">
+                                ' . $label . $icon . '
+                            </a>
+                            ' . $resetSortHtml . '
+                        </span>
+                    ';
+                }
+            }
+            
+
+        @endphp
+        
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th title="ordina per ID">{!! sortLink('animalClasses', 'ID', 'id', $sort, $direction) !!}</th>
+                        <th class="text-center">Immagini</th>
+                        <th title="ordina per Nome">{!! sortLink('animalClasses', 'Nome', 'name', $sort, $direction) !!}</th>
+                        <th title="ordina per Colore">{!! sortLink('animalClasses', 'Colore', 'color', $sort, $direction) !!}</th>
+                        <th>Descrizione</th>
+                        <th class="text-center">Azioni</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach ($animalClasses as $animalClass)
+                        <tr>
+                            <td>{{ $animalClass->id }}</td>
+
+                            <td class="text-center">
+                                @if ($animalClass->image)
+                                    <x-icon :entity="$animalClass" measure=50 shape=1></x-icon>
+                                    {{-- <img src="{{ asset('storage/' . $animalClass->image) }}"
+                                        alt="{{ $animalClass->name }}"
+                                        style="width: 90px; height: 90px; object-fit: contain;"> --}}
+                                @else
+                                    -
+                                @endif
+                            </td>
+
+                            <td>
+                                <strong>{{ $animalClass->name }}</strong>
+                            </td>
+
+                            <td>
+                                <span class="badge badge-lg" style="background-color: {{ $animalClass->color }}">{{ $animalClass->color }}</span>
+                            </td>
+
+                            <td>
+                                <textarea disabled rows="2" class="form-control bg-transparent border-0">{{ $animalClass->description }}</textarea>
+                            </td>
+
+                            <td class="text-end text-nowrap">
+                                <a href="{{ route('admin.animalClasses.show', $animalClass) }}" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-binoculars-fill"></i> Vedi
+                                </a>
+
+                                <a href="{{ route('admin.animalClasses.edit', $animalClass) }}" class="btn btn-sm btn-outline-warning">
+                                    <i class="bi bi-pencil-square"></i> Modifica
+                                </a>
+
+                                <button type="button"
+                                        class="btn btn-sm btn-outline-danger"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#delete-animalClass-{{ $animalClass->id }}">
+                                    <i class="bi bi-trash-fill"></i> Elimina
+                                </button>
+                                @include('admin.animalClasses.partials.delete-modal', ['animalClass' => $animalClass])
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mt-1">
+            <div class="text-muted small">
+                Visualizzati
+                {{ $animalClasses->firstItem() ?? 0 }}
+                -
+                {{ $animalClasses->lastItem() ?? 0 }}
+                di
+                {{ $animalClasses->total() }}
+                Classi
+            </div>
+
+            <div>
+                {{ $animalClasses->links('vendor.pagination.bootstrap-5') }}
+            </div>
+        </div>
+
+    </div>
+
+@endsection
