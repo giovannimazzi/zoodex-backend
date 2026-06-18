@@ -308,6 +308,22 @@ class AnimalController extends Controller
      */
     public function destroy(Animal $animal)
     {
-        //
+        if ($animal->card_image && Storage::exists($animal->card_image)) {
+            Storage::delete($animal->card_image);
+        }
+
+        if ($animal->real_image && Storage::exists($animal->real_image)) {
+            Storage::delete($animal->real_image);
+        }
+
+        $animal->habitats()->detach();
+        $animal->continents()->detach();
+        $animal->abilities()->detach();
+
+        $animal->delete();
+
+        return redirect()
+            ->route('admin.animals.index')
+            ->with('success', 'Animale eliminato con successo.');
     }
 }
