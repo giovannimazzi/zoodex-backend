@@ -122,7 +122,7 @@
             <div class="card-body">
                 <div class="row g-3">
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 d-flex flex-column justify-content-between">
                         <label for="card_image" class="form-label fw-semibold">Immagine fantasy</label>
 
                         @if ($animal->card_image)
@@ -134,24 +134,26 @@
                             </div>
                         @endif
 
-                        <div class="form-check mb-2">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="remove_card_image"
-                                   id="remove_card_image"
-                                   value="1">
-                            <label class="form-check-label" for="remove_card_image">
-                                Rimuovi immagine attuale
-                            </label>
-                        </div>
+                        <div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input"
+                                    type="checkbox"
+                                    name="remove_card_image"
+                                    id="remove_card_image"
+                                    value="1">
+                                <label class="form-check-label" for="remove_card_image">
+                                    Rimuovi immagine attuale
+                                </label>
+                            </div>
 
-                        <input type="file"
-                               name="card_image"
-                               id="card_image"
-                               class="form-control">
+                            <input type="file"
+                                name="card_image"
+                                id="card_image"
+                                class="form-control">
+                        </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 d-flex flex-column justify-content-between">
                         <label for="real_image" class="form-label fw-semibold">Immagine reale</label>
 
                         @if ($animal->real_image)
@@ -163,21 +165,23 @@
                             </div>
                         @endif
 
-                        <div class="form-check mb-2">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="remove_real_image"
-                                   id="remove_real_image"
-                                   value="1">
-                            <label class="form-check-label" for="remove_real_image">
-                                Rimuovi immagine attuale
-                            </label>
-                        </div>
+                        <div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input"
+                                    type="checkbox"
+                                    name="remove_real_image"
+                                    id="remove_real_image"
+                                    value="1">
+                                <label class="form-check-label" for="remove_real_image">
+                                    Rimuovi immagine attuale
+                                </label>
+                            </div>
 
-                        <input type="file"
-                               name="real_image"
-                               id="real_image"
-                               class="form-control">
+                            <input type="file"
+                                name="real_image"
+                                id="real_image"
+                                class="form-control">
+                        </div>
                     </div>
 
                 </div>
