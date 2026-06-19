@@ -111,7 +111,7 @@ class AnimalClassController extends Controller
      */
     public function edit(AnimalClass $animalClass)
     {
-        //
+        return view('admin.animalClasses.edit', compact('animalClass'));
     }
 
     /**
@@ -119,8 +119,39 @@ class AnimalClassController extends Controller
      */
     public function update(Request $request, AnimalClass $animalClass)
     {
-        //
+        $data = $request->validate($this->validator);
+
+        $removeImage = $request->boolean('remove_image');
+
+        $animalClass->name = ucfirst($data['name']);
+        $animalClass->slug = Str::slug($data['name']);
+        $animalClass->color = $data['color'];
+        $animalClass->description = $data['description'];
+
+        if ($removeImage) {
+            if ($animalClass->image && Storage::exists($animalClass->image)) {
+                Storage::delete($animalClass->image);
+            }
+
+            $animalClass->image = null;
+        }
+
+        if ($request->hasFile('image')) {
+            if ($animalClass->image && Storage::exists($animalClass->image)) {
+                Storage::delete($animalClass->image);
+            }
+
+            $path = Storage::putFile('animal-classes', $request->image);
+            $animalClass->image = $path;
+        }
+
+        $animalClass->save();
+
+        return redirect()
+            ->route('admin.animalClasses.show', $animalClass)
+            ->with('success', 'Classe aggiornata con successo.');
     }
+
 
     /**
      * Remove the specified resource from storage.
