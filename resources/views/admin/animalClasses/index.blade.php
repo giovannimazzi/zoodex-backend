@@ -124,7 +124,7 @@
                     ]);
 
                     return '
-                        <span class="d-flex align-items-center">
+                        <span class="d-inline-flex justify-content-center align-items-center w-100">
                             <a href="' . $url . '" class="text-decoration-none text-dark">
                                 ' . $label . $icon . '
                             </a>
@@ -145,17 +145,17 @@
                         <th class="text-center">Immagini</th>
                         <th title="ordina per Nome">{!! sortLink('animalClasses', 'Nome', 'name', $sort, $direction) !!}</th>
                         <th title="ordina per Colore">{!! sortLink('animalClasses', 'Colore', 'color', $sort, $direction) !!}</th>
-                        <th>Descrizione</th>
+                        <th class="text-center">Descrizione</th>
                         <th class="text-center">Azioni</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     @foreach ($animalClasses as $animalClass)
-                        <tr>
+                        <tr class="text-center">
                             <td>{{ $animalClass->id }}</td>
 
-                            <td class="text-center">
+                            <td>
                                 <x-icon :entity="$animalClass" measure=50 shape=1></x-icon>
                                 {{-- @if ($animalClass->image)
                                     <img src="{{ asset('storage/' . $animalClass->image) }}"

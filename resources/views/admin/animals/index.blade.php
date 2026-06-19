@@ -165,7 +165,7 @@
                     ]);
 
                     return '
-                        <span class="d-flex align-items-center">
+                        <span class="d-inline-flex justify-content-center align-items-center w-100">
                             <a href="' . $url . '" class="text-decoration-none text-dark">
                                 ' . $label . $icon . '
                             </a>
@@ -183,7 +183,7 @@
                 <thead>
                     <tr>
                         <th title="ordina per ID">{!! sortLink('animals', 'ID', 'id', $sort, $direction) !!}</th>
-                        <th>N° DEX</th>
+                        <th class="text-center">N° DEX</th>
                         <th class="text-center">Immagini</th>
                         <th title="ordina per Nome">{!! sortLink('animals', 'Nome', 'name', $sort, $direction) !!}</th>
                         <th title="ordina per Classe">{!! sortLink('animals', 'Classe', 'animal_class_id', $sort, $direction) !!}</th>
@@ -195,12 +195,12 @@
 
                 <tbody>
                     @foreach ($animals as $animal)
-                        <tr>
+                        <tr class="text-center">
                             <td>{{ $animal->id }}</td>
 
                             <td>{{ str_pad((string) $animal->id, 4, '0', STR_PAD_LEFT) }}</td>
 
-                            <td class="text-center text-nowrap">
+                            <td class="text-nowrap">
                                 @if ($animal->card_image)
                                     <img src="{{ asset('storage/' . $animal->card_image) }}"
                                         alt="{{ $animal->name }}"
