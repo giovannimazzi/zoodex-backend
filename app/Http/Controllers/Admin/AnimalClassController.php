@@ -5,9 +5,20 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\AnimalClass;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class AnimalClassController extends Controller
 {
+
+    public $validator = [
+            'name' => 'required|string|max:255',
+            'color' => 'nullable|regex:/^#[0-9A-Fa-f]{6}$/',
+            'description' => 'nullable|string',
+
+            'image' => 'nullable|image|max:2048'
+        ];
+
     /**
      * Display a listing of the resource.
      */
@@ -66,7 +77,25 @@ class AnimalClassController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate($this->validator);
+
+        $animalClass = new AnimalClass();
+
+        $animalClass->name = ucfirst($data['name']);
+        $animalClass->slug = Str::slug($data['name']);
+        $animalClass->color = $data['color'];
+        $animalClass->description = $data['description'];
+
+        if ($request->hasFile('image')) {
+            $path = Storage::putFile('animal-classes', $request->image);
+            $animalClass->image = $path;
+        }
+
+        $animalClass->save();
+
+        return redirect()
+            ->route('admin.animalClasses.show', $animalClass)
+            ->with('success', 'Classe creata con successo.');
     }
 
     /**
