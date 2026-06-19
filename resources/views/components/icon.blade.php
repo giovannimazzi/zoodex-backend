@@ -17,7 +17,7 @@
             width: {{ $measure }}px;
             height: {{ $measure }}px;
             border-radius: {{ $shape == 1 ? '50%' : '0%'}};
-            background-color: #e9ecef;
+            background-color: {{ config('zoodex.fallback_color') }};
         "
     ><i class="bi bi-image"></i></span>
 @endif
