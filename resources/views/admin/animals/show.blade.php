@@ -168,16 +168,18 @@
                 </div>
 
                 <div class="card-body text-center">
-
-                    <x-icon :entity="$animal->animalClass" measure=70 shape=1>
-                    </x-icon>
-
-                    @if ($animal->animalClass?->name)
+                    <div class="d-flex flex-column justify-content-center h-100">
                         <div>
-                            {{ $animal->animalClass->name }}
-                        </div>
-                    @endif
+                            <x-icon :entity="$animal->animalClass" measure=70 shape=1>
+                            </x-icon>
 
+                            @if ($animal->animalClass?->name)
+                                <div>
+                                    {{ $animal->animalClass->name }}
+                                </div>
+                            @endif
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -193,16 +195,18 @@
                 </div>
 
                 <div class="card-body text-center">
-
-                    <x-icon :entity="$animal->diet" measure=70 shape=2>
-                    </x-icon>
-
-                    @if ($animal->diet?->name)
+                    <div class="d-flex flex-column justify-content-center h-100">
                         <div>
-                            {{ $animal->diet->name }}
-                        </div>
-                    @endif
+                            <x-icon :entity="$animal->diet" measure=70 shape=2>
+                            </x-icon>
 
+                            @if ($animal->diet?->name)
+                                <div>
+                                    {{ $animal->diet->name }}
+                                </div>
+                            @endif
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -218,19 +222,21 @@
                 </div>
 
                 <div class="card-body text-center">
-
-                    @if ($animal->conservationStatus?->image)
-                        <img src="{{ asset('storage/' . $animal->conservationStatus->image) }}"
-                             alt="{{ $animal->conservationStatus->name }}"
-                             style="width: 70px; height: 70px; object-fit: contain;">
-                    @endif
-
-                    @if ($animal->conservationStatus?->name)
+                    <div class="d-flex flex-column justify-content-center h-100">
                         <div>
-                            {{ $animal->conservationStatus->name }}
-                        </div>
-                    @endif
+                            @if ($animal->conservationStatus?->image)
+                                <img src="{{ asset('storage/' . $animal->conservationStatus->image) }}"
+                                    alt="{{ $animal->conservationStatus->name }}"
+                                    style="width: 70px; height: 70px; object-fit: contain;">
+                            @endif
 
+                            @if ($animal->conservationStatus?->name)
+                                <div>
+                                    {{ $animal->conservationStatus->name }}
+                                </div>
+                            @endif
+                        </div>
+                    </div>
                 </div>
 
             </div>
