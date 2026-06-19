@@ -1,6 +1,6 @@
 @props(['entity', 'measure', 'shape'])
 
-@if ($entity && $entity->image)
+@if ($entity && $entity->image && Storage::exists($entity->image))
     <img src="{{ asset('storage/' . $entity->image) }}"
         alt="{{ $entity->name }}"
         style="
