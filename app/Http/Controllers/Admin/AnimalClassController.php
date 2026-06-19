@@ -158,6 +158,14 @@ class AnimalClassController extends Controller
      */
     public function destroy(AnimalClass $animalClass)
     {
-        //
+        if ($animalClass->image && Storage::exists($animalClass->image)) {
+            Storage::delete($animalClass->image);
+        }
+
+        $animalClass->delete();
+
+        return redirect()
+            ->route('admin.animalClasses.index')
+            ->with('success', 'Classe eliminata con successo.');
     }
 }
