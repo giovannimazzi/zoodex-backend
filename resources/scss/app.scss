@@ -4,3 +4,15 @@
 body {
     padding-top: 76px;
 }
+
+img {
+    transition: transform 1.5s ease-in-out;
+    transform-origin: bottom center;
+}
+
+img:hover {
+    transform: scale(1.5);
+    transform-origin: bottom center;
+    position: relative;
+    z-index: 100;
+}
