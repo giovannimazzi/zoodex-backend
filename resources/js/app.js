@@ -23,3 +23,21 @@ window.rememberCollapse = function (collapseId, storageKey) {
         localStorage.setItem(storageKey, "false");
     });
 };
+
+window.initColorBadge = function () {
+    const colorInput = document.getElementById("color");
+    const colorValue = document.getElementById("color-value");
+
+    if (!colorInput || !colorValue) {
+        return;
+    }
+
+    function updateColorBadge() {
+        colorValue.textContent = colorInput.value;
+        colorValue.style.backgroundColor = colorInput.value;
+    }
+
+    window.addEventListener("pageshow", updateColorBadge);
+
+    colorInput.addEventListener("input", updateColorBadge);
+};

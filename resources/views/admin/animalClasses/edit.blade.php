@@ -58,20 +58,8 @@
                     </div>
 
                     <script>
-                        const colorInput = document.getElementById('color');
-                        const colorValue = document.getElementById('color-value');
-
-                        function updateColorBadge() {
-                            colorValue.textContent = colorInput.value;
-                            colorValue.style.backgroundColor = colorInput.value;
-                        }
-
-                        window.addEventListener('pageshow', function () {
-                            updateColorBadge();
-                        });
-
-                        colorInput.addEventListener('input', function () {
-                            updateColorBadge();
+                        document.addEventListener('DOMContentLoaded', function () {
+                            window.initColorBadge();
                         });
                     </script>
 
