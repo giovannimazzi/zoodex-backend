@@ -31,7 +31,7 @@
 
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                window.rememberCollapse('animals-filters', 'animalsFiltersOpen');
+                window.rememberCollapse('animalClasses-filters', 'animalClassesFiltersOpen');
             });
         </script>
 
@@ -91,7 +91,7 @@
                 <thead>
                     <tr>
                         <th title="ordina per ID">{!! sortLink('animalClasses', 'ID', 'id', $sort, $direction) !!}</th>
-                        <th class="text-center">Immagini</th>
+                        <th class="text-center">Immagine</th>
                         <th title="ordina per Nome">{!! sortLink('animalClasses', 'Nome', 'name', $sort, $direction) !!}</th>
                         <th title="ordina per Colore">{!! sortLink('animalClasses', 'Colore', 'color', $sort, $direction) !!}</th>
                         <th class="text-center">Descrizione</th>
@@ -106,13 +106,6 @@
 
                             <td>
                                 <x-icon :entity="$animalClass" measure=50 shape=1></x-icon>
-                                {{-- @if ($animalClass->image)
-                                    <img src="{{ asset('storage/' . $animalClass->image) }}"
-                                        alt="{{ $animalClass->name }}"
-                                        style="width: 90px; height: 90px; object-fit: contain;">
-                                @else
-                                    -
-                                @endif --}}
                             </td>
 
                             <td>
