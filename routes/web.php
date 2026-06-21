@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AnimalClassController;
 use App\Http\Controllers\Admin\AnimalController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DietController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ Route::middleware(['auth', 'verified'])
         Route::get('/', [DashboardController::class, "index"])->name("index");
         Route::resource('animals', AnimalController::class);
         Route::resource('animalClasses', AnimalClassController::class);
+        Route::resource('diets', DietController::class);
     });
 
 require __DIR__.'/auth.php';
