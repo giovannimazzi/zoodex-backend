@@ -1,14 +1,16 @@
+@props(['entity', 'route'])
+
 <div class="modal fade"
-     id="delete-animal-{{ $animal->id }}"
+     id="delete-entity-{{ $entity->id }}"
      tabindex="-1"
-     aria-labelledby="delete-animal-{{ $animal->id }}-label"
+     aria-labelledby="delete-entity-{{ $entity->id }}-label"
      aria-hidden="true">
 
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
             <div class="modal-header">
-                <h5 class="modal-title" id="delete-animal-{{ $animal->id }}-label">
+                <h5 class="modal-title" id="delete-entity-{{ $entity->id }}-label">
                     Elimina elemento
                 </h5>
 
@@ -20,7 +22,7 @@
 
             <div class="modal-body">
                 Sei sicuro di voler eliminare
-                <strong>{{ $animal->name }}</strong>?
+                <strong>{{ $entity->name }}</strong>?
                 <br>
                 Questa azione non può essere annullata.
             </div>
@@ -32,7 +34,7 @@
                     Annulla
                 </button>
 
-                <form action="{{ route('admin.animals.destroy', $animal) }}"
+                <form action="{{ route($route, $entity) }}"
                       method="POST">
                     @csrf
                     @method('DELETE')

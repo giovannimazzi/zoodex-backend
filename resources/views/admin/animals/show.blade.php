@@ -35,7 +35,7 @@
             <button type="button"
                     class="btn btn-outline-danger"
                     data-bs-toggle="modal"
-                    data-bs-target="#delete-animal-{{ $animal->id }}">
+                    data-bs-target="#delete-entity-{{ $animal->id }}">
                 <i class="bi bi-trash-fill"></i> Elimina
             </button>
 
@@ -43,7 +43,7 @@
 
     </div>
 
-    @include('admin.animals.partials.delete-modal', ['animal' => $animal])
+    <x-delete-modal :entity="$animal" route="admin.animals.destroy"></x-delete-modal>
 
     <div class="row mb-2">
 

@@ -29,7 +29,13 @@
             </button>
         </div>
 
-        <div class="collapse show" id="animalClasses-filters">
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                window.rememberCollapse('animals-filters', 'animalsFiltersOpen');
+            });
+        </script>
+
+        <div class="collapse" id="animalClasses-filters">
             <div class="bg-primary p-2 border border-3 rounded-3">
             <form action="{{ route('admin.animalClasses.index') }}" method="GET">
                 <div class="row g-2 align-items-end">
@@ -137,10 +143,10 @@
                                 <button type="button"
                                         class="btn btn-sm btn-outline-danger"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#delete-animalClass-{{ $animalClass->id }}">
+                                        data-bs-target="#delete-entity-{{ $animalClass->id }}">
                                     <i class="bi bi-trash-fill"></i> Elimina
                                 </button>
-                                @include('admin.animalClasses.partials.delete-modal', ['animalClass' => $animalClass])
+                                <x-delete-modal :entity="$animalClass" route="admin.animalClasses.destroy"></x-delete-modal>
                             </td>
                         </tr>
                     @endforeach
