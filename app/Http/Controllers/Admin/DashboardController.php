@@ -26,8 +26,13 @@ class DashboardController extends Controller
         $continentsCount = Continent::count();
         $abilitiesCount = Ability::count();
 
-        $latestAnimal = Animal::latest()->first();
         $lastUpdatedAnimal = Animal::latest('updated_at')->first();
+        $lastUpdatedClass = AnimalClass::latest('updated_at')->first();
+        $lastUpdatedDiet = Diet::latest('updated_at')->first();
+        $lastUpdatedStatus = ConservationStatus::latest('updated_at')->first();
+        $lastUpdatedHabitat = Habitat::latest('updated_at')->first();
+        $lastUpdatedContinent = Continent::latest('updated_at')->first();
+        $lastUpdatedAbility = Ability::latest('updated_at')->first();
 
         return view("admin.homepage", compact(
             'user', 
@@ -38,8 +43,13 @@ class DashboardController extends Controller
             'habitatsCount',
             'continentsCount',
             'abilitiesCount',
-            'latestAnimal',
-            'lastUpdatedAnimal' 
+            'lastUpdatedAnimal',
+            'lastUpdatedClass',
+            'lastUpdatedDiet',
+            'lastUpdatedStatus',
+            'lastUpdatedHabitat',
+            'lastUpdatedContinent',
+            'lastUpdatedAbility'
             ));
     }
 }
