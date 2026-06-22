@@ -150,22 +150,9 @@
                             <td>{{ str_pad((string) $animal->id, 4, '0', STR_PAD_LEFT) }}</td>
 
                             <td class="text-nowrap">
-                                @if ($animal->card_image)
-                                    <img src="{{ asset('storage/' . $animal->card_image) }}"
-                                        alt="{{ $animal->name }}"
-                                        style="width: 90px; height: 90px; object-fit: contain;"
-                                        class="me-2">
-                                @else
-                                    -
-                                @endif
-                                
-                                @if ($animal->real_image)
-                                    <img src="{{ asset('storage/' . $animal->real_image) }}"
-                                        alt="{{ $animal->name }}"
-                                        style="width: 90px; height: 90px; object-fit: contain;">
-                                @else
-                                    -
-                                @endif
+                                <x-icon :entity="$animal" image='card_image' measure=90 bgPresent=0 addClassesString="me-2"></x-icon>
+
+                                <x-icon :entity="$animal" image='real_image' measure=90 bgPresent=0></x-icon>
                             </td>
 
                             <td>
@@ -189,7 +176,7 @@
                             </td>
 
                             <td>
-                                <x-icon :entity="$animal->diet" measure=60 shape=2></x-icon>
+                                <x-icon :entity="$animal->diet" measure=60 shape=0></x-icon>
                                 @if ($animal->diet?->name)
                                     <br/>
                                     {{ $animal->diet->name }}
@@ -200,19 +187,10 @@
                             </td>
 
                             <td>
-                                @if ($animal->conservationStatus)
-                                    @if ($animal->conservationStatus->image)
-                                        <img src="{{ asset('storage/' . $animal->conservationStatus->image) }}"
-                                            alt="{{ $animal->conservationStatus->name ?? '' }}"
-                                            style="width: 60px; height: 60px; object-fit: contain;">
-                                    @endif
-
-                                    @if ($animal->conservationStatus->name)
-                                        <br/>
-                                        {{ $animal->conservationStatus->name }}
-                                    @endif
-                                @else
-                                    -
+                                <x-icon :entity="$animal->conservationStatus" measure=60 bgPresent=0></x-icon>
+                                @if ($animal->conservationStatus?->name)
+                                    <br/>
+                                    {{ $animal->conservationStatus->name }}
                                 @endif
                             </td>
 

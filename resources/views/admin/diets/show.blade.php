@@ -49,7 +49,7 @@
 
                 <div class="card-body d-flex justify-content-center align-items-center p-2">
 
-                    <x-icon :entity="$diet" measure=200 shape=2></x-icon>
+                    <x-icon :entity="$diet" measure=200 shape=0></x-icon>
 
                 </div>
 

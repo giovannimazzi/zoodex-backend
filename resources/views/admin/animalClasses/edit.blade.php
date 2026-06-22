@@ -84,10 +84,7 @@
 
                 @if ($animalClass->image)
                     <div class="mb-2">
-                        <img src="{{ asset('storage/' . $animalClass->image) }}"
-                            alt="{{ $animalClass->name }}"
-                            class="img-thumbnail"
-                            style="width: 120px;">
+                        <x-icon :entity="$animalClass" measure=120 bgPresent=0 addClassesString="img-thumbnail"></x-icon>
                     </div>
 
                     <div class="form-check mb-2">

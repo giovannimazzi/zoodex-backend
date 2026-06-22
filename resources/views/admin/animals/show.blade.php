@@ -57,15 +57,7 @@
 
                 <div class="card-body d-flex justify-content-center align-items-center p-2">
 
-                    @if ($animal->card_image)
-                        <img src="{{ asset('storage/' . $animal->card_image) }}"
-                             alt="{{ $animal->name }}"
-                             class="img-fluid"
-                             style="max-height: 230px; object-fit: contain;">
-                    @else
-                        <div class="d-inline-flex justify-content-center align-items-center text-muted"
-                             style="width: 100%; min-height: 230px; background-color: #e9ecef;"><i class="bi bi-image fs-1"></i></div>
-                    @endif
+                    <x-icon :entity="$animal" image='card_image' measure=230 bgPresent=0 addClassesString="img-fluid"></x-icon>
 
                 </div>
 
@@ -83,15 +75,7 @@
 
                 <div class="card-body d-flex justify-content-center align-items-center p-2">
 
-                    @if ($animal->real_image)
-                        <img src="{{ asset('storage/' . $animal->real_image) }}"
-                             alt="{{ $animal->name }}"
-                             class="img-fluid"
-                             style="max-height: 230px; object-fit: contain;">
-                    @else
-                        <div class="d-inline-flex justify-content-center align-items-center text-muted"
-                             style="width: 100%; min-height: 230px; background-color: #e9ecef;"><i class="bi bi-image fs-1"></i></div>
-                    @endif
+                    <x-icon :entity="$animal" image='real_image' measure=230 bgPresent=0 addClassesString="img-fluid"></x-icon>
 
                 </div>
 
@@ -197,7 +181,7 @@
                 <div class="card-body text-center">
                     <div class="d-flex flex-column justify-content-center h-100">
                         <div>
-                            <x-icon :entity="$animal->diet" measure=70 shape=2>
+                            <x-icon :entity="$animal->diet" measure=70 shape=0>
                             </x-icon>
 
                             @if ($animal->diet?->name)
@@ -224,11 +208,7 @@
                 <div class="card-body text-center">
                     <div class="d-flex flex-column justify-content-center h-100">
                         <div>
-                            @if ($animal->conservationStatus?->image)
-                                <img src="{{ asset('storage/' . $animal->conservationStatus->image) }}"
-                                    alt="{{ $animal->conservationStatus->name }}"
-                                    style="width: 70px; height: 70px; object-fit: contain;">
-                            @endif
+                            <x-icon :entity="$animal->conservationStatus" measure=70 bgPresent=0></x-icon>
 
                             @if ($animal->conservationStatus?->name)
                                 <div>
@@ -302,14 +282,7 @@
 
                             <div class="text-center">
 
-                                @if ($habitat->image)
-                                    <img src="{{ asset('storage/' . $habitat->image) }}"
-                                         alt="{{ $habitat->name }}"
-                                         style="width: 120px; height: 120px; object-fit: cover;"><br>
-                                @else
-                                    <div class="d-inline-flex justify-content-center align-items-center mb-1 text-muted"
-                                         style="width: 120px; height: 120px; background-color: #e9ecef;"><i class="bi bi-image"></i></div><br>
-                                @endif
+                                <x-icon :entity="$habitat" measure=180 fit="cover" bgPresent=0></x-icon><br>
 
                                 <big>
                                     <span class="badge"
@@ -345,15 +318,8 @@
                         @foreach ($animal->abilities as $ability)
 
                             <div class="text-center">
-
-                                @if ($ability->image)
-                                    <img src="{{ asset('storage/' . $ability->image) }}"
-                                         alt="{{ $ability->name }}"
-                                         style="width: 120px; height: 120px; object-fit: contain;"><br>
-                                @else
-                                    <div class="d-inline-flex justify-content-center align-items-center mb-1 text-muted"
-                                         style="width: 120px; height: 120px; background-color: #e9ecef;"><i class="bi bi-image"></i></div><br>
-                                @endif
+                                
+                                <x-icon :entity="$ability" measure=120 bgPresent=0></x-icon><br>
 
                                 <big>
                                     <span class="badge"

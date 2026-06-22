@@ -62,12 +62,12 @@
                     </div>
 
                     <div class="col-12 col-lg-8">
-                        <label for="search" class="form-label fw-semibold">Nome o Descrizione</label>
+                        <label for="search" class="form-label fw-semibold">Nome</label>
                         <input type="text"
                             name="search"
                             id="search"
                             class="form-control"
-                            placeholder="Nome o Descrizione dieta"
+                            placeholder="Nome dieta"
                             value="{{ request('search') }}">
                     </div>                    
 
@@ -105,7 +105,7 @@
                             <td>{{ $diet->id }}</td>
 
                             <td>
-                                <x-icon :entity="$diet" measure=50 shape=2></x-icon>
+                                <x-icon :entity="$diet" measure=50 shape=0></x-icon>
                             </td>
 
                             <td>

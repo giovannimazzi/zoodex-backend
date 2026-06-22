@@ -50,15 +50,6 @@
                 <div class="card-body d-flex justify-content-center align-items-center p-2">
 
                     <x-icon :entity="$animalClass" measure=200 shape=1></x-icon>
-                    {{-- @if ($animalClass->image)
-                        <img src="{{ asset('storage/' . $animalClass->image) }}"
-                             alt="{{ $animalClass->name }}"
-                             class="img-fluid"
-                             style="max-height: 230px; object-fit: contain;">
-                    @else
-                        <div class="d-inline-flex justify-content-center align-items-center text-muted"
-                             style="width: 100%; min-height: 230px; background-color: #e9ecef;"><i class="bi bi-image fs-1"></i></div>
-                    @endif --}}
 
                 </div>
 

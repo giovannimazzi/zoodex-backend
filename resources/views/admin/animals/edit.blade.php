@@ -125,14 +125,7 @@
                     <div class="col-md-6 d-flex flex-column justify-content-between">
                         <label for="card_image" class="form-label fw-semibold">Immagine fantasy</label>
 
-                        @if ($animal->card_image)
-                            <div class="mb-2">
-                                <img src="{{ asset('storage/' . $animal->card_image) }}"
-                                     alt="{{ $animal->name }}"
-                                     class="img-thumbnail"
-                                     style="width: 120px;">
-                            </div>
-                        @endif
+                        <x-icon :entity="$animal" image="card_image" measure=120 bgPresent=0 addClassesString="img-thumbnail mb-2"></x-icon>
 
                         <div>
                             <div class="form-check mb-2">
@@ -156,14 +149,7 @@
                     <div class="col-md-6 d-flex flex-column justify-content-between">
                         <label for="real_image" class="form-label fw-semibold">Immagine reale</label>
 
-                        @if ($animal->real_image)
-                            <div class="mb-2">
-                                <img src="{{ asset('storage/' . $animal->real_image) }}"
-                                     alt="{{ $animal->name }}"
-                                     class="img-thumbnail"
-                                     style="width: 120px;">
-                            </div>
-                        @endif
+                        <x-icon :entity="$animal" image="real_image" measure=120 bgPresent=0 addClassesString="img-thumbnail mb-2"></x-icon>
 
                         <div>
                             <div class="form-check mb-2">
