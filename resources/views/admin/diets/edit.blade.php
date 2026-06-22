@@ -83,9 +83,8 @@
             <div class="card-body">
 
                 @if ($diet->image)
-                    <div class="mb-2">
-                        <x-icon :entity="$diet" measure=120 bgPresent=0 addClassesString="img-thumbnail"></x-icon>
-                    </div>
+                  
+                    <x-icon :entity="$diet" measure=120 bgPresent=0 addClassesString="img-thumbnail mb-2"></x-icon>
 
                     <div class="form-check mb-2">
                         <input class="form-check-input"
