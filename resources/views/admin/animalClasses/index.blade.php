@@ -62,12 +62,12 @@
                     </div>
 
                     <div class="col-12 col-lg-8">
-                        <label for="search" class="form-label fw-semibold">Nome o Descrizione</label>
+                        <label for="search" class="form-label fw-semibold">Nome</label>
                         <input type="text"
                             name="search"
                             id="search"
                             class="form-control"
-                            placeholder="Nome o Descrizione classe"
+                            placeholder="Nome classe"
                             value="{{ request('search') }}">
                     </div>                    
 

@@ -31,8 +31,7 @@ class DietController extends Controller
         }
 
         if ($request->search) {
-            $query->where('name', 'LIKE', '%' . $request->search . '%')
-                ->orWhere('description', 'LIKE', '%' . $request->search . '%');
+            $query->where('name', 'LIKE', '%' . $request->search . '%');
         }
 
         $sort = $request->sort ?? 'name';
