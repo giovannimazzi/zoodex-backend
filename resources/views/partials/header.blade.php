@@ -27,6 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('admin.conservationStatuses.*') ? 'active' : '' }}" href="{{ route("admin.conservationStatuses.index") }}">{{ __('Stati') }}</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin.habitats.*') ? 'active' : '' }}" href="{{ route("admin.habitats.index") }}">{{ __('Habitat') }}</a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

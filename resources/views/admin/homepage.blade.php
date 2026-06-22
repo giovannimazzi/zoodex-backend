@@ -80,7 +80,7 @@
             </div>
 
             <div class="col-12 col-lg-2">
-               {{--  <a href="{{ route('admin.habitats.index') }}" class="text-decoration-none"> --}}
+                <a href="{{ route('admin.habitats.index') }}" class="text-decoration-none">
                     <div class="card text-center btn btn-outline-success">
                         <div class="card-body">
                             <h3>{{ $habitatsCount }}</h3>
@@ -91,7 +91,7 @@
                             @endif
                         </div>
                     </div>
-                {{-- </a> --}}
+                </a>
             </div>
 
             <div class="col-12 col-lg-2">

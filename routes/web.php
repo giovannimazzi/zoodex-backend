@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AnimalController;
 use App\Http\Controllers\Admin\ConservationStatusController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DietController;
+use App\Http\Controllers\Admin\HabitatController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource('animalClasses', AnimalClassController::class);
         Route::resource('diets', DietController::class);
         Route::resource('conservationStatuses', ConservationStatusController::class);
+        Route::resource('habitats', HabitatController::class);
     });
 
 require __DIR__.'/auth.php';
