@@ -65,7 +65,7 @@
             </div>
 
             <div class="col-12 col-lg-2">
-                {{-- <a href="{{ route('admin.conservationStatuses.index') }}" class="text-decoration-none"> --}}
+                <a href="{{ route('admin.conservationStatuses.index') }}" class="text-decoration-none">
                     <div class="card text-center btn btn-outline-danger">
                         <div class="card-body">
                             <h3>{{ $statusCount }}</h3>
@@ -76,7 +76,7 @@
                             @endif
                         </div>
                     </div>
-                {{-- </a> --}}
+                </a>
             </div>
 
             <div class="col-12 col-lg-2">

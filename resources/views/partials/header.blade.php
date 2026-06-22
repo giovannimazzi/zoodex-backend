@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('admin.diets.*') ? 'active' : '' }}" href="{{ route("admin.diets.index") }}">{{ __('Diete') }}</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin.conservationStatuses.*') ? 'active' : '' }}" href="{{ route("admin.conservationStatuses.index") }}">{{ __('Stati') }}</a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
