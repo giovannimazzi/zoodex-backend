@@ -67,7 +67,7 @@
                             name="search"
                             id="search"
                             class="form-control"
-                            placeholder="Nome dieta"
+                            placeholder="Nome o descrizione dieta"
                             value="{{ request('search') }}">
                     </div>                    
 

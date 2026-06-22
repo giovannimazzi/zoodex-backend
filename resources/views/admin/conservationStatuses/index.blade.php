@@ -67,7 +67,7 @@
                             name="search"
                             id="search"
                             class="form-control"
-                            placeholder="Nome stato di conservazione"
+                            placeholder="Nome o descrizione stato di conservazione"
                             value="{{ request('search') }}">
                     </div>                    
 

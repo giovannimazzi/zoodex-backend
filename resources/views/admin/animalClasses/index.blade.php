@@ -67,7 +67,7 @@
                             name="search"
                             id="search"
                             class="form-control"
-                            placeholder="Nome classe"
+                            placeholder="Nome o descrizione classe"
                             value="{{ request('search') }}">
                     </div>                    
 

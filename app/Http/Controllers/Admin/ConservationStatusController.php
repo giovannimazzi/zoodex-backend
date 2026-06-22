@@ -30,8 +30,14 @@ class ConservationStatusController extends Controller
             $query->where('id', $request->id);
         }
 
-        if ($request->search) {
-            $query->where('name', 'LIKE', '%' . $request->search . '%');
+        $search = $request->search;
+        if ($search) {
+            $query->where(function ($query) use ($search) {
+
+                $query->where('name', 'LIKE', "%$search%")
+                    ->orWhere('description', 'LIKE', "%$search%");
+
+            });
         }
 
         $sort = $request->sort ?? 'id';
