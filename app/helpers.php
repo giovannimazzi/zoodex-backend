@@ -48,3 +48,8 @@ function sortLink($entity, $label, $column, $sort, $direction)
         </span>
     ';
 }
+
+function setColor($entity)
+{
+    return $entity->color ?? config('zoodex.fallback_color');
+}
