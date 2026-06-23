@@ -49,7 +49,7 @@
 
                 <div class="card-body d-flex justify-content-center align-items-center p-2">
 
-                    <x-icon :entity="$habitat" measure=200 fit='cover' bgPresent=0></x-icon>
+                    <x-icon :entity="$habitat" measure=200 bgPresent=0></x-icon>
 
                 </div>
 

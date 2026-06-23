@@ -105,7 +105,7 @@
                             <td>{{ $habitat->id }}</td>
 
                             <td>
-                                <x-icon :entity="$habitat" measure=70 fit='cover' bgPresent=0></x-icon>
+                                <x-icon :entity="$habitat" measure=120 bgPresent=0></x-icon>
                             </td>
 
                             <td>
@@ -124,7 +124,7 @@
                                 <textarea disabled rows="2" class="form-control bg-transparent border-0">{{ $habitat->description }}</textarea>
                             </td>
 
-                            <td class="text-end text-nowrap">
+                            <td class="text-end text-nowrap w-25">
                                 <a href="{{ route('admin.habitats.show', $habitat) }}" class="btn btn-sm btn-outline-primary">
                                     <i class="bi bi-binoculars-fill"></i> Vedi
                                 </a>
@@ -155,7 +155,7 @@
                 {{ $habitats->lastItem() ?? 0 }}
                 di
                 {{ $habitats->total() }}
-                Classi
+                Habitat
             </div>
 
             <div>

@@ -65,13 +65,13 @@ class ContinentSeeder extends Seeder
 
             $continent = new Continent();
 
-            $continent->name = $data['name'];
+            $continent->name = ucfirst($data['name']);
             $continent->slug = Str::slug($data['name']);
 
-            $continent->image = null; //$storagePath;
+            $continent->image = null;
 
             $continent->color = $data['color'];
-            $continent->description = $data['description'];
+            $continent->description = ucfirst($data['description']);
 
             $continent->save();
         }

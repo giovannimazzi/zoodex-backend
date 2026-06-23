@@ -89,7 +89,7 @@ class AnimalClassController extends Controller
         $animalClass->name = ucfirst($data['name']);
         $animalClass->slug = Str::slug($data['name']);
         $animalClass->color = $data['color'];
-        $animalClass->description = $data['description'];
+        $animalClass->description = ucfirst($data['description']);
 
         if ($request->hasFile('image')) {
             $path = Storage::putFile('animal-classes', $request->image);
@@ -131,7 +131,7 @@ class AnimalClassController extends Controller
         $animalClass->name = ucfirst($data['name']);
         $animalClass->slug = Str::slug($data['name']);
         $animalClass->color = $data['color'];
-        $animalClass->description = $data['description'];
+        $animalClass->description = ucfirst($data['description']);
 
         if ($removeImage) {
             if ($animalClass->image && Storage::exists($animalClass->image)) {

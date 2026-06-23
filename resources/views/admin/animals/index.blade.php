@@ -194,7 +194,7 @@
                                 @endif
                             </td>
 
-                            <td class="text-end text-nowrap">
+                            <td class="text-end text-nowrap w-25">
                                 <a href="{{ route('admin.animals.show', $animal) }}" class="btn btn-sm btn-outline-primary">
                                     <i class="bi bi-binoculars-fill"></i> Vedi
                                 </a>
@@ -225,7 +225,7 @@
                 {{ $animals->lastItem() ?? 0 }}
                 di
                 {{ $animals->total() }}
-                animali
+                Animali
             </div>
 
             <div>

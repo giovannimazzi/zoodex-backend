@@ -38,11 +38,11 @@ class AnimalClassSeeder extends Seeder
 
             $animalClass = new AnimalClass();
 
-            $animalClass->name = $data['name'];
+            $animalClass->name = ucfirst($data['name']);
             $animalClass->slug = Str::slug($data['name']);
             $animalClass->image = $storagePath;
             $animalClass->color = $data['color'];
-            $animalClass->description = $data['description'];
+            $animalClass->description = ucfirst($data['description']);
 
             $animalClass->save();
         }

@@ -71,11 +71,11 @@ class DietSeeder extends Seeder
 
             $diet = new Diet();
 
-            $diet->name = $data['name'];
+            $diet->name = ucfirst($data['name']);
             $diet->slug = Str::slug($data['name']);
             $diet->image = $storagePath;
             $diet->color = $data['color'];
-            $diet->description = $data['description'];
+            $diet->description = ucfirst($data['description']);
 
             $diet->save();
         }

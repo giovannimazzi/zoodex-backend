@@ -71,11 +71,11 @@ class ConservationStatusSeeder extends Seeder
 
             $status = new ConservationStatus();
 
-            $status->name = $data['name'];
+            $status->name = ucfirst($data['name']);
             $status->slug = Str::slug($data['name']);
             $status->image = $storagePath;
             $status->color = $data['color'];
-            $status->description = $data['description'];
+            $status->description = ucfirst($data['description']);
 
             $status->save();
         }

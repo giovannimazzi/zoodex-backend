@@ -59,7 +59,7 @@ class HabitatController extends Controller
 
         $habitats = $query
             ->orderBy($sort, $direction)
-            ->paginate(10)
+            ->paginate(3)
             ->appends($request->query());
 
         return view('admin.habitats.index', compact(
@@ -89,7 +89,7 @@ class HabitatController extends Controller
         $habitat->name = ucfirst($data['name']);
         $habitat->slug = Str::slug($data['name']);
         $habitat->color = $data['color'];
-        $habitat->description = $data['description'];
+        $habitat->description = ucfirst($data['description']);
 
         if ($request->hasFile('image')) {
             $path = Storage::putFile('habitats', $request->image);
@@ -131,7 +131,7 @@ class HabitatController extends Controller
         $habitat->name = ucfirst($data['name']);
         $habitat->slug = Str::slug($data['name']);
         $habitat->color = $data['color'];
-        $habitat->description = $data['description'];
+        $habitat->description = ucfirst($data['description']);
 
         if ($removeImage) {
             if ($habitat->image && Storage::exists($habitat->image)) {

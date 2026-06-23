@@ -89,7 +89,7 @@ class ConservationStatusController extends Controller
         $conservationStatus->name = ucfirst($data['name']);
         $conservationStatus->slug = Str::slug($data['name']);
         $conservationStatus->color = $data['color'];
-        $conservationStatus->description = $data['description'];
+        $conservationStatus->description = ucfirst($data['description']);
 
         if ($request->hasFile('image')) {
             $path = Storage::putFile('conservation-status', $request->image);
@@ -131,7 +131,7 @@ class ConservationStatusController extends Controller
         $conservationStatus->name = ucfirst($data['name']);
         $conservationStatus->slug = Str::slug($data['name']);
         $conservationStatus->color = $data['color'];
-        $conservationStatus->description = $data['description'];
+        $conservationStatus->description = ucfirst($data['description']);
 
         if ($removeImage) {
             if ($conservationStatus->image && Storage::exists($conservationStatus->image)) {

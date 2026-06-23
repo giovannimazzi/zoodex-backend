@@ -89,7 +89,7 @@ class DietController extends Controller
         $diet->name = ucfirst($data['name']);
         $diet->slug = Str::slug($data['name']);
         $diet->color = $data['color'];
-        $diet->description = $data['description'];
+        $diet->description = ucfirst($data['description']);
 
         if ($request->hasFile('image')) {
             $path = Storage::putFile('diets', $request->image);
@@ -131,7 +131,7 @@ class DietController extends Controller
         $diet->name = ucfirst($data['name']);
         $diet->slug = Str::slug($data['name']);
         $diet->color = $data['color'];
-        $diet->description = $data['description'];
+        $diet->description = ucfirst($data['description']);
 
         if ($removeImage) {
             if ($diet->image && Storage::exists($diet->image)) {

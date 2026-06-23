@@ -131,11 +131,11 @@ class AbilitySeeder extends Seeder
 
             $ability = new Ability();
 
-            $ability->name = $data['name'];
+            $ability->name = ucfirst($data['name']);
             $ability->slug = Str::slug($data['name']);
             $ability->image = $storagePath;
             $ability->color = $data['color'];
-            $ability->description = $data['description'];
+            $ability->description = ucfirst($data['description']);
 
             $ability->save();
         }

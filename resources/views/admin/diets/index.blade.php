@@ -124,7 +124,7 @@
                                 <textarea disabled rows="2" class="form-control bg-transparent border-0">{{ $diet->description }}</textarea>
                             </td>
 
-                            <td class="text-end text-nowrap">
+                            <td class="text-end text-nowrap w-25">
                                 <a href="{{ route('admin.diets.show', $diet) }}" class="btn btn-sm btn-outline-primary">
                                     <i class="bi bi-binoculars-fill"></i> Vedi
                                 </a>
@@ -149,13 +149,13 @@
 
         <div class="d-flex justify-content-between align-items-center mt-1">
             <div class="text-muted small">
-                Visualizzati
+                Visualizzate
                 {{ $diets->firstItem() ?? 0 }}
                 -
                 {{ $diets->lastItem() ?? 0 }}
                 di
                 {{ $diets->total() }}
-                Classi
+                Diete
             </div>
 
             <div>

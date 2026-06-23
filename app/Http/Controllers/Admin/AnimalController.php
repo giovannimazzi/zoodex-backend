@@ -150,7 +150,7 @@ class AnimalController extends Controller
         $animal->name = ucfirst($data['name']);
         $animal->slug = Str::slug($data['name']);
         $animal->scientific_name = ucfirst($data['scientific_name']);
-        $animal->description = $data['description'];
+        $animal->description = ucfirst($data['description']);
 
         $animal->weight_kg = $data['weight_kg'];
         $animal->length_cm = $data['length_cm'];
@@ -248,7 +248,7 @@ class AnimalController extends Controller
         $animal->name = ucfirst($data['name']);
         $animal->slug = Str::slug($data['name']);
         $animal->scientific_name = ucfirst($data['scientific_name']);
-        $animal->description = $data['description'];
+        $animal->description = ucfirst($data['description']);
 
         $animal->weight_kg = $data['weight_kg'];
         $animal->length_cm = $data['length_cm'];

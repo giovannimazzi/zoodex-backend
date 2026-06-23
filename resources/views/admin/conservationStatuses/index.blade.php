@@ -124,7 +124,7 @@
                                 <textarea disabled rows="2" class="form-control bg-transparent border-0">{{ $conservationStatus->description }}</textarea>
                             </td>
 
-                            <td class="text-end text-nowrap">
+                            <td class="text-end text-nowrap w-25">
                                 <a href="{{ route('admin.conservationStatuses.show', $conservationStatus) }}" class="btn btn-sm btn-outline-primary">
                                     <i class="bi bi-binoculars-fill"></i> Vedi
                                 </a>
@@ -155,7 +155,7 @@
                 {{ $conservationStatuses->lastItem() ?? 0 }}
                 di
                 {{ $conservationStatuses->total() }}
-                Classi
+                Stati
             </div>
 
             <div>

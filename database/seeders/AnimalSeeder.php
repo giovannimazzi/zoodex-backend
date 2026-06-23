@@ -1442,12 +1442,12 @@ class AnimalSeeder extends Seeder
 
             $animal = new Animal();
 
-            $animal->name = $data['name'];
+            $animal->name = ucfirst($data['name']);
             $animal->slug = $slug;
             $animal->scientific_name = $data['scientific_name'];
             $animal->card_image = $cardStoragePath;
             $animal->real_image = $realStoragePath;
-            $animal->description = $data['description'];
+            $animal->description = ucfirst($data['description']);
             $animal->weight_kg = $data['weight_kg'];
             $animal->length_cm = $data['length_cm'];
             $animal->height_cm = $data['height_cm'];
