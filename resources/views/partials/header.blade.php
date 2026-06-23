@@ -30,9 +30,9 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('admin.habitats.*') ? 'active' : '' }}" href="{{ route("admin.habitats.index") }}">{{ __('Habitat') }}</a>
                     </li>
-                    {{-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('admin.continents.*') ? 'active' : '' }}" href="{{ route("admin.continents.index") }}">{{ __('Continenti') }}</a>
-                    </li> --}}
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('admin.abilities.*') ? 'active' : '' }}" href="{{ route("admin.abilities.index") }}">{{ __('Abilità') }}</a>
                     </li>
