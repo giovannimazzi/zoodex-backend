@@ -110,7 +110,7 @@
             </div>
 
             <div class="col-12 col-lg-2">
-                {{-- <a href="{{ route('admin.abilities.index') }}" class="text-decoration-none"> --}}
+                <a href="{{ route('admin.abilities.index') }}" class="text-decoration-none">
                     <div class="card text-center btn btn-outline-dark">
                         <div class="card-body">
                             <h3>{{ $abilitiesCount }}</h3>
@@ -121,7 +121,7 @@
                             @endif
                         </div>
                     </div>
-                {{-- </a> --}}
+                </a>
             </div>
 
         </div>

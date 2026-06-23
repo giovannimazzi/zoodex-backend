@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AbilityController;
 use App\Http\Controllers\Admin\AnimalClassController;
 use App\Http\Controllers\Admin\AnimalController;
 use App\Http\Controllers\Admin\ConservationStatusController;
@@ -33,6 +34,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource('diets', DietController::class);
         Route::resource('conservationStatuses', ConservationStatusController::class);
         Route::resource('habitats', HabitatController::class);
+        Route::resource('abilities', AbilityController::class);
     });
 
 require __DIR__.'/auth.php';
