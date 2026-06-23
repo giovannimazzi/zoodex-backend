@@ -9,7 +9,7 @@
             object-fit: {{ $fit }};
             border-radius: {{ $shape == 1 ? '50%' : '0%'}};
             @if ($bgPresent == 1)
-                background-color: {{ !empty($entity->color) ? $entity->color : config('zoodex.fallback_color') }};
+                background-color: {{ setColor($entity) }};
             @endif
             "
             class="{{ $addClassesString }}";         

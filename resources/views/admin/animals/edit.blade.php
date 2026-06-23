@@ -216,7 +216,7 @@
 
                                                 <label class="form-check-label btn btn-outline-light fw-semibold rounded-3"
                                                        for="animal_class-{{ $animalClass->id }}"
-                                                       style="background-color: {{ !empty($animalClass->color) ? $animalClass->color : config('zoodex.fallback_color') }};">
+                                                       style="background-color: {{ setColor($animalClass) }};">
                                                     {{ $animalClass->name }}
                                                 </label>
                                             </div>
@@ -261,7 +261,7 @@
 
                                                 <label class="form-check-label btn btn-outline-light fw-semibold rounded-3"
                                                        for="diet-{{ $diet->id }}"
-                                                       style="background-color: {{ !empty($diet->color) ? $diet->color : config('zoodex.fallback_color') }};">
+                                                       style="background-color: {{ setColor($diet) }};">
                                                     {{ $diet->name }}
                                                 </label>
                                             </div>
@@ -306,7 +306,7 @@
 
                                                 <label class="form-check-label btn btn-outline-light fw-semibold rounded-3"
                                                        for="conservation_status-{{ $conservationStatus->id }}"
-                                                       style="background-color: {{ !empty($conservationStatus->color) ? $conservationStatus->color : config('zoodex.fallback_color') }};">
+                                                       style="background-color: {{ setColor($conservationStatus) }};">
                                                     {{ $conservationStatus->name }}
                                                 </label>
                                             </div>
@@ -337,7 +337,7 @@
                                                value="{{ $habitat->id }}"
                                                @checked(in_array($habitat->id, $oldHabitats))>
 
-                                        <label class="form-check-label btn btn-outline-light fw-semibold rounded-3" for="habitat-{{ $habitat->id }}" style="background-color: {{ !empty($habitat->color) ? $habitat->color : config('zoodex.fallback_color') }};">
+                                        <label class="form-check-label btn btn-outline-light fw-semibold rounded-3" for="habitat-{{ $habitat->id }}" style="background-color: {{ setColor($habitat) }};">
                                             {{ $habitat->name }}
                                         </label>
                                     </div>
@@ -366,7 +366,7 @@
                                                value="{{ $continent->id }}"
                                                @checked(in_array($continent->id, $oldContinents))>
 
-                                        <label class="form-check-label btn btn-outline-light fw-semibold rounded-3" for="continent-{{ $continent->id }}" style="background-color: {{ !empty($continent->color) ? $continent->color : config('zoodex.fallback_color') }};">
+                                        <label class="form-check-label btn btn-outline-light fw-semibold rounded-3" for="continent-{{ $continent->id }}" style="background-color: {{ setColor($continent) }};">
                                             {{ $continent->name }}
                                         </label>
                                     </div>
@@ -395,7 +395,7 @@
                                                value="{{ $ability->id }}"
                                                @checked(in_array($ability->id, $oldAbilities))>
 
-                                        <label class="form-check-label btn btn-outline-light fw-semibold rounded-3" for="ability-{{ $ability->id }}" style="background-color: {{ !empty($ability->color) ? $ability->color : config('zoodex.fallback_color') }};">
+                                        <label class="form-check-label btn btn-outline-light fw-semibold rounded-3" for="ability-{{ $ability->id }}" style="background-color: {{ setColor($ability) }};">
                                             {{ $ability->name }}
                                         </label>
                                     </div>

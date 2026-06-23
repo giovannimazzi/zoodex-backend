@@ -50,7 +50,7 @@
                                 name="color"
                                 id="color"
                                 class="form-control form-control-color"
-                                value="{{ old('color', $ability->color ?? config('zoodex.fallback_color')) }}">
+                                value="{{ old('color', setColor($ability)) }}">
                                 <big>
                                     <span id="color-value" class="badge"></span>
                                 </big>

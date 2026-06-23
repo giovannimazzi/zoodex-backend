@@ -13,7 +13,7 @@
         <div class="d-flex justify-content-between align-items-center mb-1">
             <h1>{{ __('Lista Stati di Conservazione') }}</h1>
 
-            <a href="{{ route('admin.conservationStatuses.create') }}" class="btn btn-primary">
+            <a href="{{ route('admin.conservationStatuses.create') }}" class="btn btn-danger">
                 <i class="bi bi-plus-circle"></i> Aggiungi Nuovo
             </a>
         </div>
@@ -114,8 +114,8 @@
 
                             <td>
                                 <big>
-                                    <span class="badge" style="background-color: {{ $conservationStatus->color !== null ? $conservationStatus->color : config('zoodex.fallback_color') }}">
-                                        {{ $conservationStatus->color !== null ? $conservationStatus->color : config('zoodex.fallback_color') }}
+                                    <span class="badge" style="background-color: {{ setColor($conservationStatus) }}">
+                                        {{ setColor($conservationStatus) }}
                                     </span>
                                 </big>
                             </td>

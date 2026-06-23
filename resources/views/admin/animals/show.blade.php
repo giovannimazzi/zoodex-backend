@@ -244,7 +244,7 @@
                                 @foreach ($animal->continents as $continent)
 
                                     <big>
-                                        <span class="badge" style="background-color: {{ !empty($continent->color) ? $continent->color : config('zoodex.fallback_color') }};">
+                                        <span class="badge" style="background-color: {{ setColor($continent) }};">
                                             {{ $continent->name }}
                                         </span>
                                     </big>
@@ -282,11 +282,11 @@
 
                             <div class="text-center">
 
-                                <x-icon :entity="$habitat" measure=180 fit="cover" bgPresent=0></x-icon><br>
+                                <x-icon :entity="$habitat" measure=180 bgPresent=0></x-icon><br>
 
                                 <big>
                                     <span class="badge"
-                                         style="background-color: {{ !empty($habitat->color) ? $habitat->color : config('zoodex.fallback_color') }}">
+                                         style="background-color: {{ setColor($habitat) }}">
                                         {{ $habitat->name }}
                                     </span>
                                 </big>
@@ -323,7 +323,7 @@
 
                                 <big>
                                     <span class="badge"
-                                         style="background-color: {{ !empty($ability->color) ? $ability->color : config('zoodex.fallback_color') }}">
+                                         style="background-color: {{ setColor($ability) }}">
                                         {{ $ability->name }}
                                     </span>
                                 </big>

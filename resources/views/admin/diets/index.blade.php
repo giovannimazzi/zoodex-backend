@@ -13,7 +13,7 @@
         <div class="d-flex justify-content-between align-items-center mb-1">
             <h1>{{ __('Lista Diete') }}</h1>
 
-            <a href="{{ route('admin.diets.create') }}" class="btn btn-primary">
+            <a href="{{ route('admin.diets.create') }}" class="btn btn-info">
                 <i class="bi bi-plus-circle"></i> Aggiungi Nuovo
             </a>
         </div>
@@ -114,8 +114,8 @@
 
                             <td>
                                 <big>
-                                    <span class="badge" style="background-color: {{ $diet->color !== null ? $diet->color : config('zoodex.fallback_color') }}">
-                                        {{ $diet->color !== null ? $diet->color : config('zoodex.fallback_color') }}
+                                    <span class="badge" style="background-color: {{ setColor($diet) }}">
+                                        {{ setColor($diet)}}
                                     </span>
                                 </big>
                             </td>

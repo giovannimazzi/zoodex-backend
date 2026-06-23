@@ -82,8 +82,8 @@
                 <div class="col-md-2">
                     <strong>Colore</strong><br>
                     <big>
-                        <span class="badge" style="background-color: {{ $ability->color !== null ? $ability->color : config('zoodex.fallback_color') }}">
-                            {{ $ability->color !== null ? $ability->color : config('zoodex.fallback_color') }}
+                        <span class="badge" style="background-color: {{ setColor($ability) }}">
+                            {{ setColor($ability) }}
                         </span>
                     </big>
                 </div>

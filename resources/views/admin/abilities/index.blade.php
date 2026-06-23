@@ -13,7 +13,7 @@
         <div class="d-flex justify-content-between align-items-center mb-1">
             <h1>{{ __('Lista Abilità') }}</h1>
 
-            <a href="{{ route('admin.abilities.create') }}" class="btn btn-primary">
+            <a href="{{ route('admin.abilities.create') }}" class="btn btn-dark">
                 <i class="bi bi-plus-circle"></i> Aggiungi Nuovo
             </a>
         </div>
@@ -114,8 +114,8 @@
 
                             <td>
                                 <big>
-                                    <span class="badge" style="background-color: {{ $ability->color !== null ? $ability->color : config('zoodex.fallback_color') }}">
-                                        {{ $ability->color !== null ? $ability->color : config('zoodex.fallback_color') }}
+                                    <span class="badge" style="background-color: {{ setColor($ability) }}">
+                                        {{ setColor($ability) }}
                                     </span>
                                 </big>
                             </td>
