@@ -40,7 +40,7 @@ class AnimalClassController extends Controller
             });
         }
 
-        $sort = $request->sort ?? 'name';
+        $sort = $request->sort ?? 'id';
         $direction = $request->direction ?? 'asc';
 
         $allowedSorts = [
@@ -59,7 +59,7 @@ class AnimalClassController extends Controller
 
         $animalClasses = $query
             ->orderBy($sort, $direction)
-            ->paginate(10)
+            ->paginate(5)
             ->appends($request->query());
 
         return view('admin.animalClasses.index', compact(

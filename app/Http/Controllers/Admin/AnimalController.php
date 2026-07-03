@@ -204,9 +204,9 @@ class AnimalController extends Controller
             'abilities',
         ]);
 
-        $animal->habitats = $animal->habitats->sortBy('name');
-        $animal->continents = $animal->continents->sortBy('name');
-        $animal->abilities = $animal->abilities->sortBy('name');
+        $animal->habitats = $animal->habitats->sortBy('id');
+        $animal->continents = $animal->continents->sortBy('id');
+        $animal->abilities = $animal->abilities->sortBy('id');
 
         return view('admin.animals.show', compact('animal')); 
     }

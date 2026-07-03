@@ -40,7 +40,7 @@ class DietController extends Controller
             });
         }
 
-        $sort = $request->sort ?? 'name';
+        $sort = $request->sort ?? 'id';
         $direction = $request->direction ?? 'asc';
 
         $allowedSorts = [
