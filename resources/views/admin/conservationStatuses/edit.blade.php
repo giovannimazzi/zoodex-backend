@@ -84,7 +84,7 @@
 
                 @if ($conservationStatus->image)
                     
-                    <x-icon :entity="$conservationStatus" measure=120 bgPresent=0 addClassesString="img-thumbnail mb-2"></x-icon>
+                    <x-icon :entity="$conservationStatus" measure=120 bgPresent=0 addClassesString="img-thumbnail mb-2 zoom"></x-icon>
                    
                     <div class="form-check mb-2">
                         <input class="form-check-input"
@@ -107,7 +107,7 @@
             </div>
         </div>
 
-        <div class="d-flex gap-2">
+        <div class="d-flex gap-2 flex-wrap">
             <button type="submit" class="btn btn-success">
                 Aggiorna Stato
             </button>

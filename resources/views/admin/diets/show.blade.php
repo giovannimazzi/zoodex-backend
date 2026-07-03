@@ -10,11 +10,11 @@
         </div>
     @endif
 
-    <div class="d-flex justify-content-between align-items-start mb-2">
+    <div class="d-flex justify-content-between align-items-start mb-2 flex-wrap">
 
         <h1 class="mb-1">{{ $diet->name }}</h1>
 
-        <div class="d-flex gap-2">
+        <div class="d-flex gap-2 flex-wrap">
 
             <a href="{{ route('admin.diets.index') }}" class="btn btn-outline-secondary">
                 <i class="bi bi-chevron-double-left"></i> Lista
@@ -49,7 +49,7 @@
 
                 <div class="card-body d-flex justify-content-center align-items-center p-2">
 
-                    <x-icon :entity="$diet" measure=200 shape=0></x-icon>
+                    <x-icon :entity="$diet" measure=200 shape=0 addClassesString="img-fluid zoom"></x-icon>
 
                 </div>
 

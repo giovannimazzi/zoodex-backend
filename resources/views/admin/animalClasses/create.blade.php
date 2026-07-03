@@ -88,7 +88,7 @@
             </div>
         </div>
 
-        <div class="d-flex gap-2">
+        <div class="d-flex gap-2 flex-wrap">
             <button type="submit" class="btn btn-success">
                 Salva Classe
             </button>

@@ -5,17 +5,26 @@ body {
     padding-top: 76px;
 }
 
-img {
+@media (max-width: 294px) {
+    body {
+        padding-top: 100px;
+    }
+}
+////////////////////////////////////////////
+
+/* Zoomable items */
+.zoom {
     transition: transform 1.5s ease-in-out;
     transform-origin: bottom center;
 }
 
-img:hover {
+.zoom:hover {
     transform: scale(1.5);
     transform-origin: bottom center;
     position: relative;
     z-index: 100;
 }
+////////////////////////////////////////////
 
 /* .table-responsive {
     max-height: 65vh;

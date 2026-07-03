@@ -125,7 +125,7 @@
                     <div class="col-md-6 d-flex flex-column justify-content-between">
                         <label for="card_image" class="form-label fw-semibold">Immagine fantasy</label>
 
-                        <x-icon :entity="$animal" image="card_image" measure=120 bgPresent=0 addClassesString="img-thumbnail mb-2"></x-icon>
+                        <x-icon :entity="$animal" image="card_image" measure=120 bgPresent=0 addClassesString="img-thumbnail mb-2 zoom"></x-icon>
 
                         <div>
                             <div class="form-check mb-2">
@@ -149,7 +149,7 @@
                     <div class="col-md-6 d-flex flex-column justify-content-between">
                         <label for="real_image" class="form-label fw-semibold">Immagine reale</label>
 
-                        <x-icon :entity="$animal" image="real_image" measure=120 bgPresent=0 addClassesString="img-thumbnail mb-2"></x-icon>
+                        <x-icon :entity="$animal" image="real_image" measure=120 bgPresent=0 addClassesString="img-thumbnail mb-2 zoom"></x-icon>
 
                         <div>
                             <div class="form-check mb-2">
@@ -186,7 +186,7 @@
                         <div class="card h-100">
                             <div class="card-header fw-semibold">Classe</div>
 
-                            <div class="card-body">
+                            <div class="card-body overflow-auto">
                                 <div class="row g-1">
                                     <div class="col-md-4 col-lg-3">
                                         <div class="form-check d-flex align-items-center gap-2">
@@ -231,7 +231,7 @@
                         <div class="card h-100">
                             <div class="card-header fw-semibold">Dieta</div>
 
-                            <div class="card-body">
+                            <div class="card-body overflow-auto">
                                 <div class="row g-1">
                                     <div class="col-md-4 col-lg-3">
                                         <div class="form-check d-flex align-items-center gap-2">
@@ -276,7 +276,7 @@
                         <div class="card h-100">
                             <div class="card-header fw-semibold">Stato conservazione</div>
 
-                            <div class="card-body">
+                            <div class="card-body overflow-auto">
                                 <div class="row g-1">
                                     <div class="col-md-4 col-lg-3">
                                         <div class="form-check d-flex align-items-center gap-2">
@@ -324,7 +324,7 @@
                         Habitat
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body overflow-auto">
                         <div class="row g-1">
 
                             @foreach ($habitats as $habitat)
@@ -353,7 +353,7 @@
                         Continenti
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body overflow-auto">
                         <div class="row g-1">
 
                             @foreach ($continents as $continent)
@@ -382,7 +382,7 @@
                         Abilità
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body overflow-auto">
                         <div class="row g-1">
 
                             @foreach ($abilities as $ability)
@@ -409,7 +409,7 @@
             </div>
         </div>
 
-        <div class="d-flex gap-2">
+        <div class="d-flex gap-2 flex-wrap">
             <button type="submit" class="btn btn-success">
                 Aggiorna Animale
             </button>

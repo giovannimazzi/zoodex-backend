@@ -10,7 +10,7 @@
         </div>
     @endif
 
-    <div class="d-flex justify-content-between align-items-start mb-2">
+    <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
 
         <div>
             <h1 class="mb-1">{{ $animal->name }}</h1>
@@ -22,7 +22,7 @@
             @endif
         </div>
 
-        <div class="d-flex gap-2">
+        <div class="d-flex gap-2 flex-wrap">
 
             <a href="{{ route('admin.animals.index') }}" class="btn btn-outline-secondary">
                 <i class="bi bi-chevron-double-left"></i> Lista
@@ -57,7 +57,7 @@
 
                 <div class="card-body d-flex justify-content-center align-items-center p-2">
 
-                    <x-icon :entity="$animal" image='card_image' measure=230 bgPresent=0 addClassesString="img-fluid"></x-icon>
+                    <x-icon :entity="$animal" image='card_image' measure=230 bgPresent=0 addClassesString="img-fluid zoom"></x-icon>
 
                 </div>
 
@@ -75,7 +75,7 @@
 
                 <div class="card-body d-flex justify-content-center align-items-center p-2">
 
-                    <x-icon :entity="$animal" image='real_image' measure=230 bgPresent=0 addClassesString="img-fluid"></x-icon>
+                    <x-icon :entity="$animal" image='real_image' measure=230 bgPresent=0 addClassesString="img-fluid zoom"></x-icon>
 
                 </div>
 
@@ -153,16 +153,18 @@
 
                 <div class="card-body text-center">
                     <div class="d-flex flex-column justify-content-center h-100">
-                        <div>
-                            <x-icon :entity="$animal->animalClass" measure=70 shape=1>
-                            </x-icon>
+                        <a href="{{ route('admin.animalClasses.show', $animal->animalClass) }}" class="text-decoration-none text-dark">
+                            <div class="zoom">
+                                <x-icon :entity="$animal->animalClass" measure=70 shape=1 addClassesString="img-fluid">
+                                </x-icon>
 
-                            @if ($animal->animalClass?->name)
-                                <div>
-                                    {{ $animal->animalClass->name }}
-                                </div>
-                            @endif
-                        </div>
+                                @if ($animal->animalClass?->name)
+                                    <div>
+                                        {{ $animal->animalClass->name }}
+                                    </div>
+                                @endif
+                            </div>
+                        </a>
                     </div>
                 </div>
 
@@ -180,16 +182,18 @@
 
                 <div class="card-body text-center">
                     <div class="d-flex flex-column justify-content-center h-100">
-                        <div>
-                            <x-icon :entity="$animal->diet" measure=70 shape=0>
-                            </x-icon>
+                        <a href="{{ route('admin.diets.show', $animal->diet) }}" class="text-decoration-none text-dark">
+                            <div class="zoom">
+                                <x-icon :entity="$animal->diet" measure=70 shape=0 addClassesString="img-fluid">
+                                </x-icon>
 
-                            @if ($animal->diet?->name)
-                                <div>
-                                    {{ $animal->diet->name }}
-                                </div>
-                            @endif
-                        </div>
+                                @if ($animal->diet?->name)
+                                    <div>
+                                        {{ $animal->diet->name }}
+                                    </div>
+                                @endif
+                            </div>
+                        </a>
                     </div>
                 </div>
 
@@ -207,15 +211,17 @@
 
                 <div class="card-body text-center">
                     <div class="d-flex flex-column justify-content-center h-100">
-                        <div>
-                            <x-icon :entity="$animal->conservationStatus" measure=70 bgPresent=0></x-icon>
+                        <a href="{{ route('admin.conservationStatuses.show', $animal->conservationStatus) }}" class="text-decoration-none text-dark">
+                            <div class="zoom">
+                                <x-icon :entity="$animal->conservationStatus" measure=70 bgPresent=0 addClassesString="img-fluid"></x-icon>
 
-                            @if ($animal->conservationStatus?->name)
-                                <div>
-                                    {{ $animal->conservationStatus->name }}
-                                </div>
-                            @endif
-                        </div>
+                                @if ($animal->conservationStatus?->name)
+                                    <div>
+                                        {{ $animal->conservationStatus->name }}
+                                    </div>
+                                @endif
+                            </div>
+                        </a>
                     </div>
                 </div>
 
@@ -231,30 +237,25 @@
                     Continenti
                 </div>
 
-                <div class="card-body text-center">
+                <div class="card-body text-center px-0 py-2 position-relative">
+              
+                    <img src="{{ asset('storage/continents/globo.png') }}" 
+                        alt="Globo"
+                        class="img-fluid"
+                        style="max-height: 200px; object-fit: contain;">
+                    
 
-                    <div class="d-flex justify-content-center align-items-center gap-2">
-
-                        <img src="{{ asset('storage/continents/globo.png') }}" 
-                            alt="Globo"
-                            style="width: 100px; height: 100px; object-fit: cover;">
-
-                        @if ($animal->continents->isNotEmpty())
-                            <div class="d-flex flex-column justify-content-start align-items-center gap-0">
-                                @foreach ($animal->continents as $continent)
-
-                                    <big>
-                                        <span class="badge" style="background-color: {{ setColor($continent) }};">
-                                            {{ $continent->name }}
-                                        </span>
-                                    </big>
-
-                                @endforeach
-                            </div>
-                        @endif
-                        
-
-                    </div>
+                    @if ($animal->continents->isNotEmpty())
+                        <div class="d-flex flex-column justify-content-center align-items-center gap-1 position-absolute" style="top:50%; left:50%; translate: -50% -50%;">
+                            @foreach ($animal->continents as $continent)
+                                <a href="{{ route('admin.continents.show', $continent) }}">
+                                    <span class="badge zoom" style="background-color: {{ setColor($continent) }};">
+                                        {{ $continent->name }}
+                                    </span>
+                                </a>
+                            @endforeach
+                        </div>
+                    @endif
 
                 </div>
 
@@ -279,20 +280,20 @@
                     <div class="d-flex justify-content-center flex-wrap gap-3">
 
                         @foreach ($animal->habitats as $habitat)
+                            <a href="{{ route('admin.habitats.show', $habitat) }}">
+                                <div class="text-center zoom">
 
-                            <div class="text-center">
+                                    <x-icon :entity="$habitat" measure=180 bgPresent=0 addClassesString="img-fluid"></x-icon><br>
 
-                                <x-icon :entity="$habitat" measure=180 bgPresent=0></x-icon><br>
+                                    <big>
+                                        <span class="badge"
+                                            style="background-color: {{ setColor($habitat) }}">
+                                            {{ $habitat->name }}
+                                        </span>
+                                    </big>
 
-                                <big>
-                                    <span class="badge"
-                                         style="background-color: {{ setColor($habitat) }}">
-                                        {{ $habitat->name }}
-                                    </span>
-                                </big>
-
-                            </div>
-
+                                </div>
+                            </a>
                         @endforeach
 
                     </div>
@@ -316,20 +317,20 @@
                     <div class="d-flex justify-content-center flex-wrap gap-3">
 
                         @foreach ($animal->abilities as $ability)
-
-                            <div class="text-center">
+                            <a href="{{ route('admin.abilities.show', $ability) }}">
+                                <div class="text-center zoom">
                                 
-                                <x-icon :entity="$ability" measure=120 bgPresent=0></x-icon><br>
+                                    <x-icon :entity="$ability" measure=180 bgPresent=0 addClassesString="img-fluid"></x-icon><br>
 
-                                <big>
-                                    <span class="badge"
-                                         style="background-color: {{ setColor($ability) }}">
-                                        {{ $ability->name }}
-                                    </span>
-                                </big>
+                                    <big>
+                                        <span class="badge"
+                                            style="background-color: {{ setColor($ability) }}">
+                                            {{ $ability->name }}
+                                        </span>
+                                    </big>
 
-                            </div>
-
+                                </div>
+                            </a>
                         @endforeach
 
                     </div>

@@ -10,7 +10,7 @@
             </div>
         @endif
 
-        <div class="d-flex justify-content-between align-items-center mb-1">
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-1">
             <h1>{{ __('Lista Continenti') }}</h1>
 
             <a href="{{ route('admin.continents.create') }}" class="btn btn-secondary">
@@ -71,7 +71,7 @@
                             value="{{ request('search') }}">
                     </div>                    
 
-                    <div class="col-12 col-lg-2 d-flex gap-2">
+                    <div class="col-12 col-lg-2 d-flex gap-2 flex-wrap flex-sm-nowrap">
                         <button type="submit" class="btn btn-warning w-100">
                             <i class="bi bi-funnel-fill"></i> Filtra
                         </button>
@@ -152,7 +152,7 @@
             </table>
         </div>
 
-        <div class="d-flex justify-content-between align-items-center mt-1">
+        <div class="d-flex justify-content-between align-items-center mt-1 flex-wrap">
             <div class="text-muted small">
                 Visualizzati
                 {{ $continents->firstItem() ?? 0 }}
