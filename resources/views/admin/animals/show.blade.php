@@ -152,20 +152,17 @@
                 </div>
 
                 <div class="card-body text-center">
-                    <div class="d-flex flex-column justify-content-center h-100">
-                        <a href="{{ route('admin.animalClasses.show', $animal->animalClass) }}" class="text-decoration-none text-dark">
-                            <div class="zoom">
+                    @if($animal->animalClass)
+                        <div class="d-flex flex-column justify-content-center h-100">
+                            <a href="{{ route('admin.animalClasses.show', $animal->animalClass) }}" class="text-decoration-none text-dark zoom">
                                 <x-icon :entity="$animal->animalClass" measure=70 shape=1 addClassesString="img-fluid">
                                 </x-icon>
-
-                                @if ($animal->animalClass?->name)
-                                    <div>
-                                        {{ $animal->animalClass->name }}
-                                    </div>
-                                @endif
-                            </div>
-                        </a>
-                    </div>
+                                <div>
+                                    {{ $animal->animalClass->name }}
+                                </div>
+                            </a>
+                        </div>
+                    @endif
                 </div>
 
             </div>
@@ -181,20 +178,17 @@
                 </div>
 
                 <div class="card-body text-center">
-                    <div class="d-flex flex-column justify-content-center h-100">
-                        <a href="{{ route('admin.diets.show', $animal->diet) }}" class="text-decoration-none text-dark">
-                            <div class="zoom">
+                    @if($animal->diet)
+                        <div class="d-flex flex-column justify-content-center h-100">
+                            <a href="{{ route('admin.diets.show', $animal->diet) }}" class="text-decoration-none text-dark zoom">
                                 <x-icon :entity="$animal->diet" measure=70 shape=0 addClassesString="img-fluid">
                                 </x-icon>
-
-                                @if ($animal->diet?->name)
-                                    <div>
-                                        {{ $animal->diet->name }}
-                                    </div>
-                                @endif
-                            </div>
-                        </a>
-                    </div>
+                                <div>
+                                    {{ $animal->diet->name }}
+                                </div>
+                            </a>
+                        </div>
+                    @endif
                 </div>
 
             </div>
@@ -210,19 +204,16 @@
                 </div>
 
                 <div class="card-body text-center">
-                    <div class="d-flex flex-column justify-content-center h-100">
-                        <a href="{{ route('admin.conservationStatuses.show', $animal->conservationStatus) }}" class="text-decoration-none text-dark">
-                            <div class="zoom">
+                    @if($animal->conservationStatus)
+                        <div class="d-flex flex-column justify-content-center h-100">
+                            <a href="{{ route('admin.conservationStatuses.show', $animal->conservationStatus) }}" class="text-decoration-none text-dark zoom">
                                 <x-icon :entity="$animal->conservationStatus" measure=70 bgPresent=0 addClassesString="img-fluid"></x-icon>
-
-                                @if ($animal->conservationStatus?->name)
-                                    <div>
-                                        {{ $animal->conservationStatus->name }}
-                                    </div>
-                                @endif
-                            </div>
-                        </a>
-                    </div>
+                                <div>
+                                    {{ $animal->conservationStatus->name }}
+                                </div>
+                            </a>
+                        </div>
+                    @endif
                 </div>
 
             </div>
