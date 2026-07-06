@@ -71,7 +71,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['montagna', 'prateria-savana'],
-                'continents' => ['europa', 'asia', 'nord-america'],
+                'continents' => ['europa', 'asia', 'america-del-nord'],
                 'abilities' => ['volo', 'velocita'],
             ],
             [
@@ -86,7 +86,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'frugivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['foresta-bosco'],
-                'continents' => ['sud-america'],
+                'continents' => ['america-del-sed'],
                 'abilities' => ['volo', 'comunicazione-sonora', 'arrampicata'],
             ],
             [
@@ -101,7 +101,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'piscivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['mare-oceano'],
-                'continents' => ['africa', 'europa', 'asia', 'nord-america', 'sud-america', 'oceania'],
+                'continents' => ['africa', 'europa', 'asia', 'america-del-nord', 'america-del-sed', 'oceania'],
                 'abilities' => ['ecolocalizzazione', 'nuoto-rapido', 'comunicazione-sonora'],
             ],
 
@@ -132,7 +132,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'nettarivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['foresta-bosco', 'prateria-savana'],
-                'continents' => ['africa', 'europa', 'asia', 'nord-america', 'sud-america', 'oceania'],
+                'continents' => ['africa', 'europa', 'asia', 'america-del-nord', 'america-del-sed', 'oceania'],
                 'abilities' => ['volo', 'comunicazione-sonora'],
             ],
             [
@@ -162,7 +162,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'piscivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['mare-oceano', 'artico-polare'],
-                'continents' => ['nord-america', 'europa'],
+                'continents' => ['america-del-nord', 'europa'],
                 'abilities' => ['ecolocalizzazione', 'nuoto-rapido', 'termoregolazione-estrema'],
             ],
             [
@@ -177,7 +177,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'insettivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['foresta-bosco', 'palude', 'fiume-lago'],
-                'continents' => ['nord-america'],
+                'continents' => ['america-del-nord'],
                 'abilities' => ['arrampicata', 'salto'],
             ],
 
@@ -223,7 +223,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['foresta-bosco'],
-                'continents' => ['sud-america'],
+                'continents' => ['america-del-sed'],
                 'abilities' => ['veleno', 'produzione-seta', 'arrampicata'],
             ],
             [
@@ -238,7 +238,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['fiume-lago'],
-                'continents' => ['sud-america'],
+                'continents' => ['america-del-sed'],
                 'abilities' => ['elettrocezione', 'nuoto-rapido'],
             ],
             [
@@ -253,7 +253,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'insettivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['prateria-savana', 'foresta-bosco'],
-                'continents' => ['nord-america', 'sud-america'],
+                'continents' => ['america-del-nord', 'america-del-sed'],
                 'abilities' => ['corazza', 'arrampicata'],
             ],
 
@@ -284,7 +284,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'vulnerabile',
                 'habitats' => ['mare-oceano'],
-                'continents' => ['africa', 'europa', 'asia', 'nord-america', 'sud-america', 'oceania'],
+                'continents' => ['africa', 'europa', 'asia', 'america-del-nord', 'america-del-sed', 'oceania'],
                 'abilities' => ['elettrocezione', 'nuoto-rapido', 'forza-eccezionale'],
             ],
             [
@@ -299,7 +299,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'onnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['foresta-bosco', 'montagna'],
-                'continents' => ['europa', 'asia', 'nord-america'],
+                'continents' => ['europa', 'asia', 'america-del-nord'],
                 'abilities' => ['forza-eccezionale', 'arrampicata'],
             ],
             [
@@ -360,7 +360,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['montagna', 'prateria-savana'],
-                'continents' => ['africa', 'europa', 'asia', 'nord-america', 'sud-america', 'oceania'],
+                'continents' => ['africa', 'europa', 'asia', 'america-del-nord', 'america-del-sed', 'oceania'],
                 'abilities' => ['volo', 'velocita'],
             ],
             [
@@ -375,7 +375,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'in-pericolo',
                 'habitats' => ['mare-oceano'],
-                'continents' => ['africa', 'asia', 'nord-america', 'sud-america', 'oceania'],
+                'continents' => ['africa', 'asia', 'america-del-nord', 'america-del-sed', 'oceania'],
                 'abilities' => ['elettrocezione', 'nuoto-rapido'],
             ],
             [
@@ -405,7 +405,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'nettarivoro',
                 'conservation_status' => 'vulnerabile',
                 'habitats' => ['prateria-savana', 'foresta-bosco'],
-                'continents' => ['nord-america'],
+                'continents' => ['america-del-nord'],
                 'abilities' => ['volo', 'mimetismo'],
             ],
 
@@ -451,7 +451,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'in-pericolo',
                 'habitats' => ['mare-oceano'],
-                'continents' => ['africa', 'asia', 'nord-america', 'sud-america', 'oceania'],
+                'continents' => ['africa', 'asia', 'america-del-nord', 'america-del-sed', 'oceania'],
                 'abilities' => ['nuoto-rapido', 'elettrocezione'],
             ],
             [
@@ -496,7 +496,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['foresta-bosco', 'montagna', 'prateria-savana'],
-                'continents' => ['europa', 'asia', 'nord-america'],
+                'continents' => ['europa', 'asia', 'america-del-nord'],
                 'abilities' => ['comunicazione-sonora', 'velocita', 'forza-eccezionale'],
             ],
             [
@@ -541,7 +541,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'piscivoro',
                 'conservation_status' => 'vulnerabile',
                 'habitats' => ['mare-oceano'],
-                'continents' => ['antartide', 'oceania', 'sud-america', 'africa'],
+                'continents' => ['antartide', 'oceania', 'america-del-sed', 'africa'],
                 'abilities' => ['volo', 'termoregolazione-estrema'],
             ],
             [
@@ -556,7 +556,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'onnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['foresta-bosco', 'prateria-savana', 'montagna'],
-                'continents' => ['europa', 'asia', 'nord-america'],
+                'continents' => ['europa', 'asia', 'america-del-nord'],
                 'abilities' => ['velocita', 'visione-notturna', 'mimetismo'],
             ],
             [
@@ -586,7 +586,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['foresta-bosco', 'montagna', 'prateria-savana'],
-                'continents' => ['nord-america', 'sud-america'],
+                'continents' => ['america-del-nord', 'america-del-sed'],
                 'abilities' => ['salto', 'velocita', 'mimetismo'],
             ],
             [
@@ -646,7 +646,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'erbivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['prateria-savana'],
-                'continents' => ['europa', 'asia', 'nord-america', 'sud-america'],
+                'continents' => ['europa', 'asia', 'america-del-nord', 'america-del-sed'],
                 'abilities' => ['forza-eccezionale'],
             ],
             [
@@ -661,7 +661,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'frugivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['foresta-bosco'],
-                'continents' => ['sud-america'],
+                'continents' => ['america-del-sed'],
                 'abilities' => ['volo', 'comunicazione-sonora'],
             ],
             [
@@ -676,7 +676,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'erbivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['prateria-savana'],
-                'continents' => ['europa', 'asia', 'nord-america', 'sud-america'],
+                'continents' => ['europa', 'asia', 'america-del-nord', 'america-del-sed'],
                 'abilities' => ['velocita'],
             ],
             [
@@ -691,7 +691,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'onnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['foresta-bosco', 'prateria-savana'],
-                'continents' => ['africa', 'europa', 'asia', 'nord-america', 'sud-america', 'oceania'],
+                'continents' => ['africa', 'europa', 'asia', 'america-del-nord', 'america-del-sed', 'oceania'],
                 'abilities' => ['arrampicata'],
             ],
             [
@@ -706,7 +706,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'onnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['prateria-savana', 'deserto', 'foresta-bosco'],
-                'continents' => ['nord-america'],
+                'continents' => ['america-del-nord'],
                 'abilities' => ['velocita', 'comunicazione-sonora'],
             ],
             [
@@ -751,7 +751,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'vulnerabile',
                 'habitats' => ['artico-polare', 'mare-oceano'],
-                'continents' => ['nord-america', 'europa', 'asia'],
+                'continents' => ['america-del-nord', 'europa', 'asia'],
                 'abilities' => ['termoregolazione-estrema', 'nuoto-rapido', 'forza-eccezionale'],
             ],
             [
@@ -841,7 +841,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'erbivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['foresta-bosco', 'fiume-lago'],
-                'continents' => ['nord-america', 'sud-america'],
+                'continents' => ['america-del-nord', 'america-del-sed'],
                 'abilities' => ['arrampicata', 'nuoto-rapido', 'mimetismo'],
             ],
             [
@@ -871,7 +871,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'erbivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['fiume-lago', 'palude', 'prateria-savana'],
-                'continents' => ['sud-america'],
+                'continents' => ['america-del-sed'],
                 'abilities' => ['nuoto-rapido', 'comunicazione-sonora'],
             ],
             [
@@ -901,7 +901,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'gravemente-in-pericolo',
                 'habitats' => ['fiume-lago'],
-                'continents' => ['nord-america'],
+                'continents' => ['america-del-nord'],
                 'abilities' => ['rigenerazione'],
             ],
             [
@@ -961,7 +961,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'onnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['foresta-bosco', 'montagna', 'prateria-savana'],
-                'continents' => ['europa', 'asia', 'nord-america'],
+                'continents' => ['europa', 'asia', 'america-del-nord'],
                 'abilities' => ['volo', 'comunicazione-sonora'],
             ],
             [
@@ -991,7 +991,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'vulnerabile',
                 'habitats' => ['artico-polare', 'mare-oceano'],
-                'continents' => ['nord-america', 'europa', 'asia'],
+                'continents' => ['america-del-nord', 'europa', 'asia'],
                 'abilities' => ['termoregolazione-estrema', 'nuoto-rapido', 'forza-eccezionale'],
             ],
             [
@@ -1036,7 +1036,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'insettivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['foresta-bosco'],
-                'continents' => ['sud-america'],
+                'continents' => ['america-del-sed'],
                 'abilities' => ['veleno', 'salto'],
             ],
             [
@@ -1051,7 +1051,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'nettarivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['foresta-bosco'],
-                'continents' => ['nord-america'],
+                'continents' => ['america-del-nord'],
                 'abilities' => ['volo', 'velocita'],
             ],
             [
@@ -1066,7 +1066,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['palude', 'fiume-lago'],
-                'continents' => ['nord-america'],
+                'continents' => ['america-del-nord'],
                 'abilities' => ['forza-eccezionale', 'corazza', 'nuoto-rapido'],
             ],
             [
@@ -1096,7 +1096,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'in-pericolo',
                 'habitats' => ['mare-oceano'],
-                'continents' => ['africa', 'europa', 'asia', 'nord-america', 'sud-america', 'oceania', 'antartide'],
+                'continents' => ['africa', 'europa', 'asia', 'america-del-nord', 'america-del-sed', 'oceania', 'antartide'],
                 'abilities' => ['nuoto-rapido', 'comunicazione-sonora', 'termoregolazione-estrema'],
             ],
             [
@@ -1126,7 +1126,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'onnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['mare-oceano', 'artico-polare'],
-                'continents' => ['asia', 'nord-america'],
+                'continents' => ['asia', 'america-del-nord'],
                 'abilities' => ['corazza', 'termoregolazione-estrema'],
             ],
             [
@@ -1141,7 +1141,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['fiume-lago', 'palude'],
-                'continents' => ['nord-america'],
+                'continents' => ['america-del-nord'],
                 'abilities' => ['salto', 'comunicazione-sonora'],
             ],
             [
@@ -1186,7 +1186,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'vulnerabile',
                 'habitats' => ['mare-oceano'],
-                'continents' => ['africa', 'europa', 'asia', 'nord-america', 'sud-america', 'oceania'],
+                'continents' => ['africa', 'europa', 'asia', 'america-del-nord', 'america-del-sed', 'oceania'],
                 'abilities' => ['nuoto-rapido'],
             ],
             [
@@ -1201,7 +1201,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['mare-oceano'],
-                'continents' => ['africa', 'europa', 'asia', 'nord-america', 'sud-america', 'oceania'],
+                'continents' => ['africa', 'europa', 'asia', 'america-del-nord', 'america-del-sed', 'oceania'],
                 'abilities' => ['mimetismo', 'nuoto-rapido'],
             ],
             [
@@ -1216,7 +1216,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['grotte', 'foresta-bosco'],
-                'continents' => ['sud-america', 'nord-america'],
+                'continents' => ['america-del-sed', 'america-del-nord'],
                 'abilities' => ['volo', 'ecolocalizzazione', 'visione-notturna'],
             ],
             [
@@ -1231,7 +1231,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'erbivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['foresta-bosco'],
-                'continents' => ['nord-america', 'sud-america'],
+                'continents' => ['america-del-nord', 'america-del-sed'],
                 'abilities' => ['forza-eccezionale', 'comunicazione-sonora'],
             ],
             [
@@ -1261,7 +1261,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'carnivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['foresta-bosco', 'deserto', 'prateria-savana'],
-                'continents' => ['nord-america'],
+                'continents' => ['america-del-nord'],
                 'abilities' => ['veleno', 'produzione-seta'],
             ],
             [
@@ -1306,7 +1306,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'erbivoro',
                 'conservation_status' => 'vulnerabile',
                 'habitats' => ['prateria-savana'],
-                'continents' => ['sud-america'],
+                'continents' => ['america-del-sed'],
                 'abilities' => ['corazza'],
             ],
             [
@@ -1366,7 +1366,7 @@ class AnimalSeeder extends Seeder
                 'diet' => 'nettarivoro',
                 'conservation_status' => 'non-a-rischio',
                 'habitats' => ['palude', 'fiume-lago'],
-                'continents' => ['africa', 'europa', 'asia', 'nord-america', 'sud-america', 'oceania'],
+                'continents' => ['africa', 'europa', 'asia', 'america-del-nord', 'america-del-sed', 'oceania'],
                 'abilities' => ['volo'],
             ],
             [
