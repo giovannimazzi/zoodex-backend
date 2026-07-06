@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Ability;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class AbilityController extends Controller
 {
@@ -87,7 +86,7 @@ class AbilityController extends Controller
         $ability = new Ability();
 
         $ability->name = ucfirst($data['name']);
-        $ability->slug = Str::slug($data['name']);
+        $ability->slug = generateUniqueSlug(Ability::class, $data['name']);
         $ability->color = $data['color'];
         $ability->description = ucfirst($data['description']);
 
@@ -129,7 +128,7 @@ class AbilityController extends Controller
         $removeImage = $request->boolean('remove_image');
 
         $ability->name = ucfirst($data['name']);
-        $ability->slug = Str::slug($data['name']);
+        $ability->slug = generateUniqueSlug(Ability::class, $data['name'], $ability->id);
         $ability->color = $data['color'];
         $ability->description = ucfirst($data['description']);
 

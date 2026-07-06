@@ -7,7 +7,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class DietSeeder extends Seeder
 {
@@ -72,7 +71,7 @@ class DietSeeder extends Seeder
             $diet = new Diet();
 
             $diet->name = ucfirst($data['name']);
-            $diet->slug = Str::slug($data['name']);
+            $diet->slug = generateUniqueSlug(Diet::class, $data['name']);
             $diet->image = $storagePath;
             $diet->color = $data['color'];
             $diet->description = ucfirst($data['description']);

@@ -7,7 +7,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class ConservationStatusSeeder extends Seeder
 {
@@ -72,7 +71,7 @@ class ConservationStatusSeeder extends Seeder
             $status = new ConservationStatus();
 
             $status->name = ucfirst($data['name']);
-            $status->slug = Str::slug($data['name']);
+            $status->slug = generateUniqueSlug(ConservationStatus::class, $data['name']);
             $status->image = $storagePath;
             $status->color = $data['color'];
             $status->description = ucfirst($data['description']);

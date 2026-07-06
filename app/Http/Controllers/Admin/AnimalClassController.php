@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\AnimalClass;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class AnimalClassController extends Controller
 {
@@ -87,7 +86,7 @@ class AnimalClassController extends Controller
         $animalClass = new AnimalClass();
 
         $animalClass->name = ucfirst($data['name']);
-        $animalClass->slug = Str::slug($data['name']);
+        $animalClass->slug = generateUniqueSlug(AnimalClass::class, $data['name']);
         $animalClass->color = $data['color'];
         $animalClass->description = ucfirst($data['description']);
 
@@ -129,7 +128,7 @@ class AnimalClassController extends Controller
         $removeImage = $request->boolean('remove_image');
 
         $animalClass->name = ucfirst($data['name']);
-        $animalClass->slug = Str::slug($data['name']);
+        $animalClass->slug = generateUniqueSlug(AnimalClass::class, $data['name'], $animalClass->id);
         $animalClass->color = $data['color'];
         $animalClass->description = ucfirst($data['description']);
 

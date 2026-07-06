@@ -7,7 +7,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class HabitatSeeder extends Seeder
 {
@@ -84,7 +83,7 @@ class HabitatSeeder extends Seeder
             $habitat = new Habitat();
 
             $habitat->name = ucfirst($data['name']);
-            $habitat->slug = Str::slug($data['name']);
+            $habitat->slug = generateUniqueSlug(Habitat::class, $data['name']);
             $habitat->image = $storagePath;
             $habitat->color = $data['color'];
             $habitat->description = ucfirst($data['description']);

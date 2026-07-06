@@ -7,7 +7,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class AnimalClassSeeder extends Seeder
 {
@@ -39,7 +38,7 @@ class AnimalClassSeeder extends Seeder
             $animalClass = new AnimalClass();
 
             $animalClass->name = ucfirst($data['name']);
-            $animalClass->slug = Str::slug($data['name']);
+            $animalClass->slug = generateUniqueSlug(AnimalClass::class, $data['name']);
             $animalClass->image = $storagePath;
             $animalClass->color = $data['color'];
             $animalClass->description = ucfirst($data['description']);

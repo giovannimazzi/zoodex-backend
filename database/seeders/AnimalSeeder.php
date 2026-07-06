@@ -13,7 +13,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class AnimalSeeder extends Seeder
 {
@@ -1422,7 +1421,7 @@ class AnimalSeeder extends Seeder
             $diet = $diets->where('slug', $data['diet'])->first();
             $conservationStatus = $conservationStatuses->where('slug', $data['conservation_status'])->first();
 
-            $slug = Str::slug($data['name']);
+            $slug = generateUniqueSlug(Animal::class, $data['name']);
 
             $imageFile = $slug . '.png';
 

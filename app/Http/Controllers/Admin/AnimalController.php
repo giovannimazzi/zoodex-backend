@@ -13,7 +13,6 @@ use App\Models\Diet;
 use App\Models\Habitat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class AnimalController extends Controller
 {
@@ -148,7 +147,7 @@ class AnimalController extends Controller
         $animal = new Animal();
 
         $animal->name = ucfirst($data['name']);
-        $animal->slug = Str::slug($data['name']);
+        $animal->slug = generateUniqueSlug(Animal::class, $data['name']);
         $animal->scientific_name = ucfirst($data['scientific_name']);
         $animal->description = ucfirst($data['description']);
 
@@ -246,7 +245,7 @@ class AnimalController extends Controller
         $removeRealImage = $request->boolean('remove_real_image');
 
         $animal->name = ucfirst($data['name']);
-        $animal->slug = Str::slug($data['name']);
+        $animal->slug = generateUniqueSlug(Animal::class, $data['name'], $animal->id);
         $animal->scientific_name = ucfirst($data['scientific_name']);
         $animal->description = ucfirst($data['description']);
 

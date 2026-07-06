@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Diet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class DietController extends Controller
 {
@@ -87,7 +86,7 @@ class DietController extends Controller
         $diet = new Diet();
 
         $diet->name = ucfirst($data['name']);
-        $diet->slug = Str::slug($data['name']);
+        $diet->slug = generateUniqueSlug(Diet::class, $data['name']);
         $diet->color = $data['color'];
         $diet->description = ucfirst($data['description']);
 
@@ -129,7 +128,7 @@ class DietController extends Controller
         $removeImage = $request->boolean('remove_image');
 
         $diet->name = ucfirst($data['name']);
-        $diet->slug = Str::slug($data['name']);
+        $diet->slug = generateUniqueSlug(Diet::class, $data['name'], $diet->id);
         $diet->color = $data['color'];
         $diet->description = ucfirst($data['description']);
 

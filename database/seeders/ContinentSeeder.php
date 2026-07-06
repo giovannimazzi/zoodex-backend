@@ -7,7 +7,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class ContinentSeeder extends Seeder
 {
@@ -66,7 +65,7 @@ class ContinentSeeder extends Seeder
             $continent = new Continent();
 
             $continent->name = ucfirst($data['name']);
-            $continent->slug = Str::slug($data['name']);
+            $continent->slug = generateUniqueSlug(Continent::class, $data['name']);
 
             $continent->image = null;
 

@@ -7,7 +7,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class AbilitySeeder extends Seeder
 {
@@ -132,7 +131,7 @@ class AbilitySeeder extends Seeder
             $ability = new Ability();
 
             $ability->name = ucfirst($data['name']);
-            $ability->slug = Str::slug($data['name']);
+            $ability->slug = generateUniqueSlug(Ability::class, $data['name']);
             $ability->image = $storagePath;
             $ability->color = $data['color'];
             $ability->description = ucfirst($data['description']);
