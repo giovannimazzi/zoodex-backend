@@ -62,7 +62,7 @@
                     </div>
 
                     <div class="col-12 col-lg-8">
-                        <label for="search" class="form-label fw-semibold">Nome</label>
+                        <label for="search" class="form-label fw-semibold">Nome / Descrizione</label>
                         <input type="text"
                             name="search"
                             id="search"

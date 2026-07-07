@@ -60,8 +60,14 @@ class AnimalController extends Controller
             $query->where('id', $request->id);
         }
 
-        if ($request->search) {
-            $query->where('name', 'LIKE', '%' . $request->search . '%');
+        $search = $request->search;
+        if ($search) {
+            $query->where(function ($query) use ($search) {
+
+                $query->where('name', 'LIKE', "%$search%")
+                    ->orWhere('scientific_name', 'LIKE', "%$search%");
+
+            });
         }
 
         if ($request->animal_class_id) {

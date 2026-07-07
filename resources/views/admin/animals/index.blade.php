@@ -62,12 +62,12 @@
                     </div>
 
                     <div class="col-12 col-lg-2">
-                        <label for="search" class="form-label fw-semibold">Nome</label>
+                        <label for="search" class="form-label fw-semibold">Nome/Nome Scientifico</label>
                         <input type="text"
                             name="search"
                             id="search"
                             class="form-control"
-                            placeholder="Nome animale"
+                            placeholder="Nome Animale"
                             value="{{ request('search') }}">
                     </div>
 
