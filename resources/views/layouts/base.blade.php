@@ -14,7 +14,7 @@
     />
     <meta name="author" content="Giovanni Mazzi" />
 
-    <title>{{ config('app.name', 'ZooDex-Backend') }}</title>
+    <title>{{ config('app.name', 'ZooDex') }}</title>
 
     <!-- Icona Progetto -->
     <!-- <link rel="icon" href="./assets/img/..." /> -->
