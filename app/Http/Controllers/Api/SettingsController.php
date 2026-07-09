@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Animal;
 
 class SettingsController extends Controller
 {
@@ -25,6 +26,8 @@ class SettingsController extends Controller
                 'navbar_logo' => asset('storage/logo-zoodex.png'),
 
                 'hero_logo' => asset('storage/hero-zoodex.png'),
+
+                'animals_count' => Animal::count(),
 
             ]
 
