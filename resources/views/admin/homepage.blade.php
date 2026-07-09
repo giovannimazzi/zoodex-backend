@@ -71,7 +71,7 @@
                     <div class="card text-center btn btn-outline-danger">
                         <div class="card-body py-0">
                             <h3>{{ $statusCount }}</h3>
-                            <span class="fw-semibold">Stati conservazione</span><br>---<br>
+                            <small><span class="fw-semibold">Stati conservazione</span></small><br>---<br>
                             @if ($lastUpdatedStatus)
                                 Ultimo aggiornato:
                                 <strong>{{ $lastUpdatedStatus->name }}</strong>
