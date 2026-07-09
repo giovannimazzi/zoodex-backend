@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="{{ route("admin.animals.index") }}">
+            <a class="navbar-brand d-flex align-items-center" href="{{ route("admin.index") }}">
                 {{-- <h1 class="display-5">🦜</h1>{{ config('app.name', 'ZooDex-Backend') }} --}}
                 <img src="{{ asset('storage/logo-zoodex.png') }}" alt="{{ config('app.name', 'ZooDex-Backend') }}" style="height:80px; margin-top:-20px;">
             </a>
