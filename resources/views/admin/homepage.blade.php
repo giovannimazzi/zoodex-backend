@@ -15,7 +15,7 @@
         </div>
        
         <div class="d-flex justify-content-center align-items-center">
-            <img src="{{ asset('storage/hero-zoodex.png') }}" alt="{{ config('app.name', 'ZooDex') }}" class="img-fluid">
+            <img src="{{ asset('storage/hero-zoodex.png') }}" alt="{{ config('app.name', 'ZooDex-Backend') }}" class="img-fluid">
         </div>
         
         <div class="row g-3 mb-4">
