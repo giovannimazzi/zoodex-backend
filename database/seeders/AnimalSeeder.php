@@ -1443,7 +1443,7 @@ class AnimalSeeder extends Seeder
 
             $animal->name = ucwords(strtolower($data['name']));
             $animal->slug = $slug;
-            $animal->scientific_name = $data['scientific_name'];
+            $animal->scientific_name = ucwords(strtolower($data['scientific_name']));
             $animal->card_image = $cardStoragePath;
             $animal->real_image = $realStoragePath;
             $animal->description = ucfirst($data['description']);
