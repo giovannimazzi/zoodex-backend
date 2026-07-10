@@ -85,7 +85,7 @@ class ContinentController extends Controller
 
         $continent = new Continent();
 
-        $continent->name = ucfirst($data['name']);
+        $continent->name = ucwords(strtolower($data['name']));
         $continent->slug = generateUniqueSlug(Continent::class, $data['name']);
         $continent->color = $data['color'];
         $continent->description = ucfirst($data['description']);
@@ -127,7 +127,7 @@ class ContinentController extends Controller
 
         /* $removeImage = $request->boolean('remove_image'); */
 
-        $continent->name = ucfirst($data['name']);
+        $continent->name = ucwords(strtolower($data['name']));
         $continent->slug = generateUniqueSlug(Continent::class, $data['name'], $continent->id);
         $continent->color = $data['color'];
         $continent->description = ucfirst($data['description']);

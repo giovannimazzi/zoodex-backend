@@ -70,7 +70,7 @@ class ConservationStatusSeeder extends Seeder
 
             $status = new ConservationStatus();
 
-            $status->name = ucfirst($data['name']);
+            $status->name = ucwords(strtolower($data['name']));
             $status->slug = generateUniqueSlug(ConservationStatus::class, $data['name']);
             $status->image = $storagePath;
             $status->color = $data['color'];

@@ -147,7 +147,7 @@
                         <tr class="text-center">
                             <td>{{ $animal->id }}</td>
 
-                            <td>{{ str_pad((string) $animal->id, 4, '0', STR_PAD_LEFT) }}</td>
+                            <td>{{ "#".str_pad((string) $animal->id, 4, '0', STR_PAD_LEFT) }}</td>
 
                             <td class="text-nowrap">
                                 <x-icon :entity="$animal" image='card_image' measure=90 bgPresent=0 addClassesString="me-2"></x-icon>

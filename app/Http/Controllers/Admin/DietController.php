@@ -85,7 +85,7 @@ class DietController extends Controller
 
         $diet = new Diet();
 
-        $diet->name = ucfirst($data['name']);
+        $diet->name = ucwords(strtolower($data['name']));
         $diet->slug = generateUniqueSlug(Diet::class, $data['name']);
         $diet->color = $data['color'];
         $diet->description = ucfirst($data['description']);
@@ -127,7 +127,7 @@ class DietController extends Controller
 
         $removeImage = $request->boolean('remove_image');
 
-        $diet->name = ucfirst($data['name']);
+        $diet->name = ucwords(strtolower($data['name']));
         $diet->slug = generateUniqueSlug(Diet::class, $data['name'], $diet->id);
         $diet->color = $data['color'];
         $diet->description = ucfirst($data['description']);

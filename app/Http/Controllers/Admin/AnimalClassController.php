@@ -85,7 +85,7 @@ class AnimalClassController extends Controller
 
         $animalClass = new AnimalClass();
 
-        $animalClass->name = ucfirst($data['name']);
+        $animalClass->name = ucwords(strtolower($data['name']));
         $animalClass->slug = generateUniqueSlug(AnimalClass::class, $data['name']);
         $animalClass->color = $data['color'];
         $animalClass->description = ucfirst($data['description']);
@@ -127,7 +127,7 @@ class AnimalClassController extends Controller
 
         $removeImage = $request->boolean('remove_image');
 
-        $animalClass->name = ucfirst($data['name']);
+        $animalClass->name = ucwords(strtolower($data['name']));
         $animalClass->slug = generateUniqueSlug(AnimalClass::class, $data['name'], $animalClass->id);
         $animalClass->color = $data['color'];
         $animalClass->description = ucfirst($data['description']);

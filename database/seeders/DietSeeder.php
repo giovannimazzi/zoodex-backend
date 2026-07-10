@@ -70,7 +70,7 @@ class DietSeeder extends Seeder
 
             $diet = new Diet();
 
-            $diet->name = ucfirst($data['name']);
+            $diet->name = ucwords(strtolower($data['name']));
             $diet->slug = generateUniqueSlug(Diet::class, $data['name']);
             $diet->image = $storagePath;
             $diet->color = $data['color'];

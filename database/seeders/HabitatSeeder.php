@@ -82,7 +82,7 @@ class HabitatSeeder extends Seeder
 
             $habitat = new Habitat();
 
-            $habitat->name = ucfirst($data['name']);
+            $habitat->name = ucwords(strtolower($data['name']));
             $habitat->slug = generateUniqueSlug(Habitat::class, $data['name']);
             $habitat->image = $storagePath;
             $habitat->color = $data['color'];

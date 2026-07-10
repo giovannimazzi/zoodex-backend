@@ -64,7 +64,7 @@ class ContinentSeeder extends Seeder
 
             $continent = new Continent();
 
-            $continent->name = ucfirst($data['name']);
+            $continent->name = ucwords(strtolower($data['name']));
             $continent->slug = generateUniqueSlug(Continent::class, $data['name']);
 
             $continent->image = null;

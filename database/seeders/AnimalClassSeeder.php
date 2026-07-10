@@ -37,7 +37,7 @@ class AnimalClassSeeder extends Seeder
 
             $animalClass = new AnimalClass();
 
-            $animalClass->name = ucfirst($data['name']);
+            $animalClass->name = ucwords(strtolower($data['name']));
             $animalClass->slug = generateUniqueSlug(AnimalClass::class, $data['name']);
             $animalClass->image = $storagePath;
             $animalClass->color = $data['color'];

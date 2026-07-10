@@ -130,7 +130,7 @@ class AbilitySeeder extends Seeder
 
             $ability = new Ability();
 
-            $ability->name = ucfirst($data['name']);
+            $ability->name = ucwords(strtolower($data['name']));
             $ability->slug = generateUniqueSlug(Ability::class, $data['name']);
             $ability->image = $storagePath;
             $ability->color = $data['color'];

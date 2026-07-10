@@ -85,7 +85,7 @@ class ConservationStatusController extends Controller
 
         $conservationStatus = new ConservationStatus();
 
-        $conservationStatus->name = ucfirst($data['name']);
+        $conservationStatus->name = ucwords(strtolower($data['name']));
         $conservationStatus->slug = generateUniqueSlug(ConservationStatus::class, $data['name']);
         $conservationStatus->color = $data['color'];
         $conservationStatus->description = ucfirst($data['description']);
@@ -127,7 +127,7 @@ class ConservationStatusController extends Controller
 
         $removeImage = $request->boolean('remove_image');
 
-        $conservationStatus->name = ucfirst($data['name']);
+        $conservationStatus->name = ucwords(strtolower($data['name']));
         $conservationStatus->slug = generateUniqueSlug(ConservationStatus::class, $data['name'], $conservationStatus->id);
         $conservationStatus->color = $data['color'];
         $conservationStatus->description = ucfirst($data['description']);

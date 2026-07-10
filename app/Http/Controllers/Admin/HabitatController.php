@@ -85,7 +85,7 @@ class HabitatController extends Controller
 
         $habitat = new Habitat();
 
-        $habitat->name = ucfirst($data['name']);
+        $habitat->name = ucwords(strtolower($data['name']));
         $habitat->slug = generateUniqueSlug(Habitat::class, $data['name']);
         $habitat->color = $data['color'];
         $habitat->description = ucfirst($data['description']);
@@ -127,7 +127,7 @@ class HabitatController extends Controller
 
         $removeImage = $request->boolean('remove_image');
 
-        $habitat->name = ucfirst($data['name']);
+        $habitat->name = ucwords(strtolower($data['name']));
         $habitat->slug = generateUniqueSlug(Habitat::class, $data['name'], $habitat->id);
         $habitat->color = $data['color'];
         $habitat->description = ucfirst($data['description']);
