@@ -34,10 +34,16 @@ class AnimalController extends Controller
         $search = $request->search;
 
         if ($search) {
-            $query->where(function ($query) use ($search) {
+            $dexSearch = ltrim($search, '#0');
+
+            $query->where(function ($query) use ($search, $dexSearch) {
                 $query->where('name', 'LIKE', "%$search%")
                     ->orWhere('scientific_name', 'LIKE', "%$search%")
                     ->orWhere('description', 'LIKE', "%$search%");
+
+                if ($dexSearch !== '' && is_numeric($dexSearch)) {
+                    $query->orWhere('id', (int) $dexSearch);
+                }
             });
         }
 

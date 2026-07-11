@@ -36,7 +36,7 @@ class HomeController extends Controller
                     'endpoint' => '/api/animals',
                     'description' => 'Restituisce la lista degli animali con ricerca, filtri, ordinamenti e paginazione.',
                     'parameters' => [
-                        'search' => 'Cerca in nome, nome scientifico e descrizione.',
+                        'search' => 'Cerca per numero ZooDex, nome, nome scientifico e descrizione. Il numero può essere scritto come 1, 0001 o #0001.',
 
                         'animal_class' => 'Slug della classe animale.',
                         'diet' => 'Slug della dieta.',
@@ -83,6 +83,7 @@ class HomeController extends Controller
                     ],
                     'examples' => [
                         '/api/animals?search=leo',
+                        '/api/animals?search=%230001',
                         '/api/animals?animal_class=mammiferi&diet=carnivoro',
                         '/api/animals?continents=africa,europa&continents_mode=or',
                         '/api/animals?habitats=prateria-savana,foresta-bosco&habitats_mode=and',
