@@ -22,13 +22,37 @@ class HomeController extends Controller
                 [
                     'method' => 'GET',
                     'endpoint' => '/api/settings',
-                    'description' => 'Restituisce le impostazioni generali dell\'applicazione.',
+                    'description' => 'Restituisce le impostazioni generali e gli asset condivisi dell\'applicazione.',
+                    'results' => [
+                        'app_name' => 'Nome dell\'applicazione.',
+                        'navbar_logo' => 'URL completo del logo utilizzato nella navbar.',
+                        'hero_logo' => 'URL completo dell\'immagine hero.',
+                        'globe_image' => 'URL completo dell\'immagine del globo utilizzata nel dettaglio animale.',
+                        'animals_count' => 'Numero totale degli animali presenti nell\'archivio.',
+                    ],
                 ],
 
                 [
                     'method' => 'GET',
                     'endpoint' => '/api/taxonomies',
-                    'description' => 'Restituisce tutte le tassonomie utilizzate per i filtri.',
+                    'description' => 'Restituisce tutte le tassonomie disponibili, complete di slug, immagini, colori e descrizioni, utilizzate per popolare filtri, badge e schede informative del frontend.',
+                    'results' => [
+                        'animal_classes' => 'Elenco delle classi animali.',
+                        'diets' => 'Elenco delle diete.',
+                        'conservation_statuses' => 'Elenco degli stati di conservazione.',
+                        'habitats' => 'Elenco degli habitat.',
+                        'continents' => 'Elenco dei continenti.',
+                        'abilities' => 'Elenco delle abilità.',
+                    ],
+                    'taxonomy_fields' => [
+                        'id' => 'Identificativo univoco.',
+                        'name' => 'Nome visualizzato nel frontend.',
+                        'slug' => 'Valore utilizzato nei parametri dei filtri API.',
+                        'image' => 'URL completo dell\'immagine associata, oppure null se non prevista.',
+                        'color' => 'Colore esadecimale associato alla tassonomia.',
+                        'description' => 'Descrizione completa della tassonomia.',
+                    ],
+                    'example' => '/api/taxonomies',
                 ],
 
                 [
@@ -96,7 +120,12 @@ class HomeController extends Controller
                 [
                     'method' => 'GET',
                     'endpoint' => '/api/animals/{slug}',
-                    'description' => 'Restituisce il dettaglio completo di un animale.',
+                    'description' => 'Restituisce il dettaglio completo di un animale, tutte le relazioni e la navigazione verso l\'animale precedente e successivo secondo il numero ZooDex.',
+                    'response' => [
+                        'results' => 'Dati completi dell\'animale.',
+                        'navigation.previous' => 'Animale precedente oppure null.',
+                        'navigation.next' => 'Animale successivo oppure null.',
+                    ],
                     'example' => '/api/animals/leone',
                 ],
 

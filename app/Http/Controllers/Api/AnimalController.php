@@ -144,21 +144,35 @@ class AnimalController extends Controller
             'continents',
             'abilities',
         ])
-        ->where('slug', $slug)
-        ->first();
+            ->where('slug', $slug)
+            ->first();
 
         if (!$animal) {
             return response()->json([
                 'success' => false,
-                'message' => 'Animale non trovato',
+                'message' => 'Animale non trovato.',
             ], 404);
         }
+
+        $previousAnimal = Animal::where('id', '<', $animal->id)
+            ->orderByDesc('id')
+            ->first(['id', 'name', 'slug']);
+
+        $nextAnimal = Animal::where('id', '>', $animal->id)
+            ->orderBy('id')
+            ->first(['id', 'name', 'slug']);
 
         $this->prepareAnimal($animal);
 
         return response()->json([
             'success' => true,
+
             'results' => $animal,
+
+            'navigation' => [
+                'previous' => $previousAnimal,
+                'next' => $nextAnimal,
+            ],
         ]);
     }
 

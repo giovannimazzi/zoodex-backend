@@ -15,6 +15,7 @@ class SettingsController extends Controller
                 'app_name' => config('app.name', 'ZooDex'),
                 'navbar_logo' => asset('storage/logo-zoodex.png'),
                 'hero_logo' => asset('storage/hero-zoodex.png'),
+                'globe_image' => asset('storage/continents/globo.png'),
                 'animals_count' => Animal::count(),
             ],
         ]);
