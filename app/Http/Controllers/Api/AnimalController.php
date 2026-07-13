@@ -39,8 +39,7 @@ class AnimalController extends Controller
             $query->where(function ($query) use ($search, $dexSearch) {
                 $query
                     ->where('animals.name', 'LIKE', "%{$search}%")
-                    ->orWhere('animals.scientific_name', 'LIKE', "%{$search}%")
-                    ->orWhere('animals.description', 'LIKE', "%{$search}%");
+                    ->orWhere('animals.scientific_name', 'LIKE', "%{$search}%");
 
                 if ($dexSearch !== '' && is_numeric($dexSearch)) {
                     $query->orWhere('animals.id', (int) $dexSearch);
