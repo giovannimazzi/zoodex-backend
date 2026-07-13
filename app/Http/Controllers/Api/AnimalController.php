@@ -26,9 +26,15 @@ class AnimalController extends Controller
             'animalClass',
             'diet',
             'conservationStatus',
-            'habitats',
-            'continents',
-            'abilities',
+            'habitats' => function ($query) {
+                $query->orderBy('habitats.id');
+            },
+            'continents' => function ($query) {
+                $query->orderBy('continents.id');
+            },
+            'abilities' => function ($query) {
+                $query->orderBy('abilities.id');
+            },
         ]);
 
         $search = $request->search;
@@ -139,9 +145,15 @@ class AnimalController extends Controller
             'animalClass',
             'diet',
             'conservationStatus',
-            'habitats',
-            'continents',
-            'abilities',
+            'habitats' => function ($query) {
+                $query->orderBy('habitats.id');
+            },
+            'continents' => function ($query) {
+                $query->orderBy('continents.id');
+            },
+            'abilities' => function ($query) {
+                $query->orderBy('abilities.id');
+            },
         ])
             ->where('slug', $slug)
             ->first();
