@@ -60,7 +60,7 @@ class HomeController extends Controller
                     'endpoint' => '/api/animals',
                     'description' => 'Restituisce la lista degli animali con ricerca, filtri, ordinamenti e paginazione.',
                     'parameters' => [
-                        'search' => 'Cerca per numero ZooDex, nome, nome scientifico e descrizione. Il numero può essere scritto come 1, 0001 o #0001.',
+                        'search' => 'Cerca per numero ZooDex, nome, nome scientifico. Il numero può essere scritto come 1, 0001 o #0001.',
 
                         'animal_class' => 'Slug della classe animale.',
                         'diet' => 'Slug della dieta.',
