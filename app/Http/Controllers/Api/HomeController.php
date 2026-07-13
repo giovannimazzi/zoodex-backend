@@ -28,6 +28,7 @@ class HomeController extends Controller
                         'navbar_logo' => 'URL completo del logo utilizzato nella navbar.',
                         'hero_logo' => 'URL completo dell\'immagine hero.',
                         'globe_image' => 'URL completo dell\'immagine del globo utilizzata nel dettaglio animale.',
+                        'fallback_color' => 'Colore esadecimale predefinito utilizzato dall’interfaccia quando una tassonomia non dispone di un colore personalizzato.',
                         'animals_count' => 'Numero totale degli animali presenti nell\'archivio.',
                     ],
                 ],
