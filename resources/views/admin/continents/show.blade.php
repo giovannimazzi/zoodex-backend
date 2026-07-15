@@ -27,7 +27,7 @@
             <button type="button"
                     class="btn btn-outline-danger"
                     data-bs-toggle="modal"
-                    data-bs-target="#delete-entity-{{ $continent->id }}">
+                    data-bs-target="#delete-{{ $continent->slug }}">
                 <i class="bi bi-trash-fill"></i> Elimina
             </button>
 

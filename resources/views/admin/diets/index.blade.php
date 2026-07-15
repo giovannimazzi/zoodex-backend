@@ -136,7 +136,7 @@
                                 <button type="button"
                                         class="btn btn-sm btn-outline-danger"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#delete-entity-{{ $diet->id }}">
+                                        data-bs-target="#delete-{{ $diet->slug }}">
                                     <i class="bi bi-trash-fill"></i> Elimina
                                 </button>
                                 <x-delete-modal :entity="$diet" route="admin.diets.destroy"></x-delete-modal>

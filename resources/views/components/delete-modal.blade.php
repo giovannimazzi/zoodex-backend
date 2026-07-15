@@ -1,16 +1,16 @@
 @props(['entity', 'route'])
 
 <div class="modal fade"
-     id="delete-entity-{{ $entity->id }}"
+     id="delete-{{ $entity->slug }}"
      tabindex="-1"
-     aria-labelledby="delete-entity-{{ $entity->id }}-label"
+     aria-labelledby="delete-{{ $entity->slug }}-label"
      aria-hidden="true">
 
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
             <div class="modal-header">
-                <h5 class="modal-title" id="delete-entity-{{ $entity->id }}-label">
+                <h5 class="modal-title" id="delete-{{ $entity->slug }}-label">
                     Elimina elemento
                 </h5>
 
@@ -20,11 +20,14 @@
                         aria-label="Chiudi"></button>
             </div>
 
-            <div class="modal-body">
+            <div class="modal-body text-center">
                 Sei sicuro di voler eliminare
                 <strong>{{ $entity->name }}</strong>?
                 <br>
-                Questa azione non può essere annullata.
+                [ id: <span class="badge bg-secondary">{{ $entity->id }}</span> 
+                 - slug: <span class="badge bg-secondary">{{ $entity->slug }}</span> ] 
+                <br><br>
+                Questa azione <strong>non</strong> può essere annullata.
             </div>
 
             <div class="modal-footer">
