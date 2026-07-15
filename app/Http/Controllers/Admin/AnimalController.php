@@ -106,7 +106,7 @@ class AnimalController extends Controller
             ->paginate(5)
             ->appends($request->query());
 
-        $animalClasses = AnimalClass::orderBy('name')->get();
+        $animalClasses = AnimalClass::orderBy('id')->get();
         $diets = Diet::all();
         $conservationStatuses = ConservationStatus::orderBy('id')->get();
 

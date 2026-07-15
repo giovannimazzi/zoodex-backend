@@ -49,7 +49,7 @@ class ContinentController extends Controller
         ];
 
         if (!in_array($sort, $allowedSorts)) {
-            $sort = 'name';
+            $sort = 'id';
         }
 
         if (!in_array($direction, ['asc', 'desc'])) {
