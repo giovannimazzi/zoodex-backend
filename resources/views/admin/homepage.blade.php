@@ -10,7 +10,7 @@
             </div>
              
             <a href="{{ route('admin.animals.index') }}" class="btn btn-warning mt-3">
-                Consulta ZooDex
+                Consulta Archivio
             </a>
         </div>
        
