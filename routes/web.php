@@ -39,4 +39,8 @@ Route::middleware(['auth', 'verified'])
         Route::resource('continents', ContinentController::class);
     });
 
+Route::get('/esercizio', function () {
+    return view('esercizio');
+});
+
 require __DIR__.'/auth.php';
